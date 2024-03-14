@@ -1,0 +1,298 @@
+html, body {
+margin: 0;
+}
+
+body {
+display: flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(45deg, #548c9c, #7ab2c2, #a2cfdb);
+min-height: 100vh;
+}
+
+.Pg_btn {
+position: relative;
+margin: 0;
+padding: 0;
+z-index: 1001;
+color: #fff;
+text-shadow: 0 0 10px #0a3e91;
+}
+
+button {
+position: relative;
+border: solid 1px black;
+border-radius: 3px;
+background-color: DodgerBlue;
+color: #fff;
+padding: 11px 15px;
+margin: 3px;
+overflow: hidden;
+z-index: 1000;
+}
+
+button::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #0a3e91;
+transition: all .6s;
+z-index: 999;
+transform: translateY(+100%);
+}
+
+button:hover::before {
+z-index: 999;
+transform: translateY(0);
+}
+
+button:hover {
+z-index: 1000;
+}
+
+details {
+margin: 5px;
+}
+
+.header {
+background-color: #FCF7D0;
+max-width: 1000px;
+padding-bottom: 150px;
+}
+
+.a {
+text-decoration: none;
+}
+
+.buttons {
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+align-items: stretch;
+flex-basis: 115px; 
+height: auto;
+}
+
+.body_color {
+margin: 15px 5px 10px;
+background-color: #FCF7D0;
+border-radius: 7px;
+padding: 10px;
+}
+
+.body_color2 {
+margin: 15px 5px 10px;
+background-color: #FCF7D0;
+border-radius: 7px;
+padding: 10px;
+padding-bottom: 30px;
+}
+
+.skill-1 {
+border: solid 2px black;
+border-bottom: 1px;
+padding: 7px;
+margin-top: 20px;
+max-width: 700px;
+}
+
+.skill-2 {
+border: solid 2px black;
+border-bottom: 1px;
+padding: 7px;
+max-width: 700px;
+}
+
+.skill-3 {
+border: solid 2px black;
+border-bottom: 1px;
+padding: 7px;
+max-width: 700px;
+}
+
+.skill-4 {
+border: solid 2px black;
+border-bottom: 1px;
+padding: 7px;
+max-width: 700px;
+}
+
+.skill-5 {
+border: solid 2px black;
+border-bottom: 1px;
+padding: 7px;
+max-width: 700px;
+}
+
+.skill-6 {
+border: solid 2px black;
+border-bottom: 1px;
+padding: 7px;
+max-width: 700px;
+}
+
+.skill-7 {
+border: solid 2px black;
+padding: 7px;
+max-width: 700px;
+}
+
+.rare {
+font-weight: 600;
+}
+
+.a_return {
+color: black;
+display: inline-block;
+}
+
+.type_ATKj {
+text-decoration: solid black underline;
+}
+
+#simple {
+text-shadow: 0.1em 0.1em 0.15em #EBEBEB;
+}
+
+#rare {
+text-shadow: 0.1em 0.1em 0.15em #8BB7F3;
+}
+
+#unrare {
+text-shadow: 0.1em 0.1em 0.15em #8EFF40;
+}
+
+#epic {
+text-shadow: 0.1em 0.1em 0.15em #9877AF;
+}
+
+#legendary {
+text-shadow: 0.1em 0.1em 0.15em #FFD740;
+}
+
+#myphical {
+text-shadow: 0.1em 0.1em 0.15em #C05656;
+}
+
+#divine {
+text-shadow: 0.1em 0.1em 0.15em #FFFC58;
+}
+
+.BFlex {
+max-width: 700px;
+}
+
+.Btype_ATK {
+margin: 0;
+border: solid 2px black;
+border-bottom: 1px;
+padding: 7px;
+}
+
+.btype_ATK {
+margin: 0;
+border: solid 2px black;
+padding: 7px;
+}
+
+.PowCircle {
+font-weight: 600;
+padding: 5px;
+}
+
+.PowDet {
+border: solid 2px black;
+margin: 0;
+border-bottom: solid 1px black;
+}
+
+.PowDet1 {
+border: solid 2px black;
+margin: 0;
+}
+
+.PowLvL {
+font-weight: 500;
+margin-left: 8px;
+padding: 0;
+}
+
+#PowListClick {
+display: none;
+}
+
+.PowListOn {
+text-decoration: underline;
+}
+
+.water-name {
+text-shadow: 0.1em 0.1em 0.15em #3FCCDE;
+}
+
+.air-name {
+text-shadow: 0.1em 0.1em 0.15em #60ABDC;
+}
+
+.ice-name {
+text-shadow: 0.1em 0.1em 0.15em #8DB8C0;
+}
+
+.nature-name {
+text-shadow: 0.1em 0.1em 0.15em #7BBC42;
+}
+
+.earth-name {
+text-shadow: 0.1em 0.1em 0.15em #A00F2E;
+}
+
+.light-name {
+text-shadow: 0.1em 0.1em 0.15em #EDCE44;
+}
+
+.poison-name {
+text-shadow: 0.1em 0.1em 0.15em #8FDF41;
+}
+
+.fire-name {
+text-shadow: 0.1em 0.1em 0.15em #EC581F;
+}
+
+.electro-name {
+text-shadow: 0.1em 0.1em 0.15em #7CFFF6;
+}
+
+.space-name {
+text-shadow: 0.1em 0.1em 0.15em #0E7967;
+}
+
+.fog-name {
+text-shadow: 0.1em 0.1em 0.15em #632FA3;
+}
+
+.crystall-name {
+text-shadow: 0.1em 0.1em 0.15em #C23DAC;
+}
+
+.metall-name {
+text-shadow: 0.1em 0.1em 0.15em #CBF5FF;
+}
+
+.void-name {
+text-shadow: 0.1em 0.1em 0.15em #A370B6;
+}
+
+.darkness-name {
+text-shadow: 0.1em 0.1em 0.15em #217DA7;
+}
+
+.time-name {
+text-shadow: 0.1em 0.1em 0.15em #FFB196;
+}
+
+.techno-name {
+text-shadow: 0.1em 0.1em 0.15em #88FFBD;
+}

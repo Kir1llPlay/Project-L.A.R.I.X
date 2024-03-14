@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="stylesLx.css">
+    <link rel="stylesheet" href="gamingLx.css">
+    <link rel="stylesheet" href="gameLx.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Lx1.0</title>
+</head>
+
+<body>
+    <div id="StartLocation">
+        <table id="table">
+            <tbody>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="actionCard">
+        <button class="cardbtn" onclick="closeCard()"><p class="Pg_btn">
+            Закрыть карточку</P></button>
+    </div>
+
+    <div class="BattleMenu">
+        <div class="moveTab"></div>
+        <div class="choosenHero">
+            <div class="choosenElems"></div>
+            <div class="choosenElems"></div>
+            <div class="choosenElems"></div>
+        </div>
+        <div class="heroes"></div>
+        <div class="BattleButton">
+            <button onclick="StartBattle()"><p class="Pg_btn">
+                Начать бой
+            </p>
+            </button>
+        </div>
+    </div>
+
+    <div id="BattleWindow">
+        <div id="enemyField">
+        </div>
+
+        <div id="timmateField">
+        </div>
+    </div>
+
+    <script src="locationsLx.js"></script>
+    <script src="Characters.js"></script>
+    <script src="gamingLx.js"></script>
+    <script src="gameLx.js"></script>
+    <script src="BattleAttacksLx.js"></script>
+</body>
+</html>
