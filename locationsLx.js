@@ -44,9 +44,64 @@ class Road {
     address = [];
     cellsArray = [];
     cellsArrayRow = [];
-    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Дорога";
     locationPic = "url('FieldsLx/Road.JPG')";
+}
+
+class Road2 {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Дорога-2";
+    locationPic = "url('FieldsLx/Road2.png')";
+}
+
+class Crossroad {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Перепутье";
+    locationPic = "url('FieldsLx/Crossroad.png')";
+}
+
+class WideRoad extends Road {
+    locationName = "Широкая дорога";
+    locationPic = "url('FieldsLx/')";
+}
+
+class Plains extends Road2 {
+    locationName = "Равнины";
+    locationPic = "url('FieldsLx/Plains.png')";
+}
+
+class Plains2  {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Равнины-2";
+    locationPic = "url('FieldsLx/Plains2.png')";
+}
+
+class RoadToTheMountains {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Дорога в горы";
+    locationPic = "url('FieldsLx/RoadToTheMountains.png')";
+}
+
+class RoadToTheMountains2 {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Дорога в горы-2";
+    locationPic = "url('FieldsLx/RoadToTheMountains2.png')";
 }
 
 class RiverBank {
@@ -98,9 +153,14 @@ class EntranceToTheAlnoyar {
     address = [];
     cellsArray = [];
     cellsArrayRow = [];
-    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Вход в Альнояр";
     locationPic = "url('FieldsLx/EntranceToTheAlnoyar.JPG')";
+}
+
+class EntranceToThePolyteria extends EntranceToTheAlnoyar {
+    locationName = "Ворота Политерии";
+    locationPic = "url('FieldsLx/GatesOfPolyteria.png')";
 }
 
 class Alnoyar {
@@ -110,6 +170,15 @@ class Alnoyar {
     cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Альнояр";
     locationPic = "url('FieldsLx/Alnoyar.JPG')";
+}
+
+class Polyteria {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Главная площадь";
+    locationPic = "url('FieldsLx/')";
 }
 
 class Brook {
@@ -154,6 +223,11 @@ class Mountains {
     cellsArrayRow = [];
     cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Горы";
+    locationPic;
+}
+
+class Mountains2 extends Mountains {
+    locationName = "Горы возле Политерии";
     locationPic;
 }
 
