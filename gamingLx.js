@@ -7,32 +7,44 @@ let caves = new Caves;
 let forest = new Forest;
 let road = new Road;
 let foothill = new Foothills;
+let ascensionMountains = new AscensionToTheMountains;
 let mountains = new Mountains;
 let entranceAlnoyar = new EntranceToTheAlnoyar;
 let alnoyar = new Alnoyar;
 let brook = new Brook;
+let brook2 = new Brook2;
+let riverBank = new RiverBank;
+let river = new River;
+let ascensionRiver = new AscensionRiver;
 let alderForest = new AlderForest;
 let alderForest2 = new AlderForest2;
 let entranceCaves = new EntranceToTheCaves;
 hill.address.push(hill2);
 hill2.address.push(forest);
 forest.address.push(entranceAlnoyar, hill2, foothill, road);
-road.address.push(forest);
-foothill.address.push(mountains, forest, entranceCaves);
-mountains.address.push(foothill);
+road.address.push(forest, riverBank);
+riverBank.address.push(ascensionRiver, road, river);
+river.address.push(riverBank);
+ascensionRiver.address.push(brook2, riverBank);
+foothill.address.push(ascensionMountains, forest, entranceCaves);
+ascensionMountains.address.push(mountains, foothill);
+mountains.address.push(ascensionMountains);
 entranceCaves.address.push(foothill, caves);
 caves.address.push(entranceCaves);
 entranceAlnoyar.address.push(alnoyar, forest);
 alnoyar.address.push(brook, alderForest, entranceAlnoyar);
-brook.address.push(alnoyar);
+brook.address.push(brook2, alnoyar);
+brook2.address.push(brook, ascensionRiver);
 alderForest.address.push(alderForest2, alnoyar);
 alderForest2.address.push(alderForest);
 
 let tableRows = document.getElementsByTagName('tr');
 let table = document.getElementById('table');
+let tab = document.querySelector('.currentLocation');
 
 function Render(location) {
     table.style.backgroundImage = location.locationPic;
+    tab.innerHTML = "Текущая локация: " + location.locationName;
     for (i = 0; i < tableRows.length; i++) {
         for (j = 0; j < 5; j++) {
             location.cellsArrayRow[j] = document.createElement('td');
@@ -213,6 +225,17 @@ function DownloadChoosenHero(copy, orig) {
 function RemoveChoosenHero(n) {
     ChoosenHeroes[n].removeChild(ChoosenHeroes[n].firstChild);
     choosenArr.splice(n, 1);
+}
+
+function HideGrid() {
+    let td = document.querySelectorAll('td');
+    for (i = 0; i < td.length; i++) {
+        if (td[i].style.border != "none") {
+            td[i].style.border = "none";
+        } else {
+            td[i].style.border = "solid 1px black";
+        }
+    }
 }
 
 Render(hill);

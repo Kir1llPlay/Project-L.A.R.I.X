@@ -43,21 +43,22 @@ td {
     align-items: center;
     justify-content: center;
     height: 20%;
-    font-size: 350%;
+    font-size: 100%;
     border-radius: 25%;
 }
 
 .actionCard {
     display: none;
     position: absolute;
-    width: 65vw;
+    width: 55vw;
     max-width: 450px;
-    height: 80vw;
+    height: 70vw;
     max-height: 600px;
     background-color: #fcf7d0;
     z-index: 1;
     border: solid 2px black;
     border-radius: 17px;
+    opacity: 0.7;
 }
 
 .cardbtn {
@@ -153,4 +154,18 @@ td {
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+.header {
+    border-radius: 15px;
+    max-width: 1000px;
+    margin: 0 5px 2px 5px;
+}
+
+.currentLocation {
+    display: inline-block;
+    border: solid 2px #887747;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 2px;
 }

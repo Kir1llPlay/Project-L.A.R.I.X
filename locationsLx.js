@@ -44,17 +44,54 @@ class Road {
     address = [];
     cellsArray = [];
     cellsArrayRow = [];
-    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     locationName = "Дорога";
-    locationPic;
+    locationPic = "url('FieldsLx/Road.JPG')";
 }
+
+class RiverBank {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Берег реки";
+    locationPic = "url('FieldsLx/RiverBank.png')";
+}
+
+class AscensionRiver {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Подъëм по реке";
+    locationPic = "url('FieldsLx/AscensionRiver.png')";
+}
+
+class River {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    locationName = "Река";
+    locationPic = "url('FieldsLx/River.png')";
+}
+
+class Brook2 {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Ручей-2";
+    locationPic = "url('FieldsLx/Brook2.png')";
+}
+
 class Foothills {
     address = [];
     cellsArray = [];
     cellsArrayRow = [];
     cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0];
     locationName = "Предгорья";
-    locationPic;
+    locationPic = "url('FieldsLx/Foothills.png')";
 }
 
 class EntranceToTheAlnoyar {
@@ -63,7 +100,7 @@ class EntranceToTheAlnoyar {
     cellsArrayRow = [];
     cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Вход в Альнояр";
-    locationPic;
+    locationPic = "url('FieldsLx/EntranceToTheAlnoyar.JPG')";
 }
 
 class Alnoyar {
@@ -72,16 +109,16 @@ class Alnoyar {
     cellsArrayRow = [];
     cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Альнояр";
-    locationPic;
+    locationPic = "url('FieldsLx/Alnoyar.JPG')";
 }
 
 class Brook {
     address = [];
     cellsArray = [];
     cellsArrayRow = [];
-    cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Ручей";
-    locationPic;
+    locationPic = "url('FieldsLx/Brook.JPG')";
 }
 
 class AlderForest {
@@ -90,7 +127,7 @@ class AlderForest {
     cellsArrayRow = [];
     cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,new Transition,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0];
     locationName = "Ольховый лес";
-    locationPic;
+    locationPic = "url('FieldsLx/AlderForest.png')";
 }
 
 class AlderForest2 {
@@ -99,7 +136,16 @@ class AlderForest2 {
     cellsArrayRow = [];
     cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0];
     locationName = "Ольховый лес-2";
-    locationPic;
+    locationPic = "url('FieldsLx/AlderForest2.png')";
+}
+
+class AscensionToTheMountains {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Подъëм в горы";
+    locationPic = "url('FieldsLx/AscensionToTheMountains.png')";
 }
 
 class Mountains {
@@ -115,9 +161,9 @@ class EntranceToTheCaves {
     address = [];
     cellsArray = [];
     cellsArrayRow = [];
-    cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,new Transition,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0];
+    cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0];
     locationName = "Вход в пещеры";
-    locationPic;
+    locationPic = "url('FieldsLx/EntranceToTheCave.JPG')";
 }
 
 class Caves {
@@ -128,4 +174,3 @@ class Caves {
     locationName = "Пещеры";
     locationPic = "url('FieldsLx/caves.JPG')";
 }
-
