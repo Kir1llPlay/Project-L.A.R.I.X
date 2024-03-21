@@ -69,7 +69,7 @@ class Crossroad {
 
 class WideRoad extends Road {
     locationName = "Широкая дорога";
-    locationPic = "url('FieldsLx/')";
+    locationPic = "url('FieldsLx/WideRoad.png')";
 }
 
 class Plains extends Road2 {
@@ -172,13 +172,22 @@ class Alnoyar {
     locationPic = "url('FieldsLx/Alnoyar.JPG')";
 }
 
-class Polyteria {
+class TradeSquare {
+    address = [];
+    cellsArray = [];
+    cellsArrayRow = [];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    locationName = "Торговая площадь";
+    locationPic = "url('FieldsLx/TradeSquare.png')";
+}
+
+class MainSquare {
     address = [];
     cellsArray = [];
     cellsArrayRow = [];
     cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Главная площадь";
-    locationPic = "url('FieldsLx/')";
+    locationPic = "url('FieldsLx/MainSquare.png')";
 }
 
 class Brook {
