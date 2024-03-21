@@ -1,4 +1,5 @@
 var Player = new PlayerInfo;
+var arravel = new Arravel;
 var Bat = new BatTemplate;
 
 let hill = new Hills;
@@ -31,7 +32,7 @@ let caves = new Caves;
 let plains = new Plains;
 let plains2 = new Plains2;
 hill.address.push(hill2);
-hill2.address.push(forest);
+hill2.address.push(hill, forest);
 forest.address.push(entranceAlnoyar, hill2, foothill, road);
 road.address.push(forest, riverBank, road2);
 road2.address.push(road, crossroad);
@@ -83,7 +84,7 @@ var a = 0;
 function CreateObj(location) {
     g++;
     if (location.cellsArrayContent[g] === 0) {
-        CreateObj(location); // на этой строчке что-то стало выдавать ошибку, 1 раз вылетает
+        CreateObj(location);
         return;
     }
     if (g === location.cellsArrayContent.length) {
@@ -153,7 +154,17 @@ function MoveTable(location) {
             } else {
                 actionBar.style.display = "block";
                 if (this.childNodes[0].classList.contains('tim')) {
-                    return;
+                    let dialog = document.createElement('p');
+                    dialog.innerHTML = "Поговорить";
+                    dialog.classList.add('Pg_btn');
+                    if (document.querySelector('.Dialog')) {
+                        return;
+                    }
+                    let bt = document.createElement('button');
+                    bt.classList.add('Dialog');
+                    bt.setAttribute('onclick', 'StartDialog()');
+                    bt.append(dialog);
+                    actionBar.append(bt);
                 } else {
                     let pt = document.createElement('p');
                     pt.innerHTML = "Вступить в бой";
@@ -174,8 +185,15 @@ function MoveTable(location) {
 
 function closeCard() {
     actionBar.style.display = "none";
-    let removeBT = document.querySelector('.BattleChoose');
-    removeBT.parentNode.removeChild(removeBT);
+    if (document.querySelector('.BattleChoose')) {
+        document.querySelector('.BattleChoose').parentNode.removeChild(document.querySelector('.BattleChoose'));
+    } else {
+        document.querySelector('.Dialog').parentNode.removeChild(document.querySelector('.Dialog'));
+    }
+}
+
+function StartDialog() {
+    return;
 }
 
 var HeroTable = document.querySelector('.heroes');

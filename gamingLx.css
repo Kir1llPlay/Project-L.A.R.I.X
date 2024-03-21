@@ -43,7 +43,7 @@ td {
     align-items: center;
     justify-content: center;
     height: 20%;
-    font-size: 100%;
+    font-size: 350%;
     border-radius: 25%;
 }
 
@@ -74,6 +74,17 @@ td {
 }
 
 .BattleChoose {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 14%;
+    max-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 70%;
+}
+
+.Dialog {
     left: 50%;
     transform: translateX(-50%);
     height: 14%;

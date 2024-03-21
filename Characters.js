@@ -43,6 +43,18 @@ class PlayerInfo {
     };
 }
 
+class Arravel {
+    name = "Арравел";
+    race = "Зверь";
+    attack = "Timmate";
+    HP;
+    maxHP;
+    ATK;
+    SPD;
+    Avatar;
+    look = 'InGamePicLx/ArravelLx.png';
+}
+
 
 //ОСТАЛЬНОЕ НЕ ИСПОЛЬЗУЕТСЯ ПОКА ЧТО
 //ТРЕБУЕТСЯ ОПТИМИЗАЦИЯ
