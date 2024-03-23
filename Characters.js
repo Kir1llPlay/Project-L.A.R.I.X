@@ -8,16 +8,7 @@ class BatTemplate {
     SPD = 5;
     Avatar = 'AvatarsLx/BatLx.png';
     look = 'InGamePicLx/ArravelLx.png';
-    
-    Start() {
-        setTimeout( () => {
-            Max = TimmateArr.length - 1;
-            RandomNumber(Min, Max);
-            LightAttacked(TimmateArr[rand]);
-            StandartAttack(TimmateArr[rand], this);
-            BattleCycle();
-        }, 100);
-    };
+    OpenedSkills = [];
 }
 
 class PlayerInfo {
@@ -31,16 +22,7 @@ class PlayerInfo {
     Avatar = 'AvatarsLx/ArteonLx.png';
     look = 'InGamePicLx/Minerva.png';
     OpenedHeroes = [this];
-    
-    Start() {
-        setTimeout( () => {
-            Max = EnemyArr.length - 1;
-            RandomNumber(Min, Max);
-            LightAttacked(EnemyArr[rand]);
-            StandartAttack(EnemyArr[rand], this);
-            BattleCycle();
-        }, 100);
-    };
+    OpenedSkills = [];
 }
 
 class Arravel {
@@ -67,15 +49,8 @@ class Bomber {
     maxHP = 17;
     ATK = 2;
     SPD = 7;
-    DMGM = 2;
     Avatar = '';
-    
-    Start() {
-        setTimeout( () => {
-            Bombing(EnemyArr, this);
-            BattleCycle();
-        }, 2000);
-    };
+    OpenedSkills = [Bombing];
 }
 
 class Spider {
@@ -86,10 +61,6 @@ class Spider {
     maxHP = 15;
     ATK = 2;
     SPD = 6;
-    DMGM = 2;
     Avatar = 'AvatarsLx/ArteonLx.png';
-    
-    Start() {
-        setTimeout
-    }
+    OpenedSkills = [Bite];
 }

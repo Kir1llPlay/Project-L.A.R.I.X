@@ -155,6 +155,7 @@ function MoveTable(location) {
                 trans.transition(location.address[3], location.cellsArray, location.cellsArrayRow);
                 return;
             } else {
+                if (this.childNodes[0].classList.contains('player')) return;
                 actionBar.style.display = "block";
                 if (this.childNodes[0].classList.contains('tim')) {
                     if (this.childNodes[0].classList.contains('player')) {

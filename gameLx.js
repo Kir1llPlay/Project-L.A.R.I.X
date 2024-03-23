@@ -132,13 +132,35 @@ function SortGlobalArr() {
     return GlobalArr = [...TimmateArr, ...EnemyArr].sort((a,b) => a.SPD > b.SPD ? -1 : 1);
 }
 
-var Min = 0;
-var Max;
 var rand;
 function RandomNumber(a, b) {
     rand = a - 0.5 + Math.random() * (b - a + 1);
     rand = Math.round(rand);
     return rand;
+}
+
+var triggered = false;
+
+function Start(target, user, targetArr, timmateArr) {
+    setTimeout(() => {
+        LightAttacked(targetArr[rand]);
+        for (i = 0; i < user.OpenedSkills.length; i++) {
+            for (j = 0; j < list.length; j++) {
+                if (list[j][0] === user.OpenedSkills[i]) {
+                    if (RandomNumber(0, 100) <= list[j][1]) {
+                        user.OpenedSkills[i](target, user, targetArr, timmateArr);
+                        console.log(triggered);
+                        triggered = true;
+                    }
+                }
+            }
+        }
+        if (triggered === false) {
+            StandartAttack(target, user, targetArr, timmateArr);
+        }
+        triggered = false;
+        BattleCycle();
+    }, 100)
 }
 
 var moveCounter = 1;
@@ -154,5 +176,9 @@ function BattleCycle() {
         BattleCycle();
         return;
     }
-    GlobalArr[counter].Start();
+    if (GlobalArr[counter].attack === "Timmate") {
+        Start(EnemyArr[RandomNumber(0, EnemyArr.length - 1)], GlobalArr[counter], EnemyArr, TimmateArr);
+    } else {
+        Start(TimmateArr[RandomNumber(0, TimmateArr.length - 1)], GlobalArr[counter], TimmateArr, EnemyArr);
+    }
 }
