@@ -14,6 +14,7 @@
         <div class="header">
             <button style="margin: 10px;" onclick="HideGrid()"><p class="Pg_btn">Скрыть сетку</p></button>
             <p class="currentLocation"></p>
+            <button style="margin: 10px;" onclick="OpenInventory()"><p class="Pg_btn">Инвентарь</p></button>
         </div>
         <table id="table">
             <tbody>
@@ -29,6 +30,10 @@
     <div class="actionCard">
         <button class="cardbtn" onclick="closeCard()"><p class="Pg_btn">
             Закрыть карточку</P></button>
+    </div>
+
+    <div class="inventory">
+        <button style="margin: 10px;" onclick="CloseInventory()"><p class="Pg_btn">Закрыть инвентарь</p></button>
     </div>
 
     <div class="BattleMenu">
@@ -55,9 +60,21 @@
         </div>
     </div>
 
+    <div class="filter"></div>
+    <div class="DialogMenu">
+        <img class="">
+        <div class="FooterAuto">
+            <div class="Footer">
+                <p class="name"></p>
+                <p class="text"></p>
+            </div>
+        </div>
+    </div>
+
     <script src="locationsLx.js"></script>
     <script src="Characters.js"></script>
     <script src="gamingLx.js"></script>
+    <script src="ForInventory.js"></script>
     <script src="gameLx.js"></script>
     <script src="BattleAttacksLx.js"></script>
 </body>

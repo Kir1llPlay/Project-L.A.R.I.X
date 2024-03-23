@@ -108,6 +108,9 @@ function CreateObj(location) {
     location.cellsArrayContent[g].img = document.createElement('img');
     location.cellsArrayContent[g].img.setAttribute('src', location.cellsArrayContent[g].look);
     location.cellsArrayContent[g].img.classList.add('tableElement');
+    if (location.cellsArrayContent[g].OpenedHeroes !== undefined) {
+        location.cellsArrayContent[g].img.classList.add('player');
+    }
     if (location.cellsArrayContent[g].attack === "Timmate") {
         location.cellsArrayContent[g].img.classList.add('tim');
     } else {
@@ -154,6 +157,9 @@ function MoveTable(location) {
             } else {
                 actionBar.style.display = "block";
                 if (this.childNodes[0].classList.contains('tim')) {
+                    if (this.childNodes[0].classList.contains('player')) {
+                        return;
+                    }
                     let dialog = document.createElement('p');
                     dialog.innerHTML = "Поговорить";
                     dialog.classList.add('Pg_btn');
@@ -193,7 +199,9 @@ function closeCard() {
 }
 
 function StartDialog() {
-    return;
+    closeCard();
+    document.querySelector('.DialogMenu').style.display = "block";
+    document.querySelector('.filter').style.display = "block";
 }
 
 var HeroTable = document.querySelector('.heroes');

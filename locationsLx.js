@@ -62,12 +62,12 @@ class WideRoad extends Location {
 }
 
 class Plains extends Location {
-    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
+    cellsArrayContent = [Player,0,new Transition,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Равнины";
     locationPic = "url('FieldsLx/Plains.png')";
 }
 
-class Plains2  extends Location {
+class Plains2 extends Location {
     cellsArrayContent = [Player,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,new Transition,0,0];
     locationName = "Равнины-2";
     locationPic = "url('FieldsLx/Plains2.png')";
