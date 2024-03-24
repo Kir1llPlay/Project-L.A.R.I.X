@@ -1,7 +1,6 @@
 var Player = new PlayerInfo;
 var arravel = new Arravel;
 var Bat = new BatTemplate;
-
 let hill = new Hills;
 let hill2 = new Hills2;
 let forest = new Forest;
@@ -64,16 +63,18 @@ alderForest2.address.push(alderForest);
 let tableRows = document.getElementsByTagName('tr');
 let table = document.getElementById('table');
 let tab = document.querySelector('.currentLocation');
+var cellsArrayRow = [];
+var cellsArray = [];
 
 function Render(location) {
     table.style.backgroundImage = location.locationPic;
     tab.innerHTML = "Текущая локация: " + location.locationName;
     for (i = 0; i < tableRows.length; i++) {
         for (j = 0; j < 5; j++) {
-            location.cellsArrayRow[j] = document.createElement('td');
-            tableRows[i].append(location.cellsArrayRow[j]);
+            cellsArrayRow[j] = document.createElement('td');
+            tableRows[i].append(cellsArrayRow[j]);
         }
-        location.cellsArray.push(...location.cellsArrayRow);
+        cellsArray.push(...cellsArrayRow);
     }
     CreateObj(location);
     MoveTable(location);
@@ -129,7 +130,7 @@ function DownloadObj(location) {
         k = -1;
         return;
     }
-    location.cellsArray[k].append(location.cellsArrayContent[k].img);
+    cellsArray[k].append(location.cellsArrayContent[k].img);
     DownloadObj(location);
 }
 
@@ -143,16 +144,16 @@ function MoveTable(location) {
                 this.appendChild(Player.img);
                 return; // здесь не происходит изменения массива location.cellsArrayContent, что вызовет трудности в будущем(т.к. не запоминает содержимое), я пытался сделать так, чтобы он изменялся, но не вышло(ошибки не выдавало и массив не изменялся)
             } else if (this.childNodes[0].classList.contains('0')) {
-                trans.transition(location.address[0], location.cellsArray, location.cellsArrayRow);
+                trans.transition(location.address[0], cellsArray, cellsArrayRow);
                 return;
             } else if (this.childNodes[0].classList.contains('1')) {
-                trans.transition(location.address[1], location.cellsArray, location.cellsArrayRow);
+                trans.transition(location.address[1], cellsArray, cellsArrayRow);
                 return;
             } else if (this.childNodes[0].classList.contains('2')) {
-                trans.transition(location.address[2], location.cellsArray, location.cellsArrayRow);
+                trans.transition(location.address[2], cellsArray, cellsArrayRow);
                 return;
             } else if (this.childNodes[0].classList.contains('3')) {
-                trans.transition(location.address[3], location.cellsArray, location.cellsArrayRow);
+                trans.transition(location.address[3], cellsArray, cellsArrayRow);
                 return;
             } else {
                 if (this.childNodes[0].classList.contains('player')) return;

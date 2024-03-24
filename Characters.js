@@ -6,6 +6,7 @@ class BatTemplate {
     maxHP = 10;
     ATK = 1;
     SPD = 5;
+    DEF = 0;
     Avatar = 'AvatarsLx/BatLx.png';
     look = 'InGamePicLx/ArravelLx.png';
     OpenedSkills = [];
@@ -19,9 +20,10 @@ class PlayerInfo {
     maxHP = 20;
     ATK = 1;
     SPD = 9;
+    DEF = 0;
     Avatar = 'AvatarsLx/ArteonLx.png';
     look = 'InGamePicLx/Minerva.png';
-    OpenedHeroes = [this];
+    OpenedHeroes = [this, new Bomber];
     OpenedSkills = [];
 }
 
@@ -33,13 +35,10 @@ class Arravel {
     maxHP;
     ATK;
     SPD;
+    DEF = 0;
     Avatar;
     look = 'InGamePicLx/ArravelLx.png';
 }
-
-
-//ОСТАЛЬНОЕ НЕ ИСПОЛЬЗУЕТСЯ ПОКА ЧТО
-//ТРЕБУЕТСЯ ОПТИМИЗАЦИЯ
 
 class Bomber {
     name = "Взрывотехник";
@@ -49,6 +48,7 @@ class Bomber {
     maxHP = 17;
     ATK = 2;
     SPD = 7;
+    DEF = 0;
     Avatar = '';
     OpenedSkills = [Bombing];
 }
@@ -56,11 +56,12 @@ class Bomber {
 class Spider {
     name = "Паук";
     race = "insect";
-    attack = "Enemy";
+    attack = "Timmate";
     HP = 15;
     maxHP = 15;
     ATK = 2;
     SPD = 6;
+    DEF = 0;
     Avatar = 'AvatarsLx/ArteonLx.png';
     OpenedSkills = [Bite];
 }

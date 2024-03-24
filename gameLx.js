@@ -29,6 +29,10 @@ function StartBattle() {
 }
 
 function CheckHP(face) {
+    if (face.HP > face.maxHP) {
+        face.HP = face.maxHP;
+        return;
+    }
     if (face.HP <= 0) {
         face.characterDiv.style.display = 'none';
         Del(face);
@@ -87,7 +91,7 @@ function LightAttacked(face) {
     face.characterDiv.classList.add('AttackedCharacter');
     setTimeout(function() {
         face.characterDiv.classList.remove('AttackedCharacter');
-    }, 400);
+    }, 100);
 }
 
 var spliced;
@@ -96,12 +100,10 @@ function Del(face) {
         spliced = TimmateArr.indexOf(face);
         TimmateArr.splice(spliced, 1);
         StopBattle();
-        return;
     } else {
         spliced = EnemyArr.indexOf(face);
         EnemyArr.splice(spliced, 1);
         StopBattle();
-        return;
     }
 }
 
@@ -111,9 +113,7 @@ function StopBattle() {
         TimmateArr.length = 0;
         for (i = 0; i < choosenArr.length; i++) {
             choosenArr[i].HP = choosenArr[i].maxHP;
-            ChoosenHeroes[i].removeChild(ChoosenHeroes[i].firstChild);//под сомнением
         }
-        choosenArr.length = 0;
         moveCounter = 1;
         counter = -1;
         setTimeout(function() {
@@ -140,7 +140,6 @@ function RandomNumber(a, b) {
 }
 
 var triggered = false;
-
 function Start(target, user, targetArr, timmateArr) {
     setTimeout(() => {
         LightAttacked(targetArr[rand]);
@@ -168,6 +167,9 @@ Move.innerHTML = "Текущий ход: " + moveCounter;
 var counter = -1;
 function BattleCycle() {
     SortGlobalArr();
+    if (GlobalArr.length === 0) {
+        return;
+    }
     counter++;
     if (counter === GlobalArr.length) {
         counter = -1;

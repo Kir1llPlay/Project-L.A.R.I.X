@@ -15,8 +15,6 @@ let trans = new Transition
 
 class Location {
     address = [];
-    cellsArray = [];
-    cellsArrayRow = [];
 }
 
 class Hills extends Location {
