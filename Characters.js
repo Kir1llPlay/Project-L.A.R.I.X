@@ -23,7 +23,7 @@ class PlayerInfo {
     DEF = 0;
     Avatar = 'AvatarsLx/ArteonLx.png';
     look = 'InGamePicLx/Minerva.png';
-    OpenedHeroes = [this, new Bomber];
+    OpenedHeroes = [this, new Bomber, new Spider];
     OpenedSkills = [];
 }
 

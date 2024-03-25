@@ -27,7 +27,6 @@ var battleWindow = document.getElementById('BattleWindow');
 var Move = document.querySelector('.moveTab');
 function StartBattle() {
     createChoosenArray();
-    console.log(choosenArr);
     if (choosenArr.length === 0) {
         return;
     }
