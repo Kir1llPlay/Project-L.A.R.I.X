@@ -16,11 +16,10 @@ function createEnemyArr() {
 
 function createChoosenArray() {
     for (i = 0; i < 3; i++) {
-        if (ChoosenHeroes[i].firstChild === null) {
-            return;
+        if (ChoosenHeroes[i].firstChild !== null) {
+            let num = ChoosenHeroes[i].firstChild.classList[0];
+            choosenArr.push(Player.OpenedHeroes[Number(num)]);
         }
-        let num = ChoosenHeroes[i].firstChild.classList[0];
-        choosenArr.push(Player.OpenedHeroes[Number(num)]);
     }
 }
 
@@ -28,6 +27,7 @@ var battleWindow = document.getElementById('BattleWindow');
 var Move = document.querySelector('.moveTab');
 function StartBattle() {
     createChoosenArray();
+    console.log(choosenArr);
     if (choosenArr.length === 0) {
         return;
     }
