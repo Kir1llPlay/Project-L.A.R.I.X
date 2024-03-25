@@ -1,4 +1,5 @@
 const StandartAttack = function(target, user, targetArr, timmateArr) {
+    CheckDEF(target, user);
     target.HP -= (user.ATK - target.DEF);
     CheckHP(target);
     ShowHP(target);
@@ -7,14 +8,16 @@ const StandartAttack = function(target, user, targetArr, timmateArr) {
 const Bombing = function(target, user, targetArr, timmateArr) {
     let clone = Object.assign([], targetArr);
     for (i = 0; i < clone.length; i++) {
+        CheckDEF(clone[i], user);
         LightAttacked(clone[i]);
-        clone[i].HP -= (user.ATK * 2 - target.DEF);
+        clone[i].HP -= (user.ATK * 2 - clone[i].DEF);
         CheckHP(clone[i]);
         ShowHP(clone[i]);
     }
 }
 
 const Bite = function(target, user, targetArr, timmateArr) {
+    CheckDEF(target, user);
     target.HP -= (user.ATK * 2 - target.DEF);
     CheckHP(target);
     ShowHP(target);

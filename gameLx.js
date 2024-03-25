@@ -6,7 +6,7 @@ var GlobalArr = [];
 
 
 //чисто экспериментальная функция, еë внешний вид изменится к выходу нормального PvE и PvP.
-function EnemyArrCreate() {
+function createEnemyArr() {
     for (i = 0; i < EnemyArrLength; i++) {
         EnemyArr[i] = new BatTemplate;
         EnemyArr[i].ID = i;
@@ -14,9 +14,20 @@ function EnemyArrCreate() {
     BattleCycle();
 }
 
+function createChoosenArray() {
+    for (i = 0; i < 3; i++) {
+        if (ChoosenHeroes[i].firstChild === null) {
+            return;
+        }
+        let num = ChoosenHeroes[i].firstChild.classList[0];
+        choosenArr.push(Player.OpenedHeroes[Number(num)]);
+    }
+}
+
 var battleWindow = document.getElementById('BattleWindow');
 var Move = document.querySelector('.moveTab');
 function StartBattle() {
+    createChoosenArray();
     if (choosenArr.length === 0) {
         return;
     }
@@ -24,7 +35,7 @@ function StartBattle() {
     document.querySelector('.BattleMenu').style.display = "none";
     battleWindow.style.display = 'grid';
     Move.style.display = 'flex';
-    EnemyArrCreate();
+    createEnemyArr();
     DownloadAll();
 }
 
@@ -36,6 +47,12 @@ function CheckHP(face) {
     if (face.HP <= 0) {
         face.characterDiv.style.display = 'none';
         Del(face);
+    }
+}
+
+function CheckDEF(target, user) {
+    if (target.DEF >= user.ATK) {
+        return;
     }
 }
 
@@ -114,6 +131,7 @@ function StopBattle() {
         for (i = 0; i < choosenArr.length; i++) {
             choosenArr[i].HP = choosenArr[i].maxHP;
         }
+        choosenArr.length = 0;
         moveCounter = 1;
         counter = -1;
         setTimeout(function() {
@@ -148,7 +166,6 @@ function Start(target, user, targetArr, timmateArr) {
                 if (list[j][0] === user.OpenedSkills[i]) {
                     if (RandomNumber(0, 100) <= list[j][1]) {
                         user.OpenedSkills[i](target, user, targetArr, timmateArr);
-                        console.log(triggered);
                         triggered = true;
                     }
                 }

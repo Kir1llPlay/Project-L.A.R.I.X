@@ -5,6 +5,7 @@
     position: absolute;
     z-index: 5;
     width: 100%;
+    max-width: 1000px;
     height: 25px;
     font-size: 20;
     background-color: #CDA560;

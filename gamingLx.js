@@ -202,7 +202,7 @@ function closeCard() {
 
 function StartDialog() {
     closeCard();
-    document.querySelector('.DialogMenu').style.display = "block";
+    document.querySelector('.DialogMenu').style.display = "flex";
     document.querySelector('.filter').style.display = "block";
 }
 
@@ -219,12 +219,12 @@ function RenderHeroTable() {
         return;
     }
     for (i = 0; i < Player.OpenedHeroes.length; i++) {
-        let Hero = document.createElement('img');
-        Hero.setAttribute('src', Player.OpenedHeroes[i].Avatar);
-        Hero.classList.add('openImg');
+        let HeroImg = document.createElement('img');
+        HeroImg.setAttribute('src', Player.OpenedHeroes[i].Avatar);
+        HeroImg.classList.add('openImg');
         let HeroDiv = document.createElement('div');
         HeroDiv.classList.add('elems');
-        HeroDiv.append(Hero);
+        HeroDiv.append(HeroImg);
         HeroTable.append(HeroDiv);
     }
     HeroTableEventListener();
@@ -238,52 +238,50 @@ function HeroTableEventListener() {
     for (i = 0; i < HeroDivs.length; i++) {
         HeroDivs[i].addEventListener('click', function() {
             this.classList.toggle('choosen');
-            let copyHeroDiv = this.cloneNode(true);
             let index = Array.from(HeroDivs).indexOf(this);
-            if (choosenArr.length === 3) {
+            if (!document.querySelectorAll('.elems')[index].classList.contains('choosen')) {
+                RemoveChoosenHero(ChoosenHeroes[index].firstChild);
                 return;
             }
-            if (choosenArr.includes(Player.OpenedHeroes[index])) {
-                choosenArr.splice(choosenArr.indexOf(Player.OpenedHeroes[index]), 1);
-                DownloadChoosenHero(copyHeroDiv, this);
-                return;
-            }
-            choosenArr.push(Player.OpenedHeroes[index]);
-            DownloadChoosenHero(copyHeroDiv, this);
+            DownloadChoosenHero(index);
         })
     }
 }
 
-function DownloadChoosenHero(copy, orig) {
+function DownloadChoosenHero(num) {
     for (i = 0; i < 3; i++) {
         if (ChoosenHeroes[i].firstChild === null) {
-            copy.classList.remove('elems', 'choosen');
-            copy.classList.add('forFunc');
-            ChoosenHeroes[i].appendChild(copy);
+            if (!document.querySelectorAll('.elems')[num].classList.contains('choosen')) {
+                return;
+            }
+            let copyImg = document.createElement('img');
+            copyImg.setAttribute('src', Player.OpenedHeroes[num].Avatar);
+            copyImg.classList.add('openImg');
+            let copyDiv = document.createElement('div');
+            copyDiv.className = num;
+            copyDiv.classList.add('forFunc');
+            copyDiv.append(copyImg);
+            ChoosenHeroes[i].appendChild(copyDiv);
             ChoosenHeroes[i].firstChild.addEventListener('click', function() {
-                orig.classList.remove('choosen');
-                RemoveChoosenHero(i);
-            });
-            return;
-        } else {
-            RemoveChoosenHero(i);
-            return;
+                document.querySelectorAll('.elems')[num].classList.remove('choosen');
+                RemoveChoosenHero(this);
+            })
+            break;
         }
     }
 }
 
-function RemoveChoosenHero(n) {
-    ChoosenHeroes[n].removeChild(ChoosenHeroes[n].firstChild);
-    choosenArr.splice(n, 1);
+function RemoveChoosenHero(elem) {
+    elem.parentNode.removeChild(elem);
 }
 
 function HideGrid() {
     let td = document.querySelectorAll('td');
     for (i = 0; i < td.length; i++) {
-        if (td[i].style.border != "none") {
-            td[i].style.border = "none";
-        } else {
+        if (td[i].style.border === "none") {
             td[i].style.border = "solid 1px black";
+        } else {
+            td[i].style.border = "none";
         }
     }
 }
