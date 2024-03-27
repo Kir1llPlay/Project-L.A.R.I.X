@@ -31,7 +31,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: pink;
 }
 
 #timmateField {
@@ -40,7 +39,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: green;
 }
 
 .BattleButton {

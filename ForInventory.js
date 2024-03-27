@@ -1,3 +1,11 @@
+class ResourcesInv {
+    
+}
+
+class EquipmentInv {
+    
+}
+
 var inv = document.querySelector('.inventory');
 
 function OpenInventory() {

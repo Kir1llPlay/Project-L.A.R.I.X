@@ -34,6 +34,7 @@ function StartBattle() {
     document.querySelector('.BattleMenu').style.display = "none";
     battleWindow.style.display = 'grid';
     Move.style.display = 'flex';
+    document.getElementById('BattleWindow').style.backgroundImage = document.getElementById('table').style.backgroundImage;
     createEnemyArr();
     DownloadAll();
 }
@@ -46,12 +47,6 @@ function CheckHP(face) {
     if (face.HP <= 0) {
         face.characterDiv.style.display = 'none';
         Del(face);
-    }
-}
-
-function CheckDEF(target, user) {
-    if (target.DEF >= user.ATK) {
-        return;
     }
 }
 
