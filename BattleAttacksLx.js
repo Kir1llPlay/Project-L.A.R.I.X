@@ -30,6 +30,6 @@ const Bite = function(target, user, targetArr, timmateArr) {
 }
 
 const list = [
-    [Bombing, 50],
+    [Bombing, 30],
     [Bite, 50],
 ];

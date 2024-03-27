@@ -3,7 +3,8 @@ class Bokken {
     rarity = 'standart';
     slot = 'weapon';
     isEquiped = false;
-    ATK = 4;
+    ATK = 1;
+    characteristicsCount = 1;
     Avatar = '';
     
     Equip(user) {
@@ -75,6 +76,6 @@ class DispencerOfJustice {
     Avatar = '';
     
     method(character, user) {
-        return character.HP -=;
+        return character.HP -= this.ATK;
     }
 }

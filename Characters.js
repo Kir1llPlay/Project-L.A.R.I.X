@@ -16,10 +16,10 @@ class PlayerInfo {
     name = "Player";
     race = "Human";
     attack = "Timmate";
-    HP = 20;
-    maxHP = 20;
-    ATK = 1;
-    SPD = 9;
+    HP = 18;
+    maxHP = 18;
+    ATK = 2;
+    SPD = 7;
     DEF = 0;
     Avatar = 'AvatarsLx/ArteonLx.png';
     look = 'InGamePicLx/Minerva.png';
