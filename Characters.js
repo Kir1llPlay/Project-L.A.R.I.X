@@ -25,6 +25,7 @@ class PlayerInfo {
     look = 'InGamePicLx/Minerva.png';
     OpenedHeroes = [this, new Bomber, new Spider];
     OpenedSkills = [];
+    equipmentSlots = [ ['weapon'], ['head'], ];
 }
 
 class Arravel {

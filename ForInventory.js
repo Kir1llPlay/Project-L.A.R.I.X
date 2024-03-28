@@ -7,7 +7,12 @@ class EquipmentInv {
 }
 var sword = new Bokken;
 function equip(equipment) {
-    equipment.isEquiped = true;
+    for (i = 0; i < Player.equipmentSlots.length; i++) {
+        if (Player.equipmentSlots[i][0] === equipment.slot) {
+            Player.equipmentSlots[i][1] = equipment;
+            equipment.isEquiped = true;
+        }
+    }
     if (equipment.ATK !== undefined) {
         Player.ATK += equipment.ATK;
     }
@@ -22,6 +27,12 @@ function equip(equipment) {
 function takeOff(equipment) {
     if (!equipment.isEquiped) {
         return;
+    }
+    for (i = 0; i < Player.equipmentSlots.length; i++) {
+        if (Player.equipmentSlots[i][0] === equipment.slot) {
+            Player.equipmentSlots[i][1] = undefined;
+            equipment.isEquiped = false;
+        }
     }
     if (equipment.ATK !== undefined) {
         Player.ATK -= equipment.ATK;
@@ -45,4 +56,19 @@ function OpenInventory() {
 function CloseInventory() {
     inv.style.display = "none";
     document.getElementById('StartLocation').style.display = "block";
+    equipmentUI.disabled = false;
+    resourcesUI.disabled = false;
+}
+
+var equipmentUI = document.getElementById('equipmentBtn');
+var resourcesUI = document.getElementById('resourcesBtn')
+
+function openEquipment() {
+    equipmentUI.disabled = true;
+    resourcesUI.disabled = false;
+}
+
+function openResources() {
+    resourcesUI.disabled = true;
+    equipmentUI.disabled = false;
 }
