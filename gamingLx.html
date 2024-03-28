@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="stylesLx.css">
     <link rel="stylesheet" href="gamingLx.css">
     <link rel="stylesheet" href="gameLx.css">
+    <link rel="stylesheet" href="Inventory.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Lx1.0</title>
@@ -36,6 +37,21 @@
         <button style="margin: 10px;" onclick="CloseInventory()"><p class="Pg_btn">Закрыть инвентарь</p></button>
         <button id="resourcesBtn" style="margin: 10px" onclick="openResources()"><p class="Pg_btn">Ресурсы</p></button>
         <button id="equipmentBtn" style="margin: 10px" onclick="openEquipment()"><p class="Pg_btn">Снаряжение</p></button>
+
+        <div id="equipmentInv">
+            <table class="equipmentTable">
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+                <td class="invCell"></td>
+            </table>
+        </div>
     </div>
 
     <div class="BattleMenu">
@@ -46,10 +62,7 @@
         </div>
         <div class="heroes"></div>
         <div class="BattleButton">
-            <button onclick="StartBattle()"><p class="Pg_btn">
-                Начать бой
-            </p>
-            </button>
+            <button onclick="StartBattle()"><p class="Pg_btn">Начать бой</p></button>
         </div>
     </div>
 
@@ -62,8 +75,8 @@
         </div>
     </div>
 
-    <div class="filter"></div>
     <div class="DialogMenu">
+        <div class="filter"></div>
         <img class="">
         <div class="FooterAuto">
             <div class="Footer">

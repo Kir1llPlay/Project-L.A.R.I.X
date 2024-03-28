@@ -26,6 +26,7 @@ function createChoosenArray() {
 var battleWindow = document.getElementById('BattleWindow');
 var Move = document.querySelector('.moveTab');
 function StartBattle() {
+    closeCard();
     createChoosenArray();
     if (choosenArr.length === 0) {
         return;

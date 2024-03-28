@@ -5,7 +5,9 @@ class ResourcesInv {
 class EquipmentInv {
     
 }
+
 var sword = new Bokken;
+
 function equip(equipment) {
     for (i = 0; i < Player.equipmentSlots.length; i++) {
         if (Player.equipmentSlots[i][0] === equipment.slot) {
@@ -56,19 +58,23 @@ function OpenInventory() {
 function CloseInventory() {
     inv.style.display = "none";
     document.getElementById('StartLocation').style.display = "block";
-    equipmentUI.disabled = false;
-    resourcesUI.disabled = false;
+    equipmentBTN.disabled = false;
+    resourcesBTN.disabled = false;
+    equipmentUI.style.display = "none";
 }
 
-var equipmentUI = document.getElementById('equipmentBtn');
-var resourcesUI = document.getElementById('resourcesBtn')
+var equipmentBTN = document.getElementById('equipmentBtn');
+var resourcesBTN = document.getElementById('resourcesBtn');
+var equipmentUI = document.getElementById('equipmentInv');
 
 function openEquipment() {
-    equipmentUI.disabled = true;
-    resourcesUI.disabled = false;
+    equipmentBTN.disabled = true;
+    resourcesBTN.disabled = false;
+    equipmentUI.style.display = "flex";
 }
 
 function openResources() {
-    resourcesUI.disabled = true;
-    equipmentUI.disabled = false;
+    resourcesBTN.disabled = true;
+    equipmentBTN.disabled = false;
+    equipmentUI.style.display = "none";
 }

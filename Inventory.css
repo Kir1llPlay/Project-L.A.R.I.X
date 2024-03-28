@@ -1,0 +1,27 @@
+.inventory {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    max-width: 1000px;
+    background-color: #fcf7d0;
+}
+
+#equipmentInv {
+    display: none;
+    justify-content: center;
+    width: 100%;
+}
+
+.equipmentTable {
+    user-select: none;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 98%;
+    max-width: 980px;
+}
+
+.invCell {
+    width: 55px;
+    height: 55px;
+    border: solid 1px black;
+}

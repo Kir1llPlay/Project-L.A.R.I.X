@@ -1,4 +1,4 @@
-table {
+#table {
     user-select: none;
     table-layout: fixed;
     width: 100vw;
@@ -45,14 +45,6 @@ td {
     height: 20%;
     font-size: 100%;
     border-radius: 25%;
-}
-
-.inventory {
-    display: none;
-    width: 100vw;
-    min-height: 100vh;
-    max-width: 1000px;
-    background-color: #fcf7d0;
 }
 
 .actionCard {
@@ -200,9 +192,10 @@ td {
 .DialogMenu {
     display: none;
     justify-content: center;
+    align-items: center;
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 200%;
     z-index: 101;
 }
 
