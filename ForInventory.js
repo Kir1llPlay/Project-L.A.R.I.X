@@ -1,13 +1,37 @@
-class ResourcesInv {
-    
-}
+var ResourcesInv = {}
 
-class EquipmentInv {
-    
+var EquipmentInv = {}
+
+function itemsRecieve(item, itemCount) {
+    let currentInv;
+    let currentInvLength;
+    let isDistributed;
+    if (item.isEquipable === undefined) {
+        currentInv = EquipmentInv;
+    } else {
+        currentInv = ResourcesInv;
+    }
+    currentInvLength = Object.keys(currentInv).length;
+    for (i = 0; i <= currentInvLength; i++) {
+        if (currentInv[i] !== undefined) {
+            if (currentInv[i][0] === item) {
+                currentInv[i][1] += itemCount;
+                isDistributed = true;
+                break;
+            }
+        }
+    }
+    if (isDistributed !== true) {
+        for (j = 0; j <= currentInvLength; j++) {
+            if (currentInv[j] !== undefined) return;
+            currentInv[j] = [item, itemCount];
+            break;
+        }
+    }
 }
 
 var sword = new Bokken;
-
+itemsRecieve(sword, 1);
 function equip(equipment) {
     for (i = 0; i < Player.equipmentSlots.length; i++) {
         if (Player.equipmentSlots[i][0] === equipment.slot) {
@@ -46,7 +70,6 @@ function takeOff(equipment) {
         Player.SPD -= equipment.SPD;
     }
 }
-equip(sword);
 
 var inv = document.querySelector('.inventory');
 

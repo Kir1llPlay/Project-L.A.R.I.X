@@ -9,19 +9,15 @@
 #equipmentInv {
     display: none;
     justify-content: center;
-    width: 100%;
-}
-
-.equipmentTable {
-    user-select: none;
-    table-layout: fixed;
-    border-collapse: collapse;
+    flex-wrap: wrap;
     width: 98%;
     max-width: 980px;
+    user-select: none;
 }
 
 .invCell {
     width: 55px;
     height: 55px;
     border: solid 1px black;
+    margin: 1px;
 }
