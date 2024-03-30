@@ -15,8 +15,8 @@ const Bombing = function(target, user, targetArr, timmateArr) {
         }
         LightAttacked(clone[i]);
         clone[i].HP -= (user.ATK * 2 - clone[i].DEF);
-        CheckHP(clone[i]);
-        ShowHP(clone[i]);
+        CheckHP(targetArr[i]);
+        ShowHP(targetArr[i]);
     }
 }
 

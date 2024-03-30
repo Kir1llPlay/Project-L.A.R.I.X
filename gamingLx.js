@@ -240,7 +240,13 @@ function HeroTableEventListener() {
             this.classList.toggle('choosen');
             let index = Array.from(HeroDivs).indexOf(this);
             if (!document.querySelectorAll('.elems')[index].classList.contains('choosen')) {
-                RemoveChoosenHero(ChoosenHeroes[index].firstChild);
+                for (j = 0; j < 3; j++) {
+                    if (ChoosenHeroes[j].firstChild !== null) {
+                        if (ChoosenHeroes[j].firstChild.classList[0] === String(index)) {
+                            RemoveChoosenHero(ChoosenHeroes[j].firstChild);
+                        }
+                    }
+                }
                 return;
             }
             DownloadChoosenHero(index);
@@ -249,6 +255,15 @@ function HeroTableEventListener() {
 }
 
 function DownloadChoosenHero(num) {
+    let stop;
+    for (j = 0; j < 3; j++) {
+        if (ChoosenHeroes[j].firstChild !== null ) {
+            if (ChoosenHeroes[j].firstChild.classList[0] === String(num)) {
+                stop = true;
+            }
+        }
+    }
+    if (stop === true) return;
     for (i = 0; i < 3; i++) {
         if (ChoosenHeroes[i].firstChild === null) {
             if (!document.querySelectorAll('.elems')[num].classList.contains('choosen')) {

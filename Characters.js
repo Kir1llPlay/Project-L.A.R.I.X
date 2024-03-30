@@ -10,6 +10,7 @@ class BatTemplate {
     Avatar = 'AvatarsLx/BatLx.png';
     look = 'InGamePicLx/ArravelLx.png';
     OpenedSkills = [];
+    loot = [ [new Bokken, 1, 60], [new TwoHandedMagicSword, 1, 60] ];
 }
 
 class PlayerInfo {

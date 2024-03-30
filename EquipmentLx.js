@@ -4,12 +4,7 @@ class Bokken {
     slot = 'weapon';
     isEquiped = false;
     ATK = 1;
-    characteristicsCount = 1;
-    Avatar = '';
-    
-    Equip(user) {
-        if (isEquiped) user.ATK += this.ATK;
-    }
+    Avatar = 'EquipmentAvatars/Bokken.png';
 }
 
 class Broadsword {
@@ -40,8 +35,9 @@ class TwoHandedMagicSword {
     name = 'Двуручный магический меч';
     rarity = 'epic';
     slot = 'weapon';
+    isEquiped = false;
     ATK = 25;
-    Avatar = '';
+    Avatar = 'EquipmentAvatars/TwoHandedMagicSword.png';
 }
 
 class DuskAx {

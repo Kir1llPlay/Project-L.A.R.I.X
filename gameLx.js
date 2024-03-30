@@ -1,7 +1,6 @@
 var EnemyArrLength = 2;
 var EnemyArr = [];
 var TimmateArr = [];
-//эти два массива и всë, что выше - должно будет получать данные с сервера(если PvP), в случае PvE TimmateArr всë так же приходит с сервера, а EnemyArr создаëтся в зависимости от того, с кем битва(наверное тоже с сервера приходить будет).
 var GlobalArr = [];
 
 
@@ -114,6 +113,7 @@ function Del(face) {
         StopBattle();
     } else {
         spliced = EnemyArr.indexOf(face);
+        itemsCheck(EnemyArr[spliced].loot)
         EnemyArr.splice(spliced, 1);
         StopBattle();
     }
