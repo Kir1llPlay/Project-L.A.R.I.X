@@ -1,7 +1,7 @@
 .inventory {
     display: none;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100%;
     max-width: 1000px;
     background-color: #fcf7d0;
 }
@@ -10,8 +10,8 @@
     display: none;
     justify-content: center;
     flex-wrap: wrap;
-    width: 98%;
-    max-width: 980px;
+    width: 100%;
+    max-width: 1000px;
     user-select: none;
 }
 
@@ -20,4 +20,41 @@
     height: 55px;
     border: solid 1px black;
     margin: 1px;
+}
+
+.profileEquipCell {
+    width: 55px;
+    height: 55px;
+    border: solid 1px black;
+    margin: 1px;
+}
+
+.Profile {
+    display: none;
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    background-color: #fcf7d0;
+}
+
+.inventoryCard {
+    display: none;
+    position: absolute;
+    width: 60vw;
+    max-width: 450px;
+    height: 70vw;
+    max-height: 600px;
+    background-color: #fcf7d0;
+    z-index: 1000;
+    border: solid 2px black;
+    border-radius: 17px;
+    text-align: center;
+}
+
+#inventoryImg {
+    display: inline-block;
+    width: 60%;
+    max-width: 300px;
+    border: solid 2px black;
+    margin-top: 10px;
 }

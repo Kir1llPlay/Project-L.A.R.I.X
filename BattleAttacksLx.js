@@ -4,19 +4,24 @@ const StandartAttack = function(target, user, targetArr, timmateArr) {
     }
     target.HP -= (user.ATK - target.DEF);
     CheckHP(target);
-    ShowHP(target);
 }
 
 const Bombing = function(target, user, targetArr, timmateArr) {
-    let clone = Object.assign([], targetArr);
-    for (i = 0; i < clone.length; i++) {
-        if (clone[i].DEF >= user.ATK) {
+    for (i = 0; i < targetArr.length; i++) {
+        if (targetArr[i].DEF >= user.ATK) {
             return;
         }
-        LightAttacked(clone[i]);
-        clone[i].HP -= (user.ATK * 2 - clone[i].DEF);
-        CheckHP(targetArr[i]);
-        ShowHP(targetArr[i]);
+        LightAttacked(targetArr[i]);
+        targetArr[i].HP -= (user.ATK * 2 - targetArr[i].DEF);
+        for (j = 0; j < targetArr.length; j++) {
+            if (targetArr[j] === undefined) {
+                while (targetArr[j] !== undefined) {
+                    j--;
+                }
+                CheckHP(targetArr[j]);
+            }
+            CheckHP(targetArr[j]);
+        }
     }
 }
 
@@ -26,10 +31,9 @@ const Bite = function(target, user, targetArr, timmateArr) {
     }
     target.HP -= (user.ATK * 2 - target.DEF);
     CheckHP(target);
-    ShowHP(target);
 }
 
 const list = [
-    [Bombing, 30],
+    [Bombing, 100],
     [Bite, 50],
 ];

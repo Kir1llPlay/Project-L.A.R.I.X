@@ -22,6 +22,11 @@
                 Инвентарь
             </p>
             </button>
+            <button style="margin: 10px" onclick="openProfile()">
+                <p class="Pg_btn">
+                    Профиль
+                </p>
+            </button>
         </div>
         <table id="table">
             <tbody>
@@ -37,6 +42,11 @@
     <div class="actionCard">
         <button class="cardbtn" onclick="closeCard()"><p class="Pg_btn">
             Закрыть окно</P></button>
+    </div>
+
+    <div class="inventoryCard">
+        <img id="inventoryImg">
+        <p id="inventoryName"></p>
     </div>
 
     <div class="inventory">
@@ -64,6 +74,17 @@
             <div class="equipInvCell"></div>
             <div class="equipInvCell"></div>
             <div class="equipInvCell"></div>
+        </div>
+    </div>
+
+    <div class="Profile">
+        <button style="margin: 10px" onclick="closeProfile()"><p class="Pg_btn">
+            Закрыть профиль
+        </p>
+        </button>
+        <div class="forEquipment" id="weapon">
+            <p>Оружие</p>
+            <div class="profileEquipCell"></div>
         </div>
     </div>
 

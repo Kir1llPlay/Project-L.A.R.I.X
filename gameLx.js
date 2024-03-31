@@ -25,11 +25,11 @@ function createChoosenArray() {
 var battleWindow = document.getElementById('BattleWindow');
 var Move = document.querySelector('.moveTab');
 function StartBattle() {
-    closeCard();
     createChoosenArray();
     if (choosenArr.length === 0) {
         return;
     }
+    closeCard();
     TimmateArr = Object.assign([], choosenArr);
     document.querySelector('.BattleMenu').style.display = "none";
     battleWindow.style.display = 'grid';
@@ -42,8 +42,10 @@ function StartBattle() {
 function CheckHP(face) {
     if (face.HP > face.maxHP) {
         face.HP = face.maxHP;
+        ShowHP(face);
         return;
     }
+    ShowHP(face);
     if (face.HP <= 0) {
         face.characterDiv.style.display = 'none';
         Del(face);
@@ -113,7 +115,7 @@ function Del(face) {
         StopBattle();
     } else {
         spliced = EnemyArr.indexOf(face);
-        itemsCheck(EnemyArr[spliced].loot)
+        itemsCheck(EnemyArr[spliced].loot);
         EnemyArr.splice(spliced, 1);
         StopBattle();
     }

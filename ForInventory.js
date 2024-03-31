@@ -14,18 +14,25 @@ function itemsRecieve(item, itemCount) {
     let currentInv;
     let currentInvLength;
     let isDistributed = false;
+    let typeOfInv;
     if (item.isEquiped !== undefined) {
         currentInv = EquipmentInv;
+        typeOfInv = "equipment";
     } else {
         currentInv = ResourcesInv;
+        typeOfInv = "resource";
     }
     currentInvLength = Object.keys(currentInv).length;
     for (i = 0; i <= currentInvLength; i++) {
         if (currentInv[i] !== undefined) {
             if (currentInv[i][0].name === item.name) {
+                
                 currentInv[i][1] += itemCount;
                 isDistributed = true;
-                inventoryRendering(currentInv[i], i);
+                if (currentInv[i][1] === 0) {
+                    currentInv[i] = undefined;
+                }
+                inventoryRendering(currentInv[i], i, typeOfInv);
                 break;
             }
         }
@@ -34,21 +41,26 @@ function itemsRecieve(item, itemCount) {
         for (j = 0; j <= currentInvLength; j++) {
             if (currentInv[j] === undefined) {
                 currentInv[j] = [item, itemCount];
-                inventoryRendering(currentInv[j], j);
+                inventoryRendering(currentInv[j], j, typeOfInv);
                 break;
             }
         }
     }
 }
 
-function inventoryRendering(invList, num) {
+var invCard = document.querySelector('.inventoryCard');
+function inventoryRendering(invList, num, typeOfInv) {
     let cells;
-    if (invList[0].name = EquipmentInv[num][0].name) {
+    if (typeOfInv === "equipment") {
         cells = document.querySelectorAll('.equipInvCell');
     } else {
         return;
     }
-    
+    if (invList === undefined || invList[1] === 0) {
+        cells[num].firstChild.parentNode.removeChild(cells[num].firstChild);
+        return;
+    }
+
     if (cells[num].firstChild !== null) {
         cells[num].firstChild.childNodes[1].innerHTML = invList[1];
         return;
@@ -69,15 +81,59 @@ function inventoryRendering(invList, num) {
     invImg.setAttribute('src', invList[0].Avatar);
     invCount.innerHTML = invList[1];
     cells[num].appendChild(invDiv);
+    cells[num].addEventListener('click', function() {
+        let numI;
+        for (i = 0; i < cells.length; i++) {
+            if (cells[i] = this) {
+                numI = i;
+                break;
+            }
+        }
+        //event();
+        document.getElementById('inventoryImg').setAttribute('src', invList[numI].Avatar);
+        document.getElementById('inventoryImg').style.height = document.getElementById('inventoryImg').style.width;
+        document.getElementById('inventoryName').innerHTML = invList[numI].name;
+        invCard.style.display = "block";
+        if (invList[numI].isEquiped !== undefined) {
+            if (invCard.childNodes[5] !== undefined) return;
+            let invBtn = document.createElement('button');
+            let invBtnP = document.createElement('p');
+            invBtnP.classList.add('Pg_btn');
+            invBtnP.innerHTML = "Надеть";
+            invBtn.append(invBtnP);
+            invCard.appendChild(invBtn);
+            invBtn.addEventListener('click', function() {
+                equip(invList[numI]);
+                invCard.style.display = "none";
+                invBtn.parentNode.removeChild(invBtn);
+            })
+        }
+    })
+}
+
+function event() {
+    document.addEventListener('click', function(e) {
+        console.log(e);
+        if (e.target !== invCard && invCard.style.display === "block") {
+            invCard.style.display = "none";
+        }
+    });
 }
 
 function equip(equipment) {
+    let resump;
     for (i = 0; i < Player.equipmentSlots.length; i++) {
         if (Player.equipmentSlots[i][0] === equipment.slot) {
-            Player.equipmentSlots[i][1] = equipment;
-            equipment.isEquiped = true;
+            if (Player.equipmentSlots[i][1] === undefined) {
+                Player.equipmentSlots[i][1] = equipment;
+                equipment.isEquiped = true;
+            } else {
+                alert("Данный слот занят");
+                resump = false;
+            }
         }
     }
+    if (resump === false) return;
     if (equipment.ATK !== undefined) {
         Player.ATK += equipment.ATK;
     }
@@ -87,6 +143,8 @@ function equip(equipment) {
     if (equipment.SPD !== undefined) {
         Player.SPD += equipment.SPD;
     }
+    itemsRecieve(equipment, -1);
+    equipmentRendering(equipment);
 }
 
 function takeOff(equipment) {
@@ -107,6 +165,24 @@ function takeOff(equipment) {
     }
     if (equipment.SPD !== undefined) {
         Player.SPD -= equipment.SPD;
+    }
+}
+
+function equipmentRendering(equipment) {
+    let forEquip = document.querySelectorAll('.forEquipment');
+    for (i = 0; i < forEquip.length; i++) {
+        if (forEquip[i].id === equipment.slot) {
+            for (j = 3; j < forEquip[i].childElementCount + 2; j++) {
+                if (forEquip[i].childNodes[j].firstChild === null) {
+                    let equipImg = document.createElement('img');
+                    equipImg.style.width = "100%";
+                    equipImg.style.height = "100%";
+                    equipImg.setAttribute('src', equipment.Avatar);
+                    forEquip[i].childNodes[j].append(equipImg);
+                    break;
+                }
+            }
+        }
     }
 }
 
@@ -139,4 +215,15 @@ function openResources() {
     resourcesBTN.disabled = true;
     equipmentBTN.disabled = false;
     equipmentUI.style.display = "none";
+}
+
+var profileDiv = document.querySelector('.Profile');
+function openProfile() {
+    document.getElementById('StartLocation').style.display = "none";
+    profileDiv.style.display = "block";
+}
+
+function closeProfile() {
+    document.getElementById('StartLocation').style.display = "block";
+    profileDiv.style.display = "none";
 }
