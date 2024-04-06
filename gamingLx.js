@@ -158,6 +158,12 @@ function MoveTable(location) {
             } else {
                 if (this.childNodes[0].classList.contains('player')) return;
                 actionBar.style.display = "block";
+                document.querySelector('.blockAll').style.display = "block";
+                document.addEventListener('click', function(e) {
+                    if (e.target === document.querySelector('.blockAll') && actionBar.style.display === "block") {
+                        closeCard();
+                    }
+                });
                 if (this.childNodes[0].classList.contains('tim')) {
                     if (this.childNodes[0].classList.contains('player')) {
                         return;
@@ -193,6 +199,7 @@ function MoveTable(location) {
 
 function closeCard() {
     actionBar.style.display = "none";
+    document.querySelector('.blockAll').style.display = "none";
     if (document.querySelector('.BattleChoose')) {
         document.querySelector('.BattleChoose').parentNode.removeChild(document.querySelector('.BattleChoose'));
     } else {
@@ -208,7 +215,7 @@ function StartDialog() {
 
 var HeroTable = document.querySelector('.heroes');
 function ChooseHeroes() {
-    actionBar.style.display = "none";
+    closeCard();
     document.getElementById('StartLocation').style.display = "none";
     document.querySelector('.BattleMenu').style.display = "flex";
     RenderHeroTable();

@@ -1,6 +1,6 @@
 class BatTemplate {
     name = "Летучая мышь";
-    race = "Зверь";
+    race = "beast";
     attack = "Enemy";
     HP = 10;
     maxHP = 10;
@@ -8,14 +8,15 @@ class BatTemplate {
     SPD = 5;
     DEF = 0;
     Avatar = 'AvatarsLx/BatLx.png';
-    look = 'InGamePicLx/ArravelLx.png';
-    OpenedSkills = [];
-    loot = [ [new Bokken, 1, 60], [new TwoHandedMagicSword, 1, 60] ];
+    look = 'InGamePicLx/Jetta.png';
+    ChoosenSkills = [];
+    WeaponSkills = [];
+    loot = [ [new TrainingSword, 1, 60], [new TwoHandedSword, 1, 60] ];
 }
 
 class PlayerInfo {
     name = "Player";
-    race = "Human";
+    race = "human";
     attack = "Timmate";
     HP = 18;
     maxHP = 18;
@@ -23,15 +24,16 @@ class PlayerInfo {
     SPD = 7;
     DEF = 0;
     Avatar = 'AvatarsLx/ArteonLx.png';
-    look = 'InGamePicLx/Minerva.png';
+    look = 'InGamePicLx/Bono.png';
     OpenedHeroes = [this, new Bomber, new Spider];
-    OpenedSkills = [];
+    ChoosenSkills = [];
+    WeaponSkills = [];
     equipmentSlots = [ ['weapon'], ['head'], ];
 }
 
 class Arravel {
     name = "Арравел";
-    race = "Зверь";
+    race = "beast";
     attack = "Timmate";
     HP;
     maxHP;
@@ -52,7 +54,8 @@ class Bomber {
     SPD = 7;
     DEF = 0;
     Avatar = '';
-    OpenedSkills = [Bombing];
+    ChoosenSkills = [Bombing];
+    WeaponSkills = [];
 }
 
 class Spider {
@@ -65,5 +68,6 @@ class Spider {
     SPD = 6;
     DEF = 0;
     Avatar = 'AvatarsLx/ArteonLx.png';
-    OpenedSkills = [Bite];
+    ChoosenSkills = [Bite];
+    WeaponSkills = [];
 }

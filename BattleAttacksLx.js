@@ -25,6 +25,14 @@ const Bombing = function(target, user, targetArr, timmateArr) {
     }
 }
 
+const SwordAttack = function(target, user, targetArr, timmateArr) {
+    if (target.DEF >= user.ATK) {
+        return;
+    }
+    target.HP -= (user.ATK * 2 - target.DEF);
+    CheckHP(target);
+}
+
 const Bite = function(target, user, targetArr, timmateArr) {
     if (target.DEF >= user.ATK) {
         return;
@@ -34,6 +42,7 @@ const Bite = function(target, user, targetArr, timmateArr) {
 }
 
 const list = [
-    [Bombing, 100],
+    [Bombing, 30],
     [Bite, 50],
+    [SwordAttack, 100]
 ];

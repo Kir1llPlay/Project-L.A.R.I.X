@@ -29,7 +29,6 @@ function StartBattle() {
     if (choosenArr.length === 0) {
         return;
     }
-    closeCard();
     TimmateArr = Object.assign([], choosenArr);
     document.querySelector('.BattleMenu').style.display = "none";
     battleWindow.style.display = 'grid';
@@ -40,16 +39,15 @@ function StartBattle() {
 }
 
 function CheckHP(face) {
-    if (face.HP > face.maxHP) {
-        face.HP = face.maxHP;
-        ShowHP(face);
-        return;
-    }
-    ShowHP(face);
     if (face.HP <= 0) {
         face.characterDiv.style.display = 'none';
         Del(face);
+        return;
     }
+    if (face.HP > face.maxHP) {
+        face.HP = face.maxHP;
+    }
+    ShowHP(face);
 }
 
 function ShowHP(face) {
@@ -112,16 +110,16 @@ function Del(face) {
     if (face.attack === "Timmate") {
         spliced = TimmateArr.indexOf(face);
         TimmateArr.splice(spliced, 1);
-        StopBattle();
     } else {
         spliced = EnemyArr.indexOf(face);
-        itemsCheck(EnemyArr[spliced].loot);
+        itemsCheck(face.loot);
         EnemyArr.splice(spliced, 1);
-        StopBattle();
     }
+    StopBattle();
 }
 
 function StopBattle() {
+    console.log("enemy:", EnemyArr.length, " ", "tim:", TimmateArr.length);
     if (EnemyArr.length === 0 || TimmateArr.length === 0) {
         EnemyArr.length = 0;
         TimmateArr.length = 0;
@@ -157,12 +155,22 @@ function RandomNumber(a, b) {
 var triggered = false;
 function Start(target, user, targetArr, timmateArr) {
     setTimeout(() => {
-        LightAttacked(targetArr[rand]);
-        for (i = 0; i < user.OpenedSkills.length; i++) {
+        LightAttacked(target);
+        for (i = 0; i < user.ChoosenSkills.length; i++) {
             for (j = 0; j < list.length; j++) {
-                if (list[j][0] === user.OpenedSkills[i]) {
+                if (list[j][0] === user.ChoosenSkills[i]) {
                     if (RandomNumber(0, 100) <= list[j][1]) {
-                        user.OpenedSkills[i](target, user, targetArr, timmateArr);
+                        user.ChoosenSkills[i](target, user, targetArr, timmateArr);
+                        triggered = true;
+                    }
+                }
+            }
+        }
+        for (k = 0; k < user.WeaponSkills.length; k++) {
+            for (j = 0; j < list.length; j++) {
+                if (list[j][0] === user.WeaponSkills[k]) {
+                    if (RandomNumber(0, 100) <= list[j][1]) {
+                        user.WeaponSkills[k](target, user, targetArr, timmateArr);
                         triggered = true;
                     }
                 }

@@ -10,11 +10,11 @@ function itemsCheck(loot) {
     }
 }
 
+var typeOfInv;
 function itemsRecieve(item, itemCount) {
     let currentInv;
     let currentInvLength;
     let isDistributed = false;
-    let typeOfInv;
     if (item.isEquiped !== undefined) {
         currentInv = EquipmentInv;
         typeOfInv = "equipment";
@@ -26,7 +26,6 @@ function itemsRecieve(item, itemCount) {
     for (i = 0; i <= currentInvLength; i++) {
         if (currentInv[i] !== undefined) {
             if (currentInv[i][0].name === item.name) {
-                
                 currentInv[i][1] += itemCount;
                 isDistributed = true;
                 if (currentInv[i][1] === 0) {
@@ -49,6 +48,8 @@ function itemsRecieve(item, itemCount) {
 }
 
 var invCard = document.querySelector('.inventoryCard');
+var invCardImg = document.getElementById('inventoryImg');
+var invCardName = document.getElementById('inventoryName');
 function inventoryRendering(invList, num, typeOfInv) {
     let cells;
     if (typeOfInv === "equipment") {
@@ -82,42 +83,30 @@ function inventoryRendering(invList, num, typeOfInv) {
     invCount.innerHTML = invList[1];
     cells[num].appendChild(invDiv);
     cells[num].addEventListener('click', function() {
-        let numI;
-        for (i = 0; i < cells.length; i++) {
-            if (cells[i] = this) {
-                numI = i;
-                break;
-            }
-        }
-        //event();
-        document.getElementById('inventoryImg').setAttribute('src', invList[numI].Avatar);
-        document.getElementById('inventoryImg').style.height = document.getElementById('inventoryImg').style.width;
-        document.getElementById('inventoryName').innerHTML = invList[numI].name;
+        if (this.firstChild === null) return;
+        invCardImg.setAttribute('src', invList[0].Avatar);
+        invCardImg.style.height = invCardImg.style.width;
+        invCardName.innerHTML = invList[0].name;
         invCard.style.display = "block";
-        if (invList[numI].isEquiped !== undefined) {
-            if (invCard.childNodes[5] !== undefined) return;
+        document.querySelector('.blockAll').style.display = "block";
+        closeInvCard();
+        if (invList[0].isEquiped !== undefined) {
             let invBtn = document.createElement('button');
             let invBtnP = document.createElement('p');
-            invBtnP.classList.add('Pg_btn');
-            invBtnP.innerHTML = "Надеть";
-            invBtn.append(invBtnP);
-            invCard.appendChild(invBtn);
+            if (invCard.childNodes[5] === undefined) {
+                invBtnP.classList.add('Pg_btn');
+                invBtnP.innerHTML = "Надеть";
+                invBtn.append(invBtnP);
+                invCard.appendChild(invBtn);
+            }
             invBtn.addEventListener('click', function() {
-                equip(invList[numI]);
+                equip(invList[0]);
                 invCard.style.display = "none";
+                document.querySelector('.blockAll').style.display = "none";
                 invBtn.parentNode.removeChild(invBtn);
             })
         }
     })
-}
-
-function event() {
-    document.addEventListener('click', function(e) {
-        console.log(e);
-        if (e.target !== invCard && invCard.style.display === "block") {
-            invCard.style.display = "none";
-        }
-    });
 }
 
 function equip(equipment) {
@@ -134,6 +123,16 @@ function equip(equipment) {
         }
     }
     if (resump === false) return;
+    if (equipment.OpenedSkills.length > 0) {
+        for (j = 0; j < equipment.OpenedSkills.length; j++) {
+            for (k = 0; k <= Player.WeaponSkills.length; k++) {
+                if (Player.WeaponSkills[k] !== equipment.OpenedSkills[j]) {
+                    Player.WeaponSkills.push(equipment.OpenedSkills[j]);
+                    break;
+                }
+            }
+        }
+    }
     if (equipment.ATK !== undefined) {
         Player.ATK += equipment.ATK;
     }
@@ -157,6 +156,16 @@ function takeOff(equipment) {
             equipment.isEquiped = false;
         }
     }
+    if (equipment.OpenedSkills.length > 0) {
+        for (j = 0; j < equipment.OpenedSkills.length; j++) {
+            for (k = 0; k <= Player.WeaponSkills.length; k++) {
+                if (Player.WeaponSkills[k] === equipment.OpenedSkills[j]) {
+                    Player.WeaponSkills.splice(k, 1);
+                    break;
+                }
+            }
+        }
+    }
     if (equipment.ATK !== undefined) {
         Player.ATK -= equipment.ATK;
     }
@@ -166,6 +175,8 @@ function takeOff(equipment) {
     if (equipment.SPD !== undefined) {
         Player.SPD -= equipment.SPD;
     }
+    itemsRecieve(equipment, 1);
+    equipmentUnrendering(equipment);
 }
 
 function equipmentRendering(equipment) {
@@ -179,11 +190,60 @@ function equipmentRendering(equipment) {
                     equipImg.style.height = "100%";
                     equipImg.setAttribute('src', equipment.Avatar);
                     forEquip[i].childNodes[j].append(equipImg);
+                    forEquip[i].childNodes[j].addEventListener('click', function() {
+                        if (this.firstChild === null) return;
+                        for (k = 0; k < Player.equipmentSlots.length; k++) {
+                            if (Player.equipmentSlots[k][0] = forEquip[k].id) break;
+                        }
+                        invCardImg.setAttribute('src', Player.equipmentSlots[k][1].Avatar);
+                        invCardName.innerHTML = Player.equipmentSlots[k][1].name;
+                        invCard.style.display = "block";
+                        document.querySelector('.blockAll').style.display = "block";
+                        closeInvCard();
+                        if (invCard.childNodes[5] !== undefined) return;
+                            let takeOffBtn = document.createElement('button');
+                            let takeOffP = document.createElement('p');
+                            takeOffP.classList.add('Pg_btn');
+                            takeOffP.innerHTML = "Снять предмет";
+                            takeOffBtn.append(takeOffP);
+                            invCard.appendChild(takeOffBtn);
+                            takeOffBtn.addEventListener('click', function() {
+                                takeOff(Player.equipmentSlots[k][1]);
+                                invCard.style.display = "none";
+                                document.querySelector('.blockAll').style.display = "none";
+                                takeOffBtn.parentNode.removeChild(takeOffBtn);
+                            })
+                    });
                     break;
                 }
             }
         }
     }
+}
+
+function equipmentUnrendering(equipment) {
+    let forEquip = document.querySelectorAll('.forEquipment');
+    for (i = 0; i < forEquip.length; i++) {
+        if (forEquip[i].id === equipment.slot) {
+            for (j = 3; j < forEquip[i].childElementCount + 2; j++) {
+                forEquip[i].childNodes[j].firstChild.parentNode.removeChild(forEquip[i].childNodes[j].firstChild);
+                break;
+            }
+            break;
+        }
+    }
+}
+
+function closeInvCard() {
+    document.addEventListener('click', function(e) {
+        if (e.target === document.querySelector('.blockAll') && invCard.style.display === "block") {
+            document.querySelector('.blockAll').style.display = "none";
+            invCard.style.display = "none";
+            if (invCard.childNodes[5] !== undefined) {
+                invCard.childNodes[5].parentNode.removeChild(invCard.childNodes[5]);
+            }
+        }
+    });
 }
 
 var inv = document.querySelector('.inventory');
@@ -206,12 +266,14 @@ var resourcesBTN = document.getElementById('resourcesBtn');
 var equipmentUI = document.getElementById('equipmentInv');
 
 function openEquipment() {
+    typeOfInv = "equipment";
     equipmentBTN.disabled = true;
     resourcesBTN.disabled = false;
     equipmentUI.style.display = "flex";
 }
 
 function openResources() {
+    typeOfInv = "resource";
     resourcesBTN.disabled = true;
     equipmentBTN.disabled = false;
     equipmentUI.style.display = "none";

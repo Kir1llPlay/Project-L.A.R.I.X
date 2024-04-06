@@ -1,10 +1,11 @@
-class Bokken {
-    name = 'Боккэн';
+class TrainingSword {
+    name = 'Тренировочный меч';
     rarity = 'standart';
     slot = 'weapon';
     isEquiped = false;
     ATK = 1;
     Avatar = 'EquipmentAvatars/Bokken.png';
+    OpenedSkills = [SwordAttack];
 }
 
 class Broadsword {
@@ -31,19 +32,21 @@ class Arquebus {
     Avatar = '';
 }
 
-class TwoHandedMagicSword {
-    name = 'Двуручный магический меч';
+class TwoHandedSword {
+    name = 'Двуручный меч';
     rarity = 'epic';
     slot = 'weapon';
     isEquiped = false;
     ATK = 25;
     Avatar = 'EquipmentAvatars/TwoHandedMagicSword.png';
+    OpenedSkills = [SwordAttack];
 }
 
 class DuskAx {
     name = 'Секира сумрака';
     rarity = 'legend';
     slot = 'weapon';
+    isEquiped = false;
     ATK = 117;
     Avatar = '';
     
