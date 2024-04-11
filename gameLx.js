@@ -105,8 +105,8 @@ function LightAttacked(face) {
     }, 100);
 }
 
-var spliced;
 function Del(face) {
+    let spliced;
     if (face.attack === "Timmate") {
         spliced = TimmateArr.indexOf(face);
         TimmateArr.splice(spliced, 1);
@@ -116,10 +116,10 @@ function Del(face) {
         EnemyArr.splice(spliced, 1);
     }
     StopBattle();
+    return;
 }
 
 function StopBattle() {
-    console.log("enemy:", EnemyArr.length, " ", "tim:", TimmateArr.length);
     if (EnemyArr.length === 0 || TimmateArr.length === 0) {
         EnemyArr.length = 0;
         TimmateArr.length = 0;
@@ -138,6 +138,7 @@ function StopBattle() {
             EnemyField.replaceChildren();
             Move.innerHTML = "Текущий ход: " + moveCounter;
         }, 500);
+        return;
     }
 }
 

@@ -15,7 +15,23 @@
     user-select: none;
 }
 
+#resourceInv {
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
+    user-select: none;
+}
+
 .equipInvCell {
+    width: 55px;
+    height: 55px;
+    border: solid 1px black;
+    margin: 1px;
+}
+
+.resInvCell {
     width: 55px;
     height: 55px;
     border: solid 1px black;

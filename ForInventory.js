@@ -1,12 +1,13 @@
-var ResourcesInv = {}
-
-var EquipmentInv = {}
+var ResourcesInv = {};
+var EquipmentInv = {};
 
 function itemsCheck(loot) {
-    for (i = 0; i < loot.length; i++) {
-        if (RandomNumber(0, 100) <= loot[i][2]) {
-            itemsRecieve(loot[i][0], RandomNumber(1, loot[i][1]));
+    let iter = 0;
+    while (iter < loot.length) {
+        if (RandomNumber(0, 100) <= loot[iter][2]) {
+            itemsRecieve(loot[iter][0], RandomNumber(1, loot[iter][1]));
         }
+        iter++;
     }
 }
 
@@ -55,7 +56,7 @@ function inventoryRendering(invList, num, typeOfInv) {
     if (typeOfInv === "equipment") {
         cells = document.querySelectorAll('.equipInvCell');
     } else {
-        return;
+        cells = document.querySelectorAll('.resInvCell');
     }
     if (invList === undefined || invList[1] === 0) {
         cells[num].firstChild.parentNode.removeChild(cells[num].firstChild);
@@ -259,16 +260,19 @@ function CloseInventory() {
     equipmentBTN.disabled = false;
     resourcesBTN.disabled = false;
     equipmentUI.style.display = "none";
+    resourceUI.style.display = "none";
 }
 
 var equipmentBTN = document.getElementById('equipmentBtn');
 var resourcesBTN = document.getElementById('resourcesBtn');
 var equipmentUI = document.getElementById('equipmentInv');
+var resourceUI = document.getElementById('resourceInv');
 
 function openEquipment() {
     typeOfInv = "equipment";
     equipmentBTN.disabled = true;
     resourcesBTN.disabled = false;
+    resourceUI.style.display = "none";
     equipmentUI.style.display = "flex";
 }
 
@@ -277,6 +281,7 @@ function openResources() {
     resourcesBTN.disabled = true;
     equipmentBTN.disabled = false;
     equipmentUI.style.display = "none";
+    resourceUI.style.display = "flex";
 }
 
 var profileDiv = document.querySelector('.Profile');
