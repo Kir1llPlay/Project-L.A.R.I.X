@@ -137,7 +137,6 @@ function DownloadObj(location) {
 var actionBar = document.querySelector('.actionCard');
 function MoveTable(location) {
     let tds = document.getElementsByTagName('td');
-    
     for (i = 0; i < tds.length; i++) {
         tds[i].addEventListener('click', function() {
             if (this.innerHTML == 0) {
@@ -225,6 +224,7 @@ function RenderHeroTable() {
     if (document.querySelectorAll('.elems').length === Player.OpenedHeroes.length) {
         return;
     }
+    HeroTable.replaceChildren();
     for (i = 0; i < Player.OpenedHeroes.length; i++) {
         let HeroImg = document.createElement('img');
         HeroImg.setAttribute('src', Player.OpenedHeroes[i].Avatar);
@@ -232,25 +232,35 @@ function RenderHeroTable() {
         let HeroDiv = document.createElement('div');
         HeroDiv.classList.add('elems');
         HeroDiv.append(HeroImg);
-        HeroTable.append(HeroDiv);
+        HeroTable.appendChild(HeroDiv);
     }
+    addClasses();
     HeroTableEventListener();
+}
+
+function addClasses() {
+    for (i = 0; i < 3; i++) {
+        if (ChoosenHeroes[i].firstChild !== null) {
+            let num = ChoosenHeroes[i].firstChild.classList[0];
+            document.querySelectorAll('.elems')[num].classList.add('choosen');
+        }
+    }
 }
 
 var choosenArr = [];
 var ChoosenHeroes = document.getElementsByClassName('choosenElems');
 function HeroTableEventListener() {
     let HeroDivs = document.getElementsByClassName('elems');
-    
     for (i = 0; i < HeroDivs.length; i++) {
         HeroDivs[i].addEventListener('click', function() {
             this.classList.toggle('choosen');
             let index = Array.from(HeroDivs).indexOf(this);
-            if (!document.querySelectorAll('.elems')[index].classList.contains('choosen')) {
+            if (!HeroDivs[index].classList.contains('choosen')) {
                 for (j = 0; j < 3; j++) {
                     if (ChoosenHeroes[j].firstChild !== null) {
                         if (ChoosenHeroes[j].firstChild.classList[0] === String(index)) {
                             RemoveChoosenHero(ChoosenHeroes[j].firstChild);
+                            break;
                         }
                     }
                 }
@@ -267,6 +277,10 @@ function DownloadChoosenHero(num) {
         if (ChoosenHeroes[j].firstChild !== null ) {
             if (ChoosenHeroes[j].firstChild.classList[0] === String(num)) {
                 stop = true;
+                break;
+            }
+            if (j === 2) {
+                document.querySelectorAll('.elems')[num].classList.remove('choosen');
             }
         }
     }

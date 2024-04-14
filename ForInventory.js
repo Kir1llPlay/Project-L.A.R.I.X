@@ -107,7 +107,39 @@ function inventoryRendering(invList, num, typeOfInv) {
                 invBtn.parentNode.removeChild(invBtn);
             })
         }
+        if (invList[0].type !== undefined) {
+            if (invList[0].type !== "shards") return;
+            let invBtn = document.createElement('button');
+            let invBtnP = document.createElement('p');
+            if (invCard.childNodes[5] === undefined && invList[1] >= invList[0].needfulCount) {
+                invBtnP.classList.add('Pg_btn');
+                invBtnP.innerHTML = "Активировать";
+                invBtn.append(invBtnP);
+                invCard.appendChild(invBtn);
+            }
+            invBtn.addEventListener('click', function() {
+                activateHero(invList[0]);
+                invCard.style.display = "none";
+                document.querySelector('.blockAll').style.display = "none";
+                invBtn.parentNode.removeChild(invBtn);
+            })
+        }
     })
+}
+
+function activateHero(hero) {
+    let newHero = new hero.thatHero;
+    let overlap = false;
+    for (i = 0; i < Player.OpenedHeroes.length; i++) {
+        if (Player.OpenedHeroes[i].name === newHero.name) {
+            overlap = true;
+            break;
+        }
+    }
+    if (overlap === true) return;
+    itemsRecieve(hero, -5);
+    newHero.attack = "Timmate";
+    Player.OpenedHeroes.push(newHero);
 }
 
 function equip(equipment) {

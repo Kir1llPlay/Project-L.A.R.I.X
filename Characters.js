@@ -11,7 +11,7 @@ class BatTemplate {
     look = 'InGamePicLx/Jetta.png';
     ChoosenSkills = [];
     WeaponSkills = [];
-    loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 10] ];
+    loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90] ];
 }
 
 class PlayerInfo {

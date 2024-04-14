@@ -116,11 +116,11 @@ function Del(face) {
         EnemyArr.splice(spliced, 1);
     }
     StopBattle();
-    return;
 }
 
 function StopBattle() {
     if (EnemyArr.length === 0 || TimmateArr.length === 0) {
+        console.log(moveCounter);
         EnemyArr.length = 0;
         TimmateArr.length = 0;
         for (i = 0; i < choosenArr.length; i++) {

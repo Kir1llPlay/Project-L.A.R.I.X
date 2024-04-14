@@ -18,6 +18,9 @@ class Hide {
 
 class BatShards {
     name = 'Фрагменты души летучей мыши';
+    type = 'shards';
+    needfulCount = 5;
+    thatHero = BatTemplate;
     rarity = 'standart';
     Avatar = 'ItemsAvatars/BatShards.png';
 }

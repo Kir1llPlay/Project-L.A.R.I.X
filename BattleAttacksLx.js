@@ -25,7 +25,7 @@ const Bombing = function(target, user, targetArr, timmateArr) {
     }
 }
 
-const SwordAttack = function(target, user, targetArr, timmateArr) {
+const Bite = function(target, user, targetArr, timmateArr) {
     if (target.DEF >= user.ATK) {
         return;
     }
@@ -33,7 +33,7 @@ const SwordAttack = function(target, user, targetArr, timmateArr) {
     CheckHP(target);
 }
 
-const Bite = function(target, user, targetArr, timmateArr) {
+const SwordAttack = function(target, user, targetArr, timmateArr) {
     if (target.DEF >= user.ATK) {
         return;
     }
