@@ -137,8 +137,7 @@ function StopBattle() {
             TimmateField.replaceChildren();
             EnemyField.replaceChildren();
             Move.innerHTML = "Текущий ход: " + moveCounter;
-        }, 500);
-        return;
+        }, 400);
     }
 }
 
@@ -168,9 +167,9 @@ function Start(target, user, targetArr, timmateArr) {
             }
         }
         for (k = 0; k < user.WeaponSkills.length; k++) {
-            for (j = 0; j < list.length; j++) {
-                if (list[j][0] === user.WeaponSkills[k]) {
-                    if (RandomNumber(0, 100) <= list[j][1]) {
+            for (y = 0; y < list.length; y++) {
+                if (list[y][0] === user.WeaponSkills[k]) {
+                    if (RandomNumber(0, 100) <= list[y][1]) {
                         user.WeaponSkills[k](target, user, targetArr, timmateArr);
                         triggered = true;
                     }
