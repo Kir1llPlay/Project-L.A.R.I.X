@@ -106,6 +106,9 @@ function LightAttacked(face) {
 }
 
 function Del(face) {
+    if (GlobalArr.indexOf(face) <= counter) {
+        counter -= 1;
+    }
     let spliced;
     if (face.attack === "Timmate") {
         spliced = TimmateArr.indexOf(face);
@@ -120,7 +123,6 @@ function Del(face) {
 
 function StopBattle() {
     if (EnemyArr.length === 0 || TimmateArr.length === 0) {
-        console.log(moveCounter);
         EnemyArr.length = 0;
         TimmateArr.length = 0;
         for (i = 0; i < choosenArr.length; i++) {

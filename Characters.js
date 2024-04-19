@@ -24,7 +24,7 @@ class PlayerInfo {
     SPD = 7;
     DEF = 0;
     Avatar = 'AvatarsLx/ArteonLx.png';
-    look = 'InGamePicLx/Bono.png';
+    look = 'InGamePicLx/Maat.png';
     OpenedHeroes = [this, new Bomber, new Spider];
     ChoosenSkills = [];
     WeaponSkills = [];
@@ -53,7 +53,7 @@ class Bomber {
     ATK = 2;
     SPD = 7;
     DEF = 0;
-    Avatar = '';
+    Avatar = 'AvatarsLx/Bomber.png';
     ChoosenSkills = [Bombing];
     WeaponSkills = [];
 }
@@ -67,7 +67,7 @@ class Spider {
     ATK = 2;
     SPD = 6;
     DEF = 0;
-    Avatar = 'AvatarsLx/ArteonLx.png';
+    Avatar = 'AvatarsLx/Spider.png';
     ChoosenSkills = [Bite];
     WeaponSkills = [];
 }

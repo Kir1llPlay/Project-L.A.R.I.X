@@ -318,6 +318,7 @@ function openResources() {
 
 var profileDiv = document.querySelector('.Profile');
 function openProfile() {
+    CloseInventory();
     document.getElementById('StartLocation').style.display = "none";
     profileDiv.style.display = "block";
 }

@@ -182,9 +182,9 @@ td {
 .filter {
     display: none;
     width: 100%;
-    height: 100%;
+    height: 200%;
     backdrop-filter: grayscale(60%);
-    position: fixed;
+    position: absolute;
     z-index: 100;
 }
 
@@ -204,6 +204,7 @@ td {
     margin-bottom: 20px;
     width: 98%;
     max-width: 980px;
+    z-index: 101;
 }
 
 .Footer {
@@ -234,4 +235,12 @@ td {
     color: white;
     text-shadow: red 0 0 5px;
     border-bottom: solid rgba(120, 54, 18) 1px;
+}
+
+.CharactersMenu {
+    display: none;
+    width: 100%;
+    min-height: 100%;
+    max-width: 1000px;
+    background-color: #fcf7d0;
 }
