@@ -47,12 +47,22 @@ function CheckHP(face) {
     if (face.HP > face.maxHP) {
         face.HP = face.maxHP;
     }
+    if (face.MP > face.maxMP) {
+        face.MP = face.maxMP;
+    }
+    if (face.MP < 0) {
+        face.MP = 0;
+    }
     ShowHP(face);
 }
 
 function ShowHP(face) {
     face.characterHPcount.innerHTML = face.HP + '/' + face.maxHP;
     face.characterHP.style.width = face.HP / face.maxHP * 100 + 'px';
+    if (face.maxMP > 0) {
+        face.characterMPcount.innerHTML = face.MP + '/' + face.maxMP;
+        face.characterMP.style.width = face.MP / face.maxMP * 100 + 'px';
+    }
 }
 
 var TimmateField = document.getElementById('timmateField');
@@ -79,13 +89,17 @@ function CreateHTML(face) {
     face.characterHPborder = document.createElement('div');
     face.characterHP = document.createElement('div');
     face.characterHPcount = document.createElement('p');
+    if (face.maxMP === 0) return;
+    face.characterMPborder = document.createElement('div');
+    face.characterMP = document.createElement('div');
+    face.characterMPcount = document.createElement('p');
 }
 
 function DownloadToBattle(field, face) {
     ShowHP(face);
-    face.characterHPborder.classList.add('HPbarBorder');
-    face.characterHP.classList.add('HPbar');
-    face.characterHPcount.classList.add('HPcount');
+    face.characterHPborder.classList.add('BarBorder');
+    face.characterHP.classList.add('Bar');
+    face.characterHPcount.classList.add('BarCount');
     face.characterAvatar.classList.add('battleImg');
     face.characterAvatar.setAttribute('src', face.Avatar);
     if (face.attack === "Enemy") {
@@ -93,8 +107,17 @@ function DownloadToBattle(field, face) {
     } else {
         face.characterDiv.classList.add('TIMMATE');
     }
-    face.characterHPborder.append(face.characterHPcount);
-    face.characterDiv.append(face.characterAvatar, face.characterHPborder, face.characterHP);
+    face.characterHPborder.append(face.characterHPcount, face.characterHP);
+    face.characterDiv.append(face.characterAvatar, face.characterHPborder);
+    if (face.maxMP > 0) {
+        face.characterMPborder.classList.add('BarBorder');
+        face.characterMP.classList.add('Bar');
+        face.characterMPcount.classList.add('BarCount');
+        face.characterMPborder.style.bottom = "-48px";
+        face.characterMP.style.backgroundColor = "#14a1ff";
+        face.characterMPborder.append(face.characterMPcount, face.characterMP);
+        face.characterDiv.append(face.characterMPborder);
+    }
     field.appendChild(face.characterDiv);
 }
 
@@ -157,7 +180,6 @@ function RandomNumber(a, b) {
 var triggered = false;
 function Start(target, user, targetArr, timmateArr) {
     setTimeout(() => {
-        LightAttacked(target);
         for (i = 0; i < user.ChoosenSkills.length; i++) {
             for (j = 0; j < list.length; j++) {
                 if (list[j][0] === user.ChoosenSkills[i]) {
