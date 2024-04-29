@@ -1,7 +1,7 @@
 class TrainingSword {
     name = 'Тренировочный меч';
     rarity = 'standart';
-    slot = 'weapon';
+    slot = 'majorHand';
     isEquiped = false;
     ATK = 1;
     Avatar = 'EquipmentAvatars/Bokken.png';
@@ -11,7 +11,7 @@ class TrainingSword {
 class Broadsword {
     name = 'Палаш';
     rarity = 'rare';
-    slot = 'weapon';
+    slot = 'majorHand';
     ATK = 14;
     Avatar = '';
 }
@@ -19,7 +19,7 @@ class Broadsword {
 class Bow {
     name = 'Лук';
     rarity = 'rare';
-    slot = 'weapon';
+    slot = 'majorHand';
     ATK = 15;
     Avatar = '';
 }
@@ -27,7 +27,7 @@ class Bow {
 class Arquebus {
     name = 'Аркебуза';
     rarity = 'rare';
-    slot = 'weapon';
+    slot = 'majorHand';
     ATK = 20;
     Avatar = '';
 }
@@ -35,7 +35,7 @@ class Arquebus {
 class TwoHandedSword {
     name = 'Двуручный меч';
     rarity = 'epic';
-    slot = 'weapon';
+    slot = 'majorHand';
     isEquiped = false;
     ATK = 25;
     Avatar = 'EquipmentAvatars/TwoHandedMagicSword.png';

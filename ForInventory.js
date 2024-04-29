@@ -327,3 +327,98 @@ function closeProfile() {
     document.getElementById('StartLocation').style.display = "block";
     profileDiv.style.display = "none";
 }
+
+var charactersDiv = document.querySelector('.CharactersMenu');
+function openCharacters() {
+    charactersDiv.style.display = "block";
+    profileDiv.style.display = "none";
+    renderOpenedHeroes();
+}
+
+function closeCharacters() {
+    charactersDiv.style.display = "none";
+    profileDiv.style.display = "block";
+}
+
+function renderOpenedHeroes() {
+    let UnlockedHeroesDiv = document.querySelector('.OpenHeroes');
+    if (document.querySelectorAll('.unlockedHeroes').length === Player.OpenedHeroes.length) {
+        return;
+    }
+    UnlockedHeroesDiv.replaceChildren();
+    for (i = 1; i < Player.OpenedHeroes.length; i++) {
+        let HeroImg = document.createElement('img');
+        HeroImg.setAttribute('src', Player.OpenedHeroes[i].Avatar);
+        HeroImg.classList.add('openImg');
+        let HeroDiv = document.createElement('div');
+        HeroDiv.classList.add('unlockedHeroes');
+        HeroDiv.append(HeroImg);
+        UnlockedHeroesDiv.appendChild(HeroDiv);
+    }
+    heroesListener();
+}
+
+function heroesListener() {
+    let AllOpenHeroes = document.getElementsByClassName('unlockedHeroes');
+    for (i = 0; i < AllOpenHeroes.length; i++) {
+        AllOpenHeroes[i].addEventListener('click', function() {
+            let index = Array.from(AllOpenHeroes).indexOf(this);
+            openHeroCard(index + 1);
+        })
+    }
+}
+
+function openHeroCard(index) {
+    document.querySelector('.HeroCard').style.display = "block";
+    document.querySelector('.heroImg').setAttribute('src', Player.OpenedHeroes[index].look);
+    document.querySelector('.heroName').innerHTML = Player.OpenedHeroes[index].name;
+    document.querySelector('.heroLevel').innerHTML = "Уровень: " + Player.OpenedHeroes[index].curLevel + "/" + Player.OpenedHeroes[index].maxLevel;
+    if (Player.OpenedHeroes[index].curLevel < Player.OpenedHeroes[index].maxLevel) {
+        document.getElementById('upgradeButton').style.display = "block";
+        document.getElementById('upgradeButton').onclick = () => {
+            levelUpHero(index);
+        }
+    }
+}
+
+function closeHeroCard() {
+    document.querySelector('.HeroCard').style.display = "none";
+    document.getElementById('upgradeButton').style.display = "none";
+}
+
+function levelUpHero(index) {
+    for (i = 0; i <= Object.keys(ResourcesInv).length; i++) {
+        if (ResourcesInv[i] === undefined) return;
+        if (ResourcesInv[i][0].name === Player.OpenedHeroes[index].neededToLevelUp[0].name) {
+            if (ResourcesInv[i][1] >= Player.OpenedHeroes[index].neededToLevelUp[1]) {
+                itemsRecieve(ResourcesInv[i][0], -5);
+                levelUp(index);
+            } else {
+                alert("Недостаточно осколков персонажа");
+            }
+        }
+    }
+}
+
+function levelUp(index) {
+    for (i = 0; i < Player.OpenedHeroes[index].levelUp.length; i++) {
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "hp") {
+            Player.OpenedHeroes[index].HP += Player.OpenedHeroes[index].levelUp[i][1];
+            Player.OpenedHeroes[index].maxHP += Player.OpenedHeroes[index].levelUp[i][1];
+        }
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "atk") {
+            Player.OpenedHeroes[index].ATK += Player.OpenedHeroes[index].levelUp[i][1];
+        }
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "spd") {
+            Player.OpenedHeroes[index].SPD += Player.OpenedHeroes[index].levelUp[i][1];
+        }
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "dex") {
+            Player.OpenedHeroes[index].DEX += Player.OpenedHeroes[index].levelUp[i][1];
+        }
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "skills") {
+            Player.OpenedHeroes[index].ChoosenSkills.push(Player.OpenedHeroes[index].levelUp[i][1]);
+        }
+    }
+    Player.OpenedHeroes[index].curLevel += 1;
+    document.querySelector('.heroLevel').innerHTML = "Уровень: " + Player.OpenedHeroes[index].curLevel + "/" + Player.OpenedHeroes[index].maxLevel;
+}

@@ -1,25 +1,6 @@
-class BatTemplate {
-    name = "Летучая мышь";
-    race = "beast";
-    attack = "Enemy";
-    HP = 100;
-    maxHP = 100;
-    MP = 0;
-    maxMP = 0;
-    ATK = 1;
-    SPD = 5;
-    DEF = 0;
-    DEX = 1;
-    ACC = 1;
-    Avatar = 'AvatarsLx/BatLx.png';
-    look = 'InGamePicLx/Jetta.png';
-    ChoosenSkills = [];
-    WeaponSkills = [];
-    loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90] ];
-}
-
 class PlayerInfo {
-    name = "Player";
+    ID = 0;
+    name = "Игрок";
     race = "human";
     attack = "Timmate";
     HP = 18;
@@ -28,7 +9,7 @@ class PlayerInfo {
     maxMP = 10;
     ATK = 2;
     SPD = 7;
-    DEF = 1;
+    DEF = 0;
     DEX = 1;
     ACC = 1;
     Avatar = 'AvatarsLx/ArteonLx.png';
@@ -36,10 +17,36 @@ class PlayerInfo {
     OpenedHeroes = [this, new Bomber, new Spider];
     ChoosenSkills = [MagicAttack];
     WeaponSkills = [];
-    equipmentSlots = [ ['weapon'], ['head'], ];
+    equipmentSlots = [ ['majorHand'], ['minorHand'], ['head'], ];
+}
+
+class BatTemplate {
+    ID = 1;
+    name = "Летучая мышь";
+    race = "beast";
+    attack = "Enemy";
+    HP = 7;
+    maxHP = 7;
+    MP = 0;
+    maxMP = 0;
+    ATK = 1;
+    SPD = 5;
+    DEF = 0;
+    DEX = 1;
+    ACC = 1;
+    Avatar = 'AvatarsLx/BatLx.png';
+    look = 'InGamePicLx/Bat.png';
+    ChoosenSkills = [];
+    WeaponSkills = [];
+    loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90] ];
+    curLevel = 1;
+    maxLevel = 2;
+    neededToLevelUp = [new BatShards, 5];
+    levelUp = [ ['hp', 2], ['atk', 1], ['dex', 1], ['spd', 1], ['skills', Bite], ];
 }
 
 class Arravel {
+    ID = 2;
     name = "Арравел";
     race = "beast";
     attack = "Timmate";
@@ -57,11 +64,12 @@ class Arravel {
 }
 
 class Bomber {
+    ID = 3;
     name = "Взрывотехник";
     race = "undead";
     attack = "Timmate";
-    HP = 17;
-    maxHP = 17;
+    HP = 14;
+    maxHP = 14;
     MP = 0;
     maxMP = 0;
     ATK = 2;
@@ -70,16 +78,20 @@ class Bomber {
     DEX = 1;
     ACC = 1;
     Avatar = 'AvatarsLx/Bomber.png';
+    look = 'InGamePicLx/Minerva.png';
     ChoosenSkills = [Bombing];
     WeaponSkills = [];
+    curLevel = 1;
+    maxLevel = 1;
 }
 
 class Spider {
+    ID = 4;
     name = "Паук";
     race = "insect";
     attack = "Timmate";
-    HP = 15;
-    maxHP = 15;
+    HP = 9;
+    maxHP = 9;
     MP = 0;
     maxMP = 0;
     ATK = 2;
@@ -88,6 +100,9 @@ class Spider {
     DEX = 1;
     ACC = 1;
     Avatar = 'AvatarsLx/Spider.png';
+    look = 'InGamePicLx/Jetta.png';
     ChoosenSkills = [Bite];
     WeaponSkills = [];
+    curLevel = 1;
+    maxLevel = 1;
 }

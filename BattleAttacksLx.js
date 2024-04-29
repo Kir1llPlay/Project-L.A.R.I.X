@@ -62,7 +62,10 @@ const SwordAttack = function(target, user, targetArr, timmateArr) {
 
 const MagicAttack = function(target, user, targetArr, timmateArr) {
     let cost = 2;
-    if (user.MP === 0 || user.MP - cost < 0) return;
+    if (user.MP === 0 || user.MP - cost < 0) {
+        StandartAttack(target, user, targetArr, timmateArr);
+        return;
+    }
     if (target.DEF >= user.ATK) {
         return;
     }

@@ -272,16 +272,17 @@ function HeroTableEventListener() {
 }
 
 function DownloadChoosenHero(num) {
-    let stop;
+    let stop = false;
     for (j = 0; j < 3; j++) {
-        if (ChoosenHeroes[j].firstChild !== null ) {
-            if (ChoosenHeroes[j].firstChild.classList[0] === String(num)) {
-                stop = true;
-                break;
-            }
-            if (j === 2) {
-                document.querySelectorAll('.elems')[num].classList.remove('choosen');
-            }
+        if (ChoosenHeroes[j].firstChild === null ) break;
+        if (ChoosenHeroes[j].firstChild.classList[0] === String(num)) {
+            stop = true;
+            break;
+        }
+        if (j === 2) {
+            document.querySelectorAll('.elems')[num].classList.remove('choosen');
+            stop = true;
+            break;
         }
     }
     if (stop === true) return;

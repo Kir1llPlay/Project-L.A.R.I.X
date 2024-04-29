@@ -8,7 +8,6 @@ var GlobalArr = [];
 function createEnemyArr() {
     for (i = 0; i < EnemyArrLength; i++) {
         EnemyArr[i] = new BatTemplate;
-        EnemyArr[i].ID = i;
     }
     BattleCycle();
 }
@@ -53,16 +52,18 @@ function CheckHP(face) {
     if (face.MP < 0) {
         face.MP = 0;
     }
-    ShowHP(face);
+    ShowHP(face, true);
 }
 
-function ShowHP(face) {
+function ShowHP(face, bool) {
     face.characterHPcount.innerHTML = face.HP + '/' + face.maxHP;
     face.characterHP.style.width = face.HP / face.maxHP * 100 + 'px';
     if (face.maxMP > 0) {
         face.characterMPcount.innerHTML = face.MP + '/' + face.maxMP;
         face.characterMP.style.width = face.MP / face.maxMP * 100 + 'px';
     }
+    if (!bool) return;
+    BattleCycle();
 }
 
 var TimmateField = document.getElementById('timmateField');
@@ -96,7 +97,7 @@ function CreateHTML(face) {
 }
 
 function DownloadToBattle(field, face) {
-    ShowHP(face);
+    ShowHP(face, false);
     face.characterHPborder.classList.add('BarBorder');
     face.characterHP.classList.add('Bar');
     face.characterHPcount.classList.add('BarCount');
@@ -137,33 +138,35 @@ function Del(face) {
         spliced = TimmateArr.indexOf(face);
         TimmateArr.splice(spliced, 1);
     } else {
-        spliced = EnemyArr.indexOf(face);
         itemsCheck(face.loot);
+        spliced = EnemyArr.indexOf(face);
         EnemyArr.splice(spliced, 1);
     }
     StopBattle();
 }
 
 function StopBattle() {
-    if (EnemyArr.length === 0 || TimmateArr.length === 0) {
-        EnemyArr.length = 0;
-        TimmateArr.length = 0;
-        for (i = 0; i < choosenArr.length; i++) {
-            choosenArr[i].HP = choosenArr[i].maxHP;
-        }
-        choosenArr.length = 0;
-        moveCounter = 1;
-        counter = -1;
-        setTimeout(function() {
-            alert("Бой окончен!");
-            battleWindow.style.display = 'none';
-            Move.style.display = 'none';
-            document.getElementById('StartLocation').style.display = "block";
-            TimmateField.replaceChildren();
-            EnemyField.replaceChildren();
-            Move.innerHTML = "Текущий ход: " + moveCounter;
-        }, 400);
+    if (EnemyArr.length > 0 && TimmateArr.length > 0) {
+        BattleCycle();
+        return;
     }
+    EnemyArr.length = 0;
+    TimmateArr.length = 0;
+    for (i = 0; i < choosenArr.length; i++) {
+        choosenArr[i].HP = choosenArr[i].maxHP;
+    }
+    choosenArr.length = 0;
+    moveCounter = 1;
+    counter = -1;
+    setTimeout(function() {
+        alert("Бой окончен!");
+        battleWindow.style.display = 'none';
+        Move.style.display = 'none';
+        document.getElementById('StartLocation').style.display = "block";
+        TimmateField.replaceChildren();
+        EnemyField.replaceChildren();
+        Move.innerHTML = "Текущий ход: " + moveCounter;
+    }, 400);
 }
 
 function SortGlobalArr() {
@@ -204,7 +207,6 @@ function Start(target, user, targetArr, timmateArr) {
             StandartAttack(target, user, targetArr, timmateArr);
         }
         triggered = false;
-        BattleCycle();
     }, 100)
 }
 

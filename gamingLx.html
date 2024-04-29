@@ -101,6 +101,10 @@
             Закрыть профиль
         </p>
         </button>
+        <button style="margin: 10px;" onclick="openCharacters()"><p class="Pg_btn">
+            Персонажи
+        </p>
+        </button>
         <div class="forEquipment" id="weapon">
             <p>Оружие</p>
             <div class="profileEquipCell"></div>
@@ -108,7 +112,29 @@
     </div>
 
     <div class="CharactersMenu">
-        
+        <button style="margin: 10px;" onclick="closeCharacters()"><p class="Pg_btn">
+            Назад
+        </p>
+        </button>
+        <div class="OpenHeroes"></div>
+        </div>
+    </div>
+    <div class="HeroCard">
+        <button style="margin: 10px" onclick="closeHeroCard()"><p class="Pg_btn">
+            Закрыть
+        </p>
+        </button>
+        <div class="centerCard"><img class="heroImg"></div>
+        <footer>
+        <div class="centerCard">
+            <p class="heroName"></p>
+            <p class="heroLevel"></p>
+            <button id="upgradeButton" style="display: none;"><p class="Pg_btn">
+                Улучшить героя
+            </p>
+            </button>
+        </div>
+        </footer>
     </div>
 
     <div class="BattleMenu">

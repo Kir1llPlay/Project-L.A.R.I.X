@@ -217,7 +217,6 @@ td {
     border-radius: 7px;
     font-size: 13;
     box-shadow: 0 0 5px rgba(79, 22, 8, 1);
-
 }
 
 .text {
@@ -243,4 +242,41 @@ td {
     min-height: 100%;
     max-width: 1000px;
     background-color: #fcf7d0;
+}
+
+.OpenHeroes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 10px 4px;
+}
+
+.unlockedHeroes {
+    width: 65px;
+    height: 65px;
+    margin: 1px;
+    border: solid 2px blue;
+}
+
+.HeroCard {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    max-width: 1000px;
+    height: 100vh;
+    background-color: #fcf7d0;
+    z-index: 1000;
+}
+
+.heroImg {
+    width: 80vw;
+    height: 80vw;
+}
+
+.centerCard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
