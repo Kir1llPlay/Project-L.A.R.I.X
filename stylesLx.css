@@ -1,13 +1,14 @@
 html, body {
 margin: 0;
+min-height: 100vh;
 }
 
 body {
 display: flex;
 justify-content: center;
 align-items: center;
-background: linear-gradient(45deg, #548c9c, #7ab2c2, #a2cfdb);
-min-height: 100vh;
+background: linear-gradient(45deg, #255aeb, #65aff5, #9dedf3);
+min-height: 100%;
 }
 
 .Pg_btn {

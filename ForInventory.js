@@ -369,7 +369,8 @@ function heroesListener() {
 }
 
 function openHeroCard(index) {
-    document.querySelector('.HeroCard').style.display = "inline-block";
+    charactersDiv.style.display = "none";
+    document.querySelector('.HeroCard').style.display = "block";
     document.querySelector('.heroImg').setAttribute('src', Player.OpenedHeroes[index].look);
     document.querySelector('.heroName').innerHTML = Player.OpenedHeroes[index].name;
     document.querySelector('.heroLevel').innerHTML = "Уровень: " + Player.OpenedHeroes[index].curLevel + "/" + Player.OpenedHeroes[index].maxLevel;
@@ -419,6 +420,7 @@ function showNewHeroStats(typeOfStat, countOfStat, index) {
 function closeHeroCard() {
     document.querySelector('.HeroCard').style.display = "none";
     document.getElementById('upgradeButton').style.display = "none";
+    charactersDiv.style.display = "block";
 }
 
 function levelUpHero(index) {
