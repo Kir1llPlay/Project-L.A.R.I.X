@@ -265,7 +265,7 @@ td {
     position: absolute;
     width: 100vw;
     max-width: 1000px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #fcf7d0;
     z-index: 1000;
 }
@@ -278,5 +278,6 @@ td {
 .centerCard {
     width: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

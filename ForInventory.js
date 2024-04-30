@@ -369,15 +369,50 @@ function heroesListener() {
 }
 
 function openHeroCard(index) {
-    document.querySelector('.HeroCard').style.display = "block";
+    document.querySelector('.HeroCard').style.display = "inline-block";
     document.querySelector('.heroImg').setAttribute('src', Player.OpenedHeroes[index].look);
     document.querySelector('.heroName').innerHTML = Player.OpenedHeroes[index].name;
     document.querySelector('.heroLevel').innerHTML = "Уровень: " + Player.OpenedHeroes[index].curLevel + "/" + Player.OpenedHeroes[index].maxLevel;
+    showHeroStats(index);
     if (Player.OpenedHeroes[index].curLevel < Player.OpenedHeroes[index].maxLevel) {
         document.getElementById('upgradeButton').style.display = "block";
         document.getElementById('upgradeButton').onclick = () => {
             levelUpHero(index);
         }
+    }
+}
+
+function showHeroStats(index) {
+    document.querySelector('.forHP').innerHTML = "ХП: " + Player.OpenedHeroes[index].maxHP;
+    document.querySelector('.forMP').innerHTML = "Мана: " + Player.OpenedHeroes[index].maxMP;
+    document.querySelector('.forATK').innerHTML = "АТК: " + Player.OpenedHeroes[index].ATK;
+    document.querySelector('.forDEF').innerHTML = "Защита: " + Player.OpenedHeroes[index].DEF;
+    document.querySelector('.forDEX').innerHTML = "Ловкость: " + Player.OpenedHeroes[index].DEX;
+    document.querySelector('.forACC').innerHTML = "Точность: " + Player.OpenedHeroes[index].ACC;
+    document.querySelector('.forSPD').innerHTML = "Скорость: " + Player.OpenedHeroes[index].SPD;
+}
+
+function showNewHeroStats(typeOfStat, countOfStat, index) {
+    if (typeOfStat === "hp") {
+        document.querySelector('.forHP').innerHTML = "ХП: " + Player.OpenedHeroes[index].maxHP + `<font color="green"> +${countOfStat}</font>`;
+    }
+    if (typeOfStat === "mp") {
+        document.querySelector('.forMP').innerHTML = "Мана: " + Player.OpenedHeroes[index].maxMP + `<font color="green"> +${countOfStat}</font>`;
+    }
+    if (typeOfStat === "atk") {
+        document.querySelector('.forATK').innerHTML = "АТК: " + Player.OpenedHeroes[index].ATK + `<font color="green"> +${countOfStat}</font>`;
+    }
+    if (typeOfStat === "def") {
+        document.querySelector('.forDEF').innerHTML = "Защита: " + Player.OpenedHeroes[index].DEF + `<font color="green"> +${countOfStat}</font>`;
+    }
+    if (typeOfStat === "dex") {
+        document.querySelector('.forDEX').innerHTML = "Ловкость: " + Player.OpenedHeroes[index].DEX + `<font color="green"> +${countOfStat}</font>`;
+    }
+    if (typeOfStat === "acc") {
+        document.querySelector('.forACC').innerHTML = "Точность: " + Player.OpenedHeroes[index].ACC + `<font color="green"> +${countOfStat}</font>`;
+    }
+    if (typeOfStat === "spd") {
+        document.querySelector('.forSPD').innerHTML = "Скорость: " + Player.OpenedHeroes[index].SPD + `<font color="green"> +${countOfStat}</font>`;
     }
 }
 
@@ -403,17 +438,33 @@ function levelUpHero(index) {
 function levelUp(index) {
     for (i = 0; i < Player.OpenedHeroes[index].levelUp.length; i++) {
         if (Player.OpenedHeroes[index].levelUp[i][0] === "hp") {
+            showNewHeroStats("hp", Player.OpenedHeroes[index].levelUp[i][1], index);
             Player.OpenedHeroes[index].HP += Player.OpenedHeroes[index].levelUp[i][1];
             Player.OpenedHeroes[index].maxHP += Player.OpenedHeroes[index].levelUp[i][1];
         }
-        if (Player.OpenedHeroes[index].levelUp[i][0] === "atk") {
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "mp") {
+            showNewHeroStats("mp", Player.OpenedHeroes[index].levelUp[i][1], index);
             Player.OpenedHeroes[index].ATK += Player.OpenedHeroes[index].levelUp[i][1];
         }
-        if (Player.OpenedHeroes[index].levelUp[i][0] === "spd") {
-            Player.OpenedHeroes[index].SPD += Player.OpenedHeroes[index].levelUp[i][1];
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "atk") {
+            showNewHeroStats("atk", Player.OpenedHeroes[index].levelUp[i][1], index);
+            Player.OpenedHeroes[index].ATK += Player.OpenedHeroes[index].levelUp[i][1];
+        }
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "def") {
+            showNewHeroStats("def", Player.OpenedHeroes[index].levelUp[i][1], index);
+            Player.OpenedHeroes[index].ATK += Player.OpenedHeroes[index].levelUp[i][1];
         }
         if (Player.OpenedHeroes[index].levelUp[i][0] === "dex") {
+            showNewHeroStats("dex", Player.OpenedHeroes[index].levelUp[i][1], index);
             Player.OpenedHeroes[index].DEX += Player.OpenedHeroes[index].levelUp[i][1];
+        }
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "acc") {
+            showNewHeroStats("acc", Player.OpenedHeroes[index].levelUp[i][1], index);
+            Player.OpenedHeroes[index].DEX += Player.OpenedHeroes[index].levelUp[i][1];
+        }
+        if (Player.OpenedHeroes[index].levelUp[i][0] === "spd") {
+            showNewHeroStats("spd", Player.OpenedHeroes[index].levelUp[i][1], index);
+            Player.OpenedHeroes[index].SPD += Player.OpenedHeroes[index].levelUp[i][1];
         }
         if (Player.OpenedHeroes[index].levelUp[i][0] === "skills") {
             Player.OpenedHeroes[index].ChoosenSkills.push(Player.OpenedHeroes[index].levelUp[i][1]);
@@ -421,4 +472,7 @@ function levelUp(index) {
     }
     Player.OpenedHeroes[index].curLevel += 1;
     document.querySelector('.heroLevel').innerHTML = "Уровень: " + Player.OpenedHeroes[index].curLevel + "/" + Player.OpenedHeroes[index].maxLevel;
+    setTimeout(function() {
+        showHeroStats(index);
+    }, 3000);
 }
