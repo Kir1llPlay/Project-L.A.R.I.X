@@ -438,6 +438,7 @@ function levelUpHero(index) {
 }
 
 function levelUp(index) {
+    showHeroStats(index);
     for (i = 0; i < Player.OpenedHeroes[index].levelUp.length; i++) {
         if (Player.OpenedHeroes[index].levelUp[i][0] === "hp") {
             showNewHeroStats("hp", Player.OpenedHeroes[index].levelUp[i][1], index);
@@ -474,6 +475,9 @@ function levelUp(index) {
     }
     Player.OpenedHeroes[index].curLevel += 1;
     document.querySelector('.heroLevel').innerHTML = "Уровень: " + Player.OpenedHeroes[index].curLevel + "/" + Player.OpenedHeroes[index].maxLevel;
+    if (Player.OpenedHeroes[index].curLevel === Player.OpenedHeroes[index].maxLevel) {
+        document.getElementById('upgradeButton').style.display = "none";
+    }
     setTimeout(function() {
         showHeroStats(index);
     }, 3000);

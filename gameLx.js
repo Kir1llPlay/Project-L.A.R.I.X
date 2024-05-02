@@ -9,7 +9,7 @@ function createEnemyArr() {
     for (i = 0; i < EnemyArrLength; i++) {
         EnemyArr[i] = new BatTemplate;
     }
-    BattleCycle();
+    console.log("enemyarrCreate");
 }
 
 function createChoosenArray() {
@@ -19,11 +19,13 @@ function createChoosenArray() {
             choosenArr.push(Player.OpenedHeroes[Number(num)]);
         }
     }
+    console.log("carrCreate");
 }
 
 var battleWindow = document.getElementById('BattleWindow');
 var Move = document.querySelector('.moveTab');
 function StartBattle() {
+    console.log("start");
     createChoosenArray();
     if (choosenArr.length === 0) {
         return;
@@ -34,10 +36,13 @@ function StartBattle() {
     Move.style.display = 'flex';
     document.getElementById('BattleWindow').style.backgroundImage = document.getElementById('table').style.backgroundImage;
     createEnemyArr();
+    SortGlobalArr();
     DownloadAll();
 }
 
 function CheckHP(face) {
+    console.log("checked");
+    if (GlobalArr.length === 0) return;
     if (face.HP <= 0) {
         face.characterDiv.style.display = 'none';
         Del(face);
@@ -56,12 +61,14 @@ function CheckHP(face) {
 }
 
 function ShowHP(face, bool) {
+    if (GlobalArr.length === 0) return;
     face.characterHPcount.innerHTML = face.HP + '/' + face.maxHP;
     face.characterHP.style.width = face.HP / face.maxHP * 100 + 'px';
     if (face.maxMP > 0) {
         face.characterMPcount.innerHTML = face.MP + '/' + face.maxMP;
         face.characterMP.style.width = face.MP / face.maxMP * 100 + 'px';
     }
+    console.log("showed");
     if (!bool) return;
     BattleCycle();
 }
@@ -78,10 +85,12 @@ function FieldChoose(num) {
 }
 
 function DownloadAll() {
+    console.log("downloaded");
     for (i = 0; i < GlobalArr.length; i++) {
         CreateHTML(GlobalArr[i]);
         DownloadToBattle(FieldChoose(i), GlobalArr[i]);
     }
+    BattleCycle();
 }
 
 function CreateHTML(face) {
@@ -142,6 +151,7 @@ function Del(face) {
         spliced = EnemyArr.indexOf(face);
         EnemyArr.splice(spliced, 1);
     }
+    console.log("del");
     StopBattle();
 }
 
@@ -150,6 +160,8 @@ function StopBattle() {
         BattleCycle();
         return;
     }
+    console.log("deleted");
+    GlobalArr.length = 0;
     EnemyArr.length = 0;
     TimmateArr.length = 0;
     for (i = 0; i < choosenArr.length; i++) {
@@ -170,7 +182,9 @@ function StopBattle() {
 }
 
 function SortGlobalArr() {
-    return GlobalArr = [...TimmateArr, ...EnemyArr].sort((a,b) => a.SPD > b.SPD ? -1 : 1);
+    if (TimmateArr.length === 0 || EnemyArr.length === 0) return GlobalArr.length = 0;
+    console.log("sorted");
+    GlobalArr = [...TimmateArr, ...EnemyArr].sort((a,b) => a.SPD > b.SPD ? -1 : 1);
 }
 
 var rand;
@@ -182,6 +196,7 @@ function RandomNumber(a, b) {
 
 var triggered = false;
 function Start(target, user, targetArr, timmateArr) {
+    console.log("started");
     setTimeout(() => {
         for (i = 0; i < user.ChoosenSkills.length; i++) {
             for (j = 0; j < list.length; j++) {
@@ -214,6 +229,7 @@ var moveCounter = 1;
 Move.innerHTML = "Текущий ход: " + moveCounter;
 var counter = -1;
 function BattleCycle() {
+    console.log("battleCycle");
     SortGlobalArr();
     if (GlobalArr.length === 0) {
         return;

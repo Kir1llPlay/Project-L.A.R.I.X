@@ -40,7 +40,7 @@ class BatTemplate {
     WeaponSkills = [];
     loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90] ];
     curLevel = 1;
-    maxLevel = 2;
+    maxLevel = 3;
     neededToLevelUp = [new BatShards, 5];
     levelUp = [ ['hp', 2], ['atk', 1], ['dex', 1], ['spd', 1], ['skills', Bite], ];
 }
