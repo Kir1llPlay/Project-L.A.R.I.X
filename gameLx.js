@@ -9,7 +9,6 @@ function createEnemyArr() {
     for (i = 0; i < EnemyArrLength; i++) {
         EnemyArr[i] = new BatTemplate;
     }
-    console.log("enemyarrCreate");
 }
 
 function createChoosenArray() {
@@ -19,13 +18,11 @@ function createChoosenArray() {
             choosenArr.push(Player.OpenedHeroes[Number(num)]);
         }
     }
-    console.log("carrCreate");
 }
 
 var battleWindow = document.getElementById('BattleWindow');
 var Move = document.querySelector('.moveTab');
 function StartBattle() {
-    console.log("start");
     createChoosenArray();
     if (choosenArr.length === 0) {
         return;
@@ -41,10 +38,8 @@ function StartBattle() {
 }
 
 function CheckHP(face) {
-    console.log("checked");
     if (GlobalArr.length === 0) return;
     if (face.HP <= 0) {
-        face.characterDiv.style.display = 'none';
         Del(face);
         return;
     }
@@ -61,14 +56,12 @@ function CheckHP(face) {
 }
 
 function ShowHP(face, bool) {
-    if (GlobalArr.length === 0) return;
     face.characterHPcount.innerHTML = face.HP + '/' + face.maxHP;
     face.characterHP.style.width = face.HP / face.maxHP * 100 + 'px';
     if (face.maxMP > 0) {
         face.characterMPcount.innerHTML = face.MP + '/' + face.maxMP;
         face.characterMP.style.width = face.MP / face.maxMP * 100 + 'px';
     }
-    console.log("showed");
     if (!bool) return;
     BattleCycle();
 }
@@ -85,7 +78,6 @@ function FieldChoose(num) {
 }
 
 function DownloadAll() {
-    console.log("downloaded");
     for (i = 0; i < GlobalArr.length; i++) {
         CreateHTML(GlobalArr[i]);
         DownloadToBattle(FieldChoose(i), GlobalArr[i]);
@@ -106,7 +98,6 @@ function CreateHTML(face) {
 }
 
 function DownloadToBattle(field, face) {
-    ShowHP(face, false);
     face.characterHPborder.classList.add('BarBorder');
     face.characterHP.classList.add('Bar');
     face.characterHPcount.classList.add('BarCount');
@@ -129,6 +120,7 @@ function DownloadToBattle(field, face) {
         face.characterDiv.append(face.characterMPborder);
     }
     field.appendChild(face.characterDiv);
+    ShowHP(face, false);
 }
 
 function LightAttacked(face) {
@@ -139,6 +131,7 @@ function LightAttacked(face) {
 }
 
 function Del(face) {
+    face.characterDiv.style.display = 'none';
     if (GlobalArr.indexOf(face) <= counter) {
         counter -= 1;
     }
@@ -151,7 +144,6 @@ function Del(face) {
         spliced = EnemyArr.indexOf(face);
         EnemyArr.splice(spliced, 1);
     }
-    console.log("del");
     StopBattle();
 }
 
@@ -160,7 +152,6 @@ function StopBattle() {
         BattleCycle();
         return;
     }
-    console.log("deleted");
     GlobalArr.length = 0;
     EnemyArr.length = 0;
     TimmateArr.length = 0;
@@ -172,18 +163,17 @@ function StopBattle() {
     counter = -1;
     setTimeout(function() {
         alert("Бой окончен!");
+        TimmateField.replaceChildren();
+        EnemyField.replaceChildren();
         battleWindow.style.display = 'none';
         Move.style.display = 'none';
         document.getElementById('StartLocation').style.display = "block";
-        TimmateField.replaceChildren();
-        EnemyField.replaceChildren();
         Move.innerHTML = "Текущий ход: " + moveCounter;
     }, 400);
 }
 
 function SortGlobalArr() {
     if (TimmateArr.length === 0 || EnemyArr.length === 0) return GlobalArr.length = 0;
-    console.log("sorted");
     GlobalArr = [...TimmateArr, ...EnemyArr].sort((a,b) => a.SPD > b.SPD ? -1 : 1);
 }
 
@@ -196,7 +186,6 @@ function RandomNumber(a, b) {
 
 var triggered = false;
 function Start(target, user, targetArr, timmateArr) {
-    console.log("started");
     setTimeout(() => {
         for (i = 0; i < user.ChoosenSkills.length; i++) {
             for (j = 0; j < list.length; j++) {
@@ -229,7 +218,6 @@ var moveCounter = 1;
 Move.innerHTML = "Текущий ход: " + moveCounter;
 var counter = -1;
 function BattleCycle() {
-    console.log("battleCycle");
     SortGlobalArr();
     if (GlobalArr.length === 0) {
         return;
