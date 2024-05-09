@@ -1,0 +1,16 @@
+[{
+    "address": ["Холмы-2"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Холмы",
+    "locationPic": "url('FieldsLx/hills1.JPG')"
+},{
+    "address": ["Холмы", "Лес"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,3,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Холмы-2",
+    "locationPic": "url('FieldsLx/hills2.JPG')"
+},{
+    "address": ["Вход в Альнояр", "Холмы-2", "Предгорья", "Дорога"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Лес",
+    "locationPic": "url('FieldsLx/forest.JPG')"
+}]

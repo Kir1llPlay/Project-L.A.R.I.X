@@ -12,6 +12,9 @@ class Transition {
 let trans = new Transition
 
 
+fetch('locations.json')
+    .then(response => response.json())
+    .then(jsonData => console.log(jsonData));
 
 class Location {
     address = [];

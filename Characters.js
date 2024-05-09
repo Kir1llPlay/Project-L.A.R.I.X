@@ -1,5 +1,5 @@
 class PlayerInfo {
-    ID = 0;
+    ID = 1;
     name = "Игрок";
     race = "human";
     attack = "Timmate";
@@ -22,7 +22,7 @@ class PlayerInfo {
 }
 
 class BatTemplate {
-    ID = 1;
+    ID = 2;
     name = "Летучая мышь";
     race = "beast";
     attack = "Enemy";
@@ -48,7 +48,7 @@ class BatTemplate {
 }
 
 class Arravel {
-    ID = 2;
+    ID = 3;
     name = "Арравел";
     race = "beast";
     attack = "Timmate";
@@ -66,7 +66,7 @@ class Arravel {
 }
 
 class Bomber {
-    ID = 3;
+    ID = 4;
     name = "Взрывотехник";
     race = "undead";
     attack = "Timmate";
@@ -88,7 +88,7 @@ class Bomber {
 }
 
 class Spider {
-    ID = 4;
+    ID = 5;
     name = "Паук";
     race = "insect";
     attack = "Timmate";
