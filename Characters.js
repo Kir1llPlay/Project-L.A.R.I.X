@@ -3,6 +3,7 @@ class PlayerInfo {
     name = "Игрок";
     race = "human";
     attack = "Timmate";
+    XP = 0;
     HP = 18;
     maxHP = 18;
     MP = 10;
@@ -38,6 +39,7 @@ class BatTemplate {
     look = 'InGamePicLx/Bat.png';
     ChoosenSkills = [];
     WeaponSkills = [];
+    XPGained = [1, 1];
     loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90] ];
     curLevel = 1;
     maxLevel = 3;

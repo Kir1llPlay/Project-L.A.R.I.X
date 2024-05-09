@@ -1,6 +1,10 @@
 var ResourcesInv = {};
 var EquipmentInv = {};
 
+function getXP(xpArr) {
+    Player.XP += RandomNumber(xpArr[0], xpArr[1]);
+}
+
 function itemsCheck(loot) {
     let iter = 0;
     while (iter < loot.length) {
@@ -321,6 +325,7 @@ function openProfile() {
     CloseInventory();
     document.getElementById('StartLocation').style.display = "none";
     profileDiv.style.display = "block";
+    document.getElementById('forXP').innerHTML = "Опыт: " + Player.XP;
 }
 
 function closeProfile() {

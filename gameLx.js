@@ -3,7 +3,6 @@ var EnemyArr = [];
 var TimmateArr = [];
 var GlobalArr = [];
 
-
 //чисто экспериментальная функция, еë внешний вид изменится к выходу нормального PvE и PvP.
 function createEnemyArr() {
     for (i = 0; i < EnemyArrLength; i++) {
@@ -40,6 +39,7 @@ function StartBattle() {
 function CheckHP(face) {
     if (GlobalArr.length === 0) return;
     if (face.HP <= 0) {
+        face.characterDiv.style.display = 'none';
         Del(face);
         return;
     }
@@ -131,7 +131,6 @@ function LightAttacked(face) {
 }
 
 function Del(face) {
-    face.characterDiv.style.display = 'none';
     if (GlobalArr.indexOf(face) <= counter) {
         counter -= 1;
     }
@@ -140,6 +139,7 @@ function Del(face) {
         spliced = TimmateArr.indexOf(face);
         TimmateArr.splice(spliced, 1);
     } else {
+        getXP(face.XPGained);
         itemsCheck(face.loot);
         spliced = EnemyArr.indexOf(face);
         EnemyArr.splice(spliced, 1);
