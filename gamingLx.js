@@ -1,70 +1,29 @@
 var Player = new PlayerInfo;
 var arravel = new Arravel;
 var Bat = new BatTemplate;
-let hill = new Hills;
-let hill2 = new Hills2;
-let forest = new Forest;
-let road = new Road;
-let road2 = new Road2;
-let crossroad = new Crossroad;
-let wideRoad = new WideRoad;
-let foothill = new Foothills;
-let ascensionMountains = new AscensionToTheMountains;
-let mountains = new Mountains;
-let mountains2 = new Mountains2;
-let roadMountains = new RoadToTheMountains;
-let roadMountains2 = new RoadToTheMountains2;
-let entranceAlnoyar = new EntranceToTheAlnoyar;
-let alnoyar = new Alnoyar;
-let entrancePolyteria = new EntranceToThePolyteria;
-let tradeSquare = new TradeSquare;
-let mainSquare = new MainSquare;
-let brook = new Brook;
-let brook2 = new Brook2;
-let riverBank = new RiverBank;
-let river = new River;
-let ascensionRiver = new AscensionRiver;
-let alderForest = new AlderForest;
-let alderForest2 = new AlderForest2;
-let entranceCaves = new EntranceToTheCaves;
-let caves = new Caves;
-let plains = new Plains;
-let plains2 = new Plains2;
-hill.address.push(hill2);
-hill2.address.push(hill, forest);
-forest.address.push(entranceAlnoyar, hill2, foothill, road);
-road.address.push(forest, riverBank, road2);
-road2.address.push(road, crossroad);
-crossroad.address.push(road2, roadMountains, wideRoad);
-roadMountains.address.push(roadMountains2, crossroad);
-roadMountains2.address.push(mountains2, roadMountains);
-wideRoad.address.push(crossroad, plains, entrancePolyteria);
-plains.address.push(plains2, wideRoad);
-plains2.address.push(plains);
-riverBank.address.push(ascensionRiver, road, river);
-river.address.push(riverBank);
-ascensionRiver.address.push(brook2, riverBank);
-foothill.address.push(ascensionMountains, forest, entranceCaves);
-ascensionMountains.address.push(mountains, foothill);
-mountains.address.push(ascensionMountains);
-mountains2.address.push(roadMountains2);
-entranceCaves.address.push(foothill, caves);
-caves.address.push(entranceCaves);
-entranceAlnoyar.address.push(alnoyar, forest);
-alnoyar.address.push(brook, alderForest, entranceAlnoyar);
-entrancePolyteria.address.push(tradeSquare, wideRoad);
-tradeSquare.address.push(mainSquare, entrancePolyteria);
-mainSquare.address.push(tradeSquare);
-brook.address.push(brook2, alnoyar);
-brook2.address.push(brook, ascensionRiver);
-alderForest.address.push(alderForest2, alnoyar);
-alderForest2.address.push(alderForest);
 
 let tableRows = document.getElementsByTagName('tr');
 let table = document.getElementById('table');
 let tab = document.querySelector('.currentLocation');
 var cellsArrayRow = [];
 var cellsArray = [];
+
+var locArr = [];
+fetch('locations.json')
+    .then(response => response.json())
+    .then(jsonData => {locArr = jsonData; Render(locArr[0])});
+
+function transition(address, arr1) {
+    for (j = 0; j < arr1.length; j++) {
+        arr1[j].parentNode.removeChild(arr1[j]);
+    }
+    arr1.length = 0;
+    for (i = 0; i < locArr.length; i++) {
+        if (locArr[i].locationName === address) {
+                Render(locArr[i]);
+        }
+    }    
+}
 
 function Render(location) {
     table.style.backgroundImage = location.locationPic;
@@ -76,6 +35,7 @@ function Render(location) {
         }
         cellsArray.push(...cellsArrayRow);
     }
+    cellsArrayRow.length = 0;
     CreateObj(location);
     MoveTable(location);
 }
@@ -84,75 +44,67 @@ var g = -1;
 var a = 0;
 function CreateObj(location) {
     g++;
+    if (g === location.cellsArrayContent.length) {
+        g = -1;
+        a = 0;
+        return;
+    }
     if (location.cellsArrayContent[g] === 0) {
         CreateObj(location);
         return;
     }
-    if (g === location.cellsArrayContent.length) {
-        g = -1;
-        a = 0;
-        DownloadObj(location);
-        return;
-    }
-    if (location.cellsArrayContent[g].look === undefined) {
+    if (location.cellsArrayContent[g] === "transition") {
         let text = document.createElement('p');
         text.classList.add('transitObjText');
-        text.innerHTML = location.address[a].locationName;
-        let tra = location.cellsArrayContent[g].img = document.createElement('div');
+        text.innerHTML = location.address[a];
+        let tra = document.createElement('div');
         tra.append(text);
         tra.className = a;
         tra.classList.add('transitObj');
+        cellsArray[g].appendChild(tra);
         a++;
         CreateObj(location);
         return;
     }
-    location.cellsArrayContent[g].img = document.createElement('img');
-    location.cellsArrayContent[g].img.setAttribute('src', location.cellsArrayContent[g].look);
-    location.cellsArrayContent[g].img.classList.add('tableElement');
-    if (location.cellsArrayContent[g].OpenedHeroes !== undefined) {
-        location.cellsArrayContent[g].img.classList.add('player');
+    for (i = 0; i < CharacterList.length; i++) {
+        if (location.cellsArrayContent[g] - 1 == i) {
+            let InGameImg = document.createElement('img');
+            InGameImg.setAttribute('src', (new CharacterList[i]).look);
+            InGameImg.classList.add('tableElement');
+            if (i === 0) {
+                InGameImg.classList.add('player');
+                if (Player.img === undefined) Player.img = InGameImg;
+            }
+            if ((new CharacterList[i]).attack === "Timmate") {
+                InGameImg.classList.add('tim');
+            } else {
+                InGameImg.classList.add('en');
+            }
+            cellsArray[g].append(InGameImg);
+            CreateObj(location);
+            break;
+        }
     }
-    if (location.cellsArrayContent[g].attack === "Timmate") {
-        location.cellsArrayContent[g].img.classList.add('tim');
-    } else {
-        location.cellsArrayContent[g].img.classList.add('en');
-    }
-    CreateObj(location);
-}
-var k = -1;
-function DownloadObj(location) {
-    k++;
-    if (location.cellsArrayContent[k] === 0) {
-        DownloadObj(location);
-        return;
-    }
-    if (k === location.cellsArrayContent.length) {
-        k = -1;
-        return;
-    }
-    cellsArray[k].append(location.cellsArrayContent[k].img);
-    DownloadObj(location);
 }
 
 var actionBar = document.querySelector('.actionCard');
 function MoveTable(location) {
-    let tds = document.getElementsByTagName('td');
-    for (i = 0; i < tds.length; i++) {
-        tds[i].addEventListener('click', function() {
+    for (i = 0; i < cellsArray.length; i++) {
+        cellsArray[i].addEventListener('click', function() {
             if (this.innerHTML == 0) {
                 this.appendChild(Player.img);
                 return; // здесь не происходит изменения массива location.cellsArrayContent, что вызовет трудности в будущем(т.к. не запоминает содержимое), я пытался сделать так, чтобы он изменялся, но не вышло(ошибки не выдавало и массив не изменялся)
             } else if (this.childNodes[0].classList.contains('0')) {
-                trans.transition(location.address[0], cellsArray, cellsArrayRow);
+                transition(location.address[0], cellsArray);
                 return;
             } else if (this.childNodes[0].classList.contains('1')) {
-                trans.transition(location.address[1], cellsArray, cellsArrayRow);
+                transition(location.address[1], cellsArray);
                 return;
             } else if (this.childNodes[0].classList.contains('2')) {
-                trans.transition(location.address[2], cellsArray, cellsArrayRow);
+                transition(location.address[2], cellsArray);
                 return;
             } else if (this.childNodes[0].classList.contains('3')) {
-                trans.transition(location.address[3], cellsArray, cellsArrayRow);
+                transition(location.address[3], cellsArray);
                 return;
             } else {
                 if (this.childNodes[0].classList.contains('player')) return;
@@ -322,5 +274,3 @@ function HideGrid() {
         }
     }
 }
-
-Render(hill);

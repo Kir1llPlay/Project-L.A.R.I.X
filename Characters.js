@@ -108,3 +108,5 @@ class Spider {
     curLevel = 1;
     maxLevel = 1;
 }
+
+var CharacterList = [PlayerInfo, BatTemplate, Arravel, Bomber, Spider];

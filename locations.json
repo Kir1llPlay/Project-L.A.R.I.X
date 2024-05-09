@@ -13,4 +13,134 @@
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Лес",
     "locationPic": "url('FieldsLx/forest.JPG')"
+},{
+    "address": ["Лес", "Берег реки", "Дорога-2"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Дорога",
+    "locationPic": "url('FieldsLx/Road.JPG')"
+},{
+    "address": ["Дорога", "Перепутье"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Дорога-2",
+    "locationPic": "url('FieldsLx/Road2.png')"  
+},{
+    "address": ["Дорога-2", "Дорога в горы", "Широкая дорога"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Перепутье",
+    "locationPic": "url('FieldsLx/Crossroad.png')"
+},{
+    "address": ["Перепутье", "Равнины", "Ворота Политерии"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Широкая дорога",
+    "locationPic": "url('FieldsLx/WideRoad.png')"
+},{
+    "address": ["Равнины-2", "Широкая дорога"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Равнины",
+    "locationPic": "url('FieldsLx/Plains.png')"
+},{
+    "address": ["Равнины"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Равнины-2",
+    "locationPic": "url('FieldsLx/Plains2.png')"
+},{
+    "address": ["Дорога в горы-2", "Перепутье"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Дорога в горы",
+    "locationPic": "url('FieldsLx/RoadToTheMountains.png')"
+},{
+    "address": ["Горы возле Политерии", "Дорога в горы"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Дорога в горы-2",
+    "locationPic": "url('FieldsLx/RoadToTheMountains2.png')"
+},{
+    "address": ["Подъём по реке", "Дорога", "Река"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Берег реки",
+    "locationPic": "url('FieldsLx/RiverBank.png')"
+},{
+    "address": ["Ручей-2", "Берег реки"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Подъём по реке",
+    "locationPic": "url('FieldsLx/AscensionRiver.png')"
+},{
+    "address": ["Берег реки"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Река",
+    "locationPic": "url('FieldsLx/River.png')"
+},{
+    "address": ["Ручей", "Подъём по реке"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Ручей-2",
+    "locationPic": "url('FieldsLx/Brook2.png')"
+},{
+    "address": ["Подъём в горы", "Лес", "Вход в пещеры"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Предгорья",
+    "locationPic": "url('FieldsLx/Foothills.png')"
+},{
+    "address": ["Альнояр", "Лес"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Вход в Альнояр",
+    "locationPic": "url('FieldsLx/EntranceToTheAlnoyar.JPG')"
+},{
+    "address": ["Торговая площадь", "Широкая дорога"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Ворота Политерии",
+    "locationPic": "url('FieldsLx/GatesOfPolyteria.png')"
+},{
+    "address": ["Ручей", "Ольховый лес", "Вход в Альнояр"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Альнояр",
+    "locationPic": "url('FieldsLx/Alnoyar.JPG')"
+},{
+    "address": ["Главная площадь", "Ворота Политерии"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Торговая площадь",
+    "locationPic": "url('FieldsLx/TradeSquare.png')"
+},{
+    "address": ["Торговая площадь"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Главная площадь",
+    "locationPic": "url('FieldsLx/MainSquare.png')"
+},{
+    "address": ["Ручей-2", "Альнояр"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Ручей",
+    "locationPic": "url('FieldsLx/Brook.JPG')"
+},{
+    "address": ["Ольховый лес-2", "Альнояр"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Ольховый лес",
+    "locationPic": "url('FieldsLx/AlderForest.png')"
+},{
+    "address": ["Ольховый лес"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Ольховый лес-2",
+    "locationPic": "url('FieldsLx/AlderForest2.png')"
+},{
+    "address": ["Горы", "Предгорья"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Подъём в горы",
+    "locationPic": "url('FieldsLx/AscensionToTheMountains.png')"
+},{
+    "address": ["Подъём в горы"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Горы",
+    "locationPic": null
+},{
+    "address": ["Дорога в горы-2"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Горы возле Политерии",
+    "locationPic": null
+},{
+    "address": ["Предгорья", "Пещеры"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Вход в пещеры",
+    "locationPic": "url('FieldsLx/EntranceToTheCave.JPG')"
+},{
+    "address": ["Вход в пещеры"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,2,0,0,0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Пещеры",
+    "locationPic": "url('FieldsLx/Caves.JPG')"
 }]
