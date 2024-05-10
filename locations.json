@@ -135,7 +135,7 @@
     "locationPic": null
 },{
     "address": ["Предгорья", "Пещеры"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,"transition",0,0,0,0,0,0,0],
     "locationName": "Вход в пещеры",
     "locationPic": "url('FieldsLx/EntranceToTheCave.JPG')"
 },{

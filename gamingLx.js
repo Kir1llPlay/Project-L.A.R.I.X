@@ -20,9 +20,10 @@ function transition(address, arr1) {
     arr1.length = 0;
     for (i = 0; i < locArr.length; i++) {
         if (locArr[i].locationName === address) {
-                Render(locArr[i]);
+            Render(locArr[i]);
+            break;
         }
-    }    
+    }
 }
 
 function Render(location) {
@@ -67,13 +68,15 @@ function CreateObj(location) {
         return;
     }
     for (i = 0; i < CharacterList.length; i++) {
-        if (location.cellsArrayContent[g] - 1 == i) {
+        if (location.cellsArrayContent[g] - 1 === i) {
             let InGameImg = document.createElement('img');
             InGameImg.setAttribute('src', (new CharacterList[i]).look);
             InGameImg.classList.add('tableElement');
             if (i === 0) {
                 InGameImg.classList.add('player');
-                if (Player.img === undefined) Player.img = InGameImg;
+                if (Player.img === undefined) {
+                    Player.img = InGameImg;
+                }
             }
             if ((new CharacterList[i]).attack === "Timmate") {
                 InGameImg.classList.add('tim');
@@ -93,7 +96,7 @@ function MoveTable(location) {
         cellsArray[i].addEventListener('click', function() {
             if (this.innerHTML == 0) {
                 this.appendChild(Player.img);
-                return; // здесь не происходит изменения массива location.cellsArrayContent, что вызовет трудности в будущем(т.к. не запоминает содержимое), я пытался сделать так, чтобы он изменялся, но не вышло(ошибки не выдавало и массив не изменялся)
+                return;
             } else if (this.childNodes[0].classList.contains('0')) {
                 transition(location.address[0], cellsArray);
                 return;
