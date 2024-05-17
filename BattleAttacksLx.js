@@ -22,15 +22,9 @@ const Bombing = function(target, user, targetArr, timmateArr) {
         }
         LightAttacked(targetArr[i]);
         targetArr[i].HP -= (user.ATK * 2 - targetArr[i].DEF);
-        for (j = 0; j < targetArr.length; j++) {
-            if (targetArr[j] === undefined) {
-                while (targetArr[j] !== undefined) {
-                    j--;
-                }
-                CheckHP(targetArr[j]);
-            }
-            CheckHP(targetArr[j]);
-        }
+    }
+    for (j = 0; j < targetArr.length; j++) {
+        CheckHP(targetArr[j]);
     }
 }
 
@@ -77,7 +71,7 @@ const MagicAttack = function(target, user, targetArr, timmateArr) {
     user.MP -= cost;
     target.HP -= (Math.round((user.ATK * 2 - target.DEF) * magicBoost(user, cost)));
     CheckHP(target);
-    ShowHP(user, false);
+    ShowHP(user);
 }
 
 const list = [

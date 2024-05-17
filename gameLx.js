@@ -40,6 +40,7 @@ function CheckHP(face) {
     if (GlobalArr.length === 0) return;
     if (face.HP <= 0) {
         face.characterDiv.style.display = 'none';
+        face.HP = 0;
         Del(face);
         return;
     }
@@ -52,18 +53,17 @@ function CheckHP(face) {
     if (face.MP < 0) {
         face.MP = 0;
     }
-    ShowHP(face, true);
+    ShowHP(face);
+    BattleCycle();
 }
 
-function ShowHP(face, bool) {
+function ShowHP(face){
     face.characterHPcount.innerHTML = face.HP + '/' + face.maxHP;
     face.characterHP.style.width = face.HP / face.maxHP * 100 + 'px';
     if (face.maxMP > 0) {
         face.characterMPcount.innerHTML = face.MP + '/' + face.maxMP;
         face.characterMP.style.width = face.MP / face.maxMP * 100 + 'px';
     }
-    if (!bool) return;
-    BattleCycle();
 }
 
 var TimmateField = document.getElementById('timmateField');
@@ -120,7 +120,7 @@ function DownloadToBattle(field, face) {
         face.characterDiv.append(face.characterMPborder);
     }
     field.appendChild(face.characterDiv);
-    ShowHP(face, false);
+    ShowHP(face);
 }
 
 function LightAttacked(face) {
@@ -139,10 +139,10 @@ function Del(face) {
         spliced = TimmateArr.indexOf(face);
         TimmateArr.splice(spliced, 1);
     } else {
-        getXP(face.XPGained);
-        itemsCheck(face.loot);
         spliced = EnemyArr.indexOf(face);
         EnemyArr.splice(spliced, 1);
+        getXP(face.XPGained);
+        itemsCheck(face.loot);
     }
     StopBattle();
 }
@@ -218,10 +218,10 @@ var moveCounter = 1;
 Move.innerHTML = "Текущий ход: " + moveCounter;
 var counter = -1;
 function BattleCycle() {
-    SortGlobalArr();
     if (GlobalArr.length === 0) {
         return;
     }
+    SortGlobalArr();
     counter++;
     if (counter === GlobalArr.length) {
         counter = -1;

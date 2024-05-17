@@ -72,16 +72,19 @@ function CreateObj(location) {
             let InGameImg = document.createElement('img');
             InGameImg.setAttribute('src', (new CharacterList[i]).look);
             InGameImg.classList.add('tableElement');
+            if ((new CharacterList[i]).attack === "Timmate") {
+                InGameImg.classList.add('tim');
+            } else {
+                InGameImg.classList.add('en');
+            }
             if (i === 0) {
                 InGameImg.classList.add('player');
                 if (Player.img === undefined) {
                     Player.img = InGameImg;
                 }
-            }
-            if ((new CharacterList[i]).attack === "Timmate") {
-                InGameImg.classList.add('tim');
-            } else {
-                InGameImg.classList.add('en');
+                cellsArray[g].append(Player.img);
+                CreateObj(location);
+                return;
             }
             cellsArray[g].append(InGameImg);
             CreateObj(location);

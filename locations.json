@@ -115,7 +115,7 @@
     "locationPic": "url('FieldsLx/AlderForest.png')"
 },{
     "address": ["Ольховый лес"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,2,0,"transition",0,0,0,0,0,0,0,0,0,0],
     "locationName": "Ольховый лес-2",
     "locationPic": "url('FieldsLx/AlderForest2.png')"
 },{
