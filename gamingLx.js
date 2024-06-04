@@ -178,6 +178,11 @@ function ChooseHeroes() {
     RenderHeroTable();
 }
 
+function closeBattle() {
+    document.getElementById('StartLocation').style.display = "block";
+    document.querySelector('.BattleMenu').style.display = "none";
+}
+
 function RenderHeroTable() {
     if (document.querySelectorAll('.elems').length === Player.OpenedHeroes.length) {
         return;
