@@ -32,7 +32,7 @@ function StartBattle() {
     Move.style.display = 'flex';
     document.getElementById('BattleWindow').style.backgroundImage = document.getElementById('table').style.backgroundImage;
     createEnemyArr();
-    SortGlobalArr();
+    GlobalArr = [...TimmateArr, ...EnemyArr];
     DownloadAll();
 }
 
@@ -54,7 +54,6 @@ function CheckHP(face) {
         face.MP = 0;
     }
     ShowHP(face);
-    BattleCycle();
 }
 
 function ShowHP(face){
@@ -131,9 +130,6 @@ function LightAttacked(face) {
 }
 
 function Del(face) {
-    if (GlobalArr.indexOf(face) <= counter) {
-        counter -= 1;
-    }
     let spliced;
     if (face.attack === "Timmate") {
         spliced = TimmateArr.indexOf(face);
@@ -148,10 +144,7 @@ function Del(face) {
 }
 
 function StopBattle() {
-    if (EnemyArr.length > 0 && TimmateArr.length > 0) {
-        BattleCycle();
-        return;
-    }
+    if (EnemyArr.length > 0 && TimmateArr.length > 0) return;
     GlobalArr.length = 0;
     EnemyArr.length = 0;
     TimmateArr.length = 0;
@@ -160,7 +153,6 @@ function StopBattle() {
     }
     choosenArr.length = 0;
     moveCounter = 1;
-    counter = -1;
     setTimeout(function() {
         alert("Бой окончен!");
         TimmateField.replaceChildren();
@@ -173,8 +165,11 @@ function StopBattle() {
 }
 
 function SortGlobalArr() {
-    if (TimmateArr.length === 0 || EnemyArr.length === 0) return GlobalArr.length = 0;
-    GlobalArr = [...TimmateArr, ...EnemyArr].sort((a,b) => a.SPD > b.SPD ? -1 : 1);
+    if (TimmateArr.length === 0 || EnemyArr.length === 0) {
+        StopBattle();
+        return;
+    }
+    GlobalArr.sort((a,b) => a.SPD > b.SPD ? -1 : 1);
 }
 
 var rand;
@@ -211,28 +206,29 @@ function Start(target, user, targetArr, timmateArr) {
             StandartAttack(target, user, targetArr, timmateArr);
         }
         triggered = false;
+        BattleCycle();
     }, 100)
 }
 
 var moveCounter = 1;
 Move.innerHTML = "Текущий ход: " + moveCounter;
-var counter = -1;
-function BattleCycle() {
+function BattleCycle() {;
     if (GlobalArr.length === 0) {
+        if (TimmateArr.length > 0 && EnemyArr.length > 0) {
+            moveCounter += 1;
+            GlobalArr = [...TimmateArr, ...EnemyArr];
+            Move.innerHTML = "Текущий ход: " + moveCounter;
+            BattleCycle();
+            return;
+        }
         return;
     }
     SortGlobalArr();
-    counter++;
-    if (counter === GlobalArr.length) {
-        counter = -1;
-        moveCounter += 1;
-        Move.innerHTML = "Текущий ход: " + moveCounter;
-        BattleCycle();
-        return;
-    }
-    if (GlobalArr[counter].attack === "Timmate") {
-        Start(EnemyArr[RandomNumber(0, EnemyArr.length - 1)], GlobalArr[counter], EnemyArr, TimmateArr);
+    if (GlobalArr[0].attack === "Timmate") {
+        Start(EnemyArr[RandomNumber(0, EnemyArr.length - 1)], GlobalArr[0], EnemyArr, TimmateArr);
     } else {
-        Start(TimmateArr[RandomNumber(0, TimmateArr.length - 1)], GlobalArr[counter], TimmateArr, EnemyArr);
+        Start(TimmateArr[RandomNumber(0, TimmateArr.length - 1)], GlobalArr[0], TimmateArr, EnemyArr);
     }
+
+    GlobalArr.splice(0, 1);
 }
