@@ -15,7 +15,7 @@ class PlayerInfo {
     ACC = 1;
     Avatar = 'AvatarsLx/ArteonLx.png';
     look = 'InGamePicLx/Maat.png';
-    OpenedHeroes = [this, new Bomber, new Spider];
+    OpenedHeroes = [this];
     ChoosenSkills = [MagicAttack];
     WeaponSkills = [];
     equipmentSlots = [ ['majorHand'], ['minorHand'], ['head'], ];
@@ -40,7 +40,7 @@ class BatTemplate {
     ChoosenSkills = [];
     WeaponSkills = [];
     XPGained = [1, 1];
-    loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90] ];
+    loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90], [new SpiderShards, 1, 90], [new BomberShards, 1, 90] ];
     curLevel = 1;
     maxLevel = 3;
     neededToLevelUp = [new BatShards, 5];
@@ -84,7 +84,9 @@ class Bomber {
     ChoosenSkills = [Bombing];
     WeaponSkills = [];
     curLevel = 1;
-    maxLevel = 1;
+    maxLevel = 3;
+    neededToLevelUp = [new BomberShards, 5];
+    levelUp = [ ['hp', 2], ['atk', 1], ['dex', 1], ['spd', 1], ];
 }
 
 class Spider {
@@ -106,7 +108,9 @@ class Spider {
     ChoosenSkills = [Bite];
     WeaponSkills = [];
     curLevel = 1;
-    maxLevel = 1;
+    maxLevel = 3;
+    neededToLevelUp = [new SpiderShards, 5];
+    levelUp = [ ['hp', 2], ['atk', 1], ['dex', 1], ['spd', 1], ];
 }
 
 var CharacterList = [PlayerInfo, BatTemplate, Arravel, Bomber, Spider];

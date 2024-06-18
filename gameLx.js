@@ -56,13 +56,14 @@ function CheckHP(face) {
     ShowHP(face);
 }
 
-function ShowHP(face){
+function ShowHP(face) {
     face.characterHPcount.innerHTML = face.HP + '/' + face.maxHP;
     face.characterHP.style.width = face.HP / face.maxHP * 100 + 'px';
-    if (face.maxMP > 0) {
-        face.characterMPcount.innerHTML = face.MP + '/' + face.maxMP;
-        face.characterMP.style.width = face.MP / face.maxMP * 100 + 'px';
-    }
+}
+
+function ShowMP(face) {
+    face.characterMPcount.innerHTML = face.MP + '/' + face.maxMP;
+    face.characterMP.style.width = face.MP / face.maxMP * 100 + 'px';
 }
 
 var TimmateField = document.getElementById('timmateField');
@@ -117,6 +118,7 @@ function DownloadToBattle(field, face) {
         face.characterMP.style.backgroundColor = "#14a1ff";
         face.characterMPborder.append(face.characterMPcount, face.characterMP);
         face.characterDiv.append(face.characterMPborder);
+        ShowMP(face);
     }
     field.appendChild(face.characterDiv);
     ShowHP(face);
@@ -174,8 +176,7 @@ function SortGlobalArr() {
 
 var rand;
 function RandomNumber(a, b) {
-    rand = a - 0.5 + Math.random() * (b - a + 1);
-    rand = Math.round(rand);
+    rand = Math.round(a - 0.5 + Math.random() * (b - a + 1));
     return rand;
 }
 

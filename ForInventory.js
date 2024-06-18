@@ -485,5 +485,5 @@ function levelUp(index) {
     }
     setTimeout(function() {
         showHeroStats(index);
-    }, 3000);
+    }, 2000);
 }

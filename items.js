@@ -17,10 +17,28 @@ class Hide {
 }
 
 class BatShards {
-    name = 'Фрагменты души летучей мыши';
+    name = 'Фрагменты души Летучей мыши';
     type = 'shards';
     needfulCount = 5;
     thatHero = BatTemplate;
+    rarity = 'standart';
+    Avatar = 'ItemsAvatars/BatShards.png';
+}
+
+class SpiderShards {
+    name = 'Фрагменты души Паука';
+    type = 'shards';
+    needfulCount = 5;
+    thatHero = Spider;
+    rarity = 'standart';
+    Avatar = 'ItemsAvatars/BatShards.png';
+}
+
+class BomberShards {
+    name = 'Фрагменты души Взрывотехника';
+    type = 'shards';
+    needfulCount = 5;
+    thatHero = Bomber;
     rarity = 'standart';
     Avatar = 'ItemsAvatars/BatShards.png';
 }

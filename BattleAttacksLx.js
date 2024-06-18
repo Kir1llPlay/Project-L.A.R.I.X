@@ -71,7 +71,7 @@ const MagicAttack = function(target, user, targetArr, timmateArr) {
     user.MP -= cost;
     target.HP -= (Math.round((user.ATK * 2 - target.DEF) * magicBoost(user, cost)));
     CheckHP(target);
-    ShowHP(user);
+    ShowMP(user);
 }
 
 const list = [
