@@ -55,7 +55,7 @@ function CreateObj(location) {
         return;
     }
     if (location.cellsArrayContent[g] === "transition") {
-        let text = document.createElement('p');
+        let text = document.createElement('div');
         text.classList.add('transitObjText');
         text.innerHTML = location.address[a];
         let tra = document.createElement('div');

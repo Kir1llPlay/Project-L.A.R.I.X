@@ -400,25 +400,25 @@ function showHeroStats(index) {
 
 function showNewHeroStats(typeOfStat, countOfStat, index) {
     if (typeOfStat === "hp") {
-        document.querySelector('.forHP').innerHTML = "ХП: " + Player.OpenedHeroes[index].maxHP + `<font color="green"> +${countOfStat}</font>`;
+        document.querySelector('.forHP').innerHTML = "ХП: " + Player.OpenedHeroes[index].maxHP + `<font color="white"> +${countOfStat}</font>`;
     }
     if (typeOfStat === "mp") {
-        document.querySelector('.forMP').innerHTML = "Мана: " + Player.OpenedHeroes[index].maxMP + `<font color="green"> +${countOfStat}</font>`;
+        document.querySelector('.forMP').innerHTML = "Мана: " + Player.OpenedHeroes[index].maxMP + `<font color="white"> +${countOfStat}</font>`;
     }
     if (typeOfStat === "atk") {
-        document.querySelector('.forATK').innerHTML = "АТК: " + Player.OpenedHeroes[index].ATK + `<font color="green"> +${countOfStat}</font>`;
+        document.querySelector('.forATK').innerHTML = "АТК: " + Player.OpenedHeroes[index].ATK + `<font color="white"> +${countOfStat}</font>`;
     }
     if (typeOfStat === "def") {
-        document.querySelector('.forDEF').innerHTML = "Защита: " + Player.OpenedHeroes[index].DEF + `<font color="green"> +${countOfStat}</font>`;
+        document.querySelector('.forDEF').innerHTML = "Защита: " + Player.OpenedHeroes[index].DEF + `<font color="white"> +${countOfStat}</font>`;
     }
     if (typeOfStat === "dex") {
-        document.querySelector('.forDEX').innerHTML = "Ловкость: " + Player.OpenedHeroes[index].DEX + `<font color="green"> +${countOfStat}</font>`;
+        document.querySelector('.forDEX').innerHTML = "Ловкость: " + Player.OpenedHeroes[index].DEX + `<font color="white"> +${countOfStat}</font>`;
     }
     if (typeOfStat === "acc") {
-        document.querySelector('.forACC').innerHTML = "Точность: " + Player.OpenedHeroes[index].ACC + `<font color="green"> +${countOfStat}</font>`;
+        document.querySelector('.forACC').innerHTML = "Точность: " + Player.OpenedHeroes[index].ACC + `<font color="white"> +${countOfStat}</font>`;
     }
     if (typeOfStat === "spd") {
-        document.querySelector('.forSPD').innerHTML = "Скорость: " + Player.OpenedHeroes[index].SPD + `<font color="green"> +${countOfStat}</font>`;
+        document.querySelector('.forSPD').innerHTML = "Скорость: " + Player.OpenedHeroes[index].SPD + `<font color="white"> +${countOfStat}</font>`;
     }
 }
 

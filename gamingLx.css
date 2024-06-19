@@ -3,8 +3,8 @@
     table-layout: fixed;
     width: 100vw;
     height: 100vw;
-    max-width: 1000px;
-    max-height: 1000px;
+    max-width: 800px;
+    max-height: 800px;
     background-size: 100%;
     border-collapse: collapse;
 }
@@ -26,8 +26,7 @@ td {
 
 .transitObj {
     position: absolute;
-    display: flex;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     border-radius: 25%;
     margin: 10%;
     width: 80%;
@@ -39,22 +38,24 @@ td {
 .transitObjText {
     background-color: #94B6BA;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20%;
-    font-size: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 2px 0;
+    height: auto;
+    font-size: calc(7px + 9 * (100vw - 320px) / 800);
     border-radius: 25%;
+    vertical-align: middle;
 }
 
 .actionCard {
     display: none;
     position: absolute;
     width: 55vw;
-    max-width: 450px;
+    max-width: 300px;
     height: 70vw;
-    max-height: 600px;
-    background-color: #fcf7d0;
+    max-height: 400px;
+    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
+    box-shadow: 0 0 25px green;
     z-index: 1000;
     border: solid 2px black;
     border-radius: 17px;
@@ -114,7 +115,8 @@ td {
     justify-content: center;
     margin: 3px -3px;
     padding: 10px 3px;
-    background-color: #fcf7d0;
+    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
+    box-shadow: 0 0 8px green;
     border-radius: 10px;
     color: white;
 }
@@ -142,7 +144,8 @@ td {
     flex-wrap: wrap;
     margin: 20px;
     padding: 10px 4px;
-    background-color: #fcf7d0;
+    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
+    box-shadow: 0 0 8px green;
     border-radius: 10px;
 }
 
@@ -166,14 +169,18 @@ td {
 }
 
 .header {
+    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
+    box-shadow: 0 0 8px green;
+    padding-bottom: 150px;
     border-radius: 15px;
-    max-width: 1000px;
-    margin: 0 5px 2px 5px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 2px;
 }
 
 .currentLocation {
     display: inline-block;
-    border: solid 2px #887747;
+    border: solid 2px green;
     border-radius: 3px;
     padding: 4px;
     margin: 2px;
@@ -240,8 +247,9 @@ td {
     display: none;
     width: 100%;
     min-height: 100vh;
-    max-width: 1000px;
-    background-color: #fcf7d0;
+    max-width: 800px;
+    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
+    box-shadow: 0 0 8px green;
 }
 
 .OpenHeroes {
@@ -263,16 +271,26 @@ td {
 .HeroCard {
     display: none;
     width: 100vw;
-    max-width: 1000px;
-    min-height: 100%;
-    background-color: #fcf7d0;
+    max-width: 800px;
+    min-height: 100vh;
+    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
+    box-shadow: 0 0 8px green;
 }
 
 .heroImg {
     width: 80vw;
-    max-width: 600px;
+    max-width: 400px;
     height: 80vw;
-    max-height: 600px;
+    max-height: 400px;
+}
+
+.stats {
+    margin: 0;
+    margin-left: 15px;
+}
+
+.stats:first-child {
+    margin-top: 10px;
 }
 
 .centerCard {
