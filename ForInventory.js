@@ -297,6 +297,8 @@ function CloseInventory() {
     resourcesBTN.disabled = false;
     equipmentUI.style.display = "none";
     resourceUI.style.display = "none";
+    document.querySelector('.forEqpt').style.display = "none";
+    document.querySelector('.forRes').style.display = "none";
 }
 
 var equipmentBTN = document.getElementById('equipmentBtn');
@@ -310,6 +312,8 @@ function openEquipment() {
     resourcesBTN.disabled = false;
     resourceUI.style.display = "none";
     equipmentUI.style.display = "flex";
+    document.querySelector('.forEqpt').style.display = "block";
+    document.querySelector('.forRes').style.display = "none";
 }
 
 function openResources() {
@@ -318,6 +322,8 @@ function openResources() {
     equipmentBTN.disabled = false;
     equipmentUI.style.display = "none";
     resourceUI.style.display = "flex";
+    document.querySelector('.forEqpt').style.display = "none";
+    document.querySelector('.forRes').style.display = "block";
 }
 
 var profileDiv = document.querySelector('.Profile');

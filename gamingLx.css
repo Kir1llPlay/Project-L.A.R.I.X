@@ -113,11 +113,7 @@ td {
 .choosenHero {
     display: flex;
     justify-content: center;
-    margin: 3px -3px;
-    padding: 10px 3px;
-    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
-    box-shadow: 0 0 8px green;
-    border-radius: 10px;
+
     color: white;
 }
 
@@ -137,16 +133,19 @@ td {
     border: solid 2px blue;
 }
 
+.myHeroes {
+    margin: 20px;
+    padding: 10px 4px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
+    box-shadow: 0 0 8px green;
+}
+
 .heroes {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 20px;
-    padding: 10px 4px;
-    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
-    box-shadow: 0 0 8px green;
-    border-radius: 10px;
 }
 
 .BattleButton {
@@ -171,11 +170,10 @@ td {
 .header {
     background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
     box-shadow: 0 0 8px green;
-    padding-bottom: 150px;
     border-radius: 15px;
-    width: 100%;
+    width: 100vw;
     max-width: 800px;
-    margin-top: 2px;
+    margin: 5px 0;
 }
 
 .currentLocation {
@@ -248,8 +246,6 @@ td {
     width: 100%;
     min-height: 100vh;
     max-width: 800px;
-    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
-    box-shadow: 0 0 8px green;
 }
 
 .OpenHeroes {
@@ -273,8 +269,6 @@ td {
     width: 100vw;
     max-width: 800px;
     min-height: 100vh;
-    background: linear-gradient(45deg, rgb(8, 179, 65), #2afc34);
-    box-shadow: 0 0 8px green;
 }
 
 .heroImg {
