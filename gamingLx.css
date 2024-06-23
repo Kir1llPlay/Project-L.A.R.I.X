@@ -188,7 +188,7 @@ td {
     display: none;
     width: 100%;
     height: 200%;
-    backdrop-filter: grayscale(60%);
+    background-color: rgba(180, 110, 17, 0.425);
     position: absolute;
     z-index: 100;
 }
@@ -218,10 +218,10 @@ td {
     justify-content: center;
     width: 100%;
     min-height: 150px;
-    background-color: rgba(120, 54, 18, 0.4);
+    background-color: rgba(9, 252, 41, 0.651);
     border-radius: 7px;
     font-size: 13;
-    box-shadow: 0 0 5px rgba(79, 22, 8, 1);
+    box-shadow: 0 0 8px green;
 }
 
 .text {
@@ -238,7 +238,7 @@ td {
     font-size: 18;
     color: white;
     text-shadow: red 0 0 5px;
-    border-bottom: solid rgba(120, 54, 18) 1px;
+    border-bottom: solid green 1px;
 }
 
 .CharactersMenu {

@@ -3,6 +3,7 @@ var EquipmentInv = {};
 
 function getXP(xpArr) {
     Player.XP += RandomNumber(xpArr[0], xpArr[1]);
+    exp += rand;
 }
 
 function itemsCheck(loot) {
@@ -10,6 +11,7 @@ function itemsCheck(loot) {
     while (iter < loot.length) {
         if (RandomNumber(0, 100) <= loot[iter][2]) {
             itemsRecieve(loot[iter][0], RandomNumber(1, loot[iter][1]));
+            inventoryForLootWindow(loot[iter][0], rand);
         }
         iter++;
     }

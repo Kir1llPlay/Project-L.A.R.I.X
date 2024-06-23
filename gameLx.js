@@ -2,6 +2,8 @@ var EnemyArrLength = 2;
 var EnemyArr = [];
 var TimmateArr = [];
 var GlobalArr = [];
+var inventoryLootWindow = {};
+var exp = 0;
 
 //чисто экспериментальная функция, еë внешний вид изменится к выходу нормального PvE и PvP.
 function createEnemyArr() {
@@ -147,6 +149,15 @@ function Del(face) {
 
 function StopBattle() {
     if (EnemyArr.length > 0 && TimmateArr.length > 0) return;
+    if (TimmateArr.length > 0) {
+        setTimeout(function() {
+            openLootWindow("Победа!");
+        }, 400);
+    } else {
+        setTimeout(function() {
+            openLootWindow("Поражение!");
+        }, 400);
+    }
     GlobalArr.length = 0;
     EnemyArr.length = 0;
     TimmateArr.length = 0;
@@ -155,15 +166,74 @@ function StopBattle() {
     }
     choosenArr.length = 0;
     moveCounter = 1;
-    setTimeout(function() {
-        alert("Бой окончен!");
-        TimmateField.replaceChildren();
-        EnemyField.replaceChildren();
-        battleWindow.style.display = 'none';
-        Move.style.display = 'none';
-        document.getElementById('StartLocation').style.display = "block";
-        Move.innerHTML = "Текущий ход: " + moveCounter;
-    }, 400);
+}
+
+function openLootWindow(text) {
+    document.querySelector('.lootWindow').style.display = "flex";
+    document.querySelector('.blockAll').style.display = "block";
+    document.querySelector('.battleExp').innerHTML = "Получено опыта: " + exp;
+    document.querySelector('.lootWindow').addEventListener('click', closeLootWindow);
+    document.querySelector('.battleResult').innerHTML = text;
+    renderLoot();
+}
+
+function closeLootWindow() {
+    document.querySelector('.lootWindow').style.display = "none";
+    document.querySelector('.blockAll').style.display = "none";
+    TimmateField.replaceChildren();
+    EnemyField.replaceChildren();
+    battleWindow.style.display = 'none';
+    Move.style.display = 'none';
+    document.getElementById('StartLocation').style.display = "block";
+    Move.innerHTML = "Текущий ход: " + moveCounter;
+    document.querySelector('.forLoot').replaceChildren();
+    inventoryLootWindow = {};
+    exp = 0;
+}
+
+function inventoryForLootWindow(item, itemCount) {
+    let currentInvLength = Object.keys(inventoryLootWindow).length;
+    let isDistributed = false;
+    for (i = 0; i <= currentInvLength; i++) {
+        if (inventoryLootWindow[i] !== undefined) {
+            if (inventoryLootWindow[i][0].name === item.name) {
+                inventoryLootWindow[i][1] += itemCount;
+                isDistributed = true;
+                if (inventoryLootWindow[i][1] === 0) {
+                    inventoryLootWindow[i] = undefined;
+                }
+                break;
+            }
+        }
+    }
+    if (isDistributed !== true) {
+        for (j = 0; j <= currentInvLength; j++) {
+            if (inventoryLootWindow[j] === undefined) {
+                inventoryLootWindow[j] = [item, itemCount];
+                break;
+            }
+        }
+    }
+}
+
+function renderLoot() {
+    for (i = 0; i < Object.keys(inventoryLootWindow).length; i++) {
+        let invDiv = document.createElement('div');
+        let invImg = document.createElement('img');
+        let invCount = document.createElement('p');
+        invDiv.classList.add('lootDiv');
+        invDiv.append(invImg, invCount);
+        invImg.style.width = "100%";
+        invImg.style.height = "100%";
+        invCount.style.position = "absolute";
+        invDiv.style.position = "relative";
+        invCount.style.left = "5%";
+        invCount.style.top = "50%";
+        invCount.style.fontSize = "12px";
+        invImg.setAttribute('src', inventoryLootWindow[i][0].Avatar);
+        invCount.innerHTML = inventoryLootWindow[i][1];
+        document.querySelector('.forLoot').appendChild(invDiv);
+    }
 }
 
 function SortGlobalArr() {
