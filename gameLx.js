@@ -300,6 +300,5 @@ function BattleCycle() {;
     } else {
         Start(TimmateArr[RandomNumber(0, TimmateArr.length - 1)], GlobalArr[0], TimmateArr, EnemyArr);
     }
-
     GlobalArr.splice(0, 1);
 }

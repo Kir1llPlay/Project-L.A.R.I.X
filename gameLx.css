@@ -126,3 +126,7 @@
     border: solid 1px black;
     margin: 1px;
 }
+
+.battleResult {
+    margin-bottom: 40px;
+}
