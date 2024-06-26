@@ -64,8 +64,8 @@
     "locationName": "Подъём по реке",
     "locationPic": "url('FieldsLx/AscensionRiver.png')"
 },{
-    "address": ["Берег реки"],
-    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    "address": ["Берег реки", "Топь"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     "locationName": "Река",
     "locationPic": "url('FieldsLx/River.png')"
 },{
@@ -94,13 +94,13 @@
     "locationName": "Альнояр",
     "locationPic": "url('FieldsLx/Alnoyar.JPG')"
 },{
-    "address": ["Главная площадь", "Ворота Политерии"],
-    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "address": ["Главная площадь", "Улица Политерии", "Ворота Политерии"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Торговая площадь",
     "locationPic": "url('FieldsLx/TradeSquare.png')"
 },{
-    "address": ["Торговая площадь"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "address": ["Улица Политерии-3", "Суд", "Торговая площадь"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,"transition",0,0],
     "locationName": "Главная площадь",
     "locationPic": "url('FieldsLx/MainSquare.png')"
 },{
@@ -143,4 +143,74 @@
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,2,0,0,0,0,0,0,0,0,0,0,0,0],
     "locationName": "Пещеры",
     "locationPic": "url('FieldsLx/Caves.JPG')"
+},{
+    "address": ["Топь-2", "Река"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Топь",
+    "locationPic": null
+},{
+    "address": ["Топь-3", "Топь"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Топь-2",
+    "locationPic": null
+},{
+    "address": ["Болото", "Топь-2"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Топь-3",
+    "locationPic": null
+},{
+    "address": ["Топь-3"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Болото",
+    "locationPic": null
+},{
+    "address": ["Узкая улица", "Трактир", "Торговая площадь"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Улица Политерии",
+    "locationPic": "url('FieldsLx/StreetOfPolyteria.png')"
+},{
+    "address": ["Улица Политерии"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Трактир",
+    "locationPic": null
+},{
+    "address": ["Улица Политерии-2", "Улица Политерии"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Узкая улица",
+    "locationPic": "url('FieldsLx/ThinStreet.png')"
+},{
+    "address": ["Узкая улица", "Улица Политерии-3", "Общежитие"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,"transition",0,0,0,0,0],
+    "locationName": "Улица Политерии-2",
+    "locationPic": "url('FieldsLx/StreetOfPolyteria2.png')"
+},{
+    "address": ["Улица Политерии-2", "Военная академия Политерии", "Главная площадь"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Улица Политерии-3",
+    "locationPic": "url('FieldsLx/StreetOfPolyteria3.png')"
+},{
+    "address": ["Улица Политерии-3"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Военная академия Политерии",
+    "locationPic": "url('FieldsLx/EntranceToTheAcademy.png')"
+},{
+    "address": ["Главная площадь"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Суд",
+    "locationPic": "url('FieldsLx/Trial.png')"
+},{
+    "address": ["Улица Политерии-2", "Подъезд"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,"transition",0,0,0,0,0,0,0],
+    "locationName": "Общежитие",
+    "locationPic": "url('FieldsLx/Hostel.png')"
+},{
+    "address": ["Комната", "Общежитие"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,"transition",0,0],
+    "locationName": "Подъезд",
+    "locationPic": null
+},{
+    "address": ["Подъезд"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Комната",
+    "locationPic": "url('FieldsLx/RoomOfHostel.png')"
 }]
