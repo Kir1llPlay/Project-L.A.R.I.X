@@ -2,17 +2,17 @@
     "address": ["Холмы-2"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
     "locationName": "Холмы",
-    "locationPic": "url('FieldsLx/hills1.JPG')"
+    "locationPic": "url('FieldsLx/Hills.png')"
 },{
     "address": ["Холмы", "Лес"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,3,0,"transition",0,0,0,0,0,0,0,0,0,0],
     "locationName": "Холмы-2",
-    "locationPic": "url('FieldsLx/hills2.JPG')"
+    "locationPic": "url('FieldsLx/Hills2.png')"
 },{
     "address": ["Вход в Альнояр", "Холмы-2", "Предгорья", "Дорога"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Лес",
-    "locationPic": "url('FieldsLx/forest.JPG')"
+    "locationPic": "url('FieldsLx/Forest.png')"
 },{
     "address": ["Лес", "Берег реки", "Дорога-2"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
@@ -127,12 +127,12 @@
     "address": ["Подъём в горы"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Горы",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/Mountains.png')"
 },{
     "address": ["Дорога в горы-2"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Горы возле Политерии",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/MountainsNearPolyteria.png')"
 },{
     "address": ["Предгорья", "Пещеры"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,"transition",0,0,0,0,0,0,0],
@@ -142,27 +142,27 @@
     "address": ["Вход в пещеры"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,2,0,0,0,0,0,0,0,0,0,0,0,0],
     "locationName": "Пещеры",
-    "locationPic": "url('FieldsLx/Caves.JPG')"
+    "locationPic": "url('FieldsLx/Caves.png')"
 },{
     "address": ["Топь-2", "Река"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Топь",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/Swale.png')"
 },{
     "address": ["Топь-3", "Топь"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Топь-2",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/Swale2.png')"
 },{
     "address": ["Болото", "Топь-2"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Топь-3",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/Swale3.png')"
 },{
     "address": ["Топь-3"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Болото",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/Swamp.png')"
 },{
     "address": ["Узкая улица", "Трактир", "Торговая площадь"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
@@ -172,7 +172,7 @@
     "address": ["Улица Политерии"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
     "locationName": "Трактир",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/Tavern.png')"
 },{
     "address": ["Улица Политерии-2", "Улица Политерии"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
@@ -205,9 +205,9 @@
     "locationPic": "url('FieldsLx/Hostel.png')"
 },{
     "address": ["Комната", "Общежитие"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,"transition",0,0],
+    "cellsArrayContent": [1,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Подъезд",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/Stairs.png')"
 },{
     "address": ["Подъезд"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
