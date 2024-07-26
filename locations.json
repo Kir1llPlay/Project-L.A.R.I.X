@@ -107,7 +107,7 @@
     "address": ["Ручей-2", "Альнояр"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Ручей",
-    "locationPic": "url('FieldsLx/Brook.JPG')"
+    "locationPic": "url('FieldsLx/Brook.png')"
 },{
     "address": ["Ольховый лес-2", "Альнояр"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
@@ -124,13 +124,13 @@
     "locationName": "Подъём в горы",
     "locationPic": "url('FieldsLx/AscensionToTheMountains.png')"
 },{
-    "address": ["Подъём в горы"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "address": ["Развилка", "Подъём в горы"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Горы",
     "locationPic": "url('FieldsLx/Mountains.png')"
 },{
-    "address": ["Дорога в горы-2"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "address": ["Развилка", "Дорога в горы-2"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Горы возле Политерии",
     "locationPic": "url('FieldsLx/MountainsNearPolyteria.png')"
 },{
@@ -213,4 +213,44 @@
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Комната",
     "locationPic": "url('FieldsLx/RoomOfHostel.png')"
+},{
+    "address": ["Тропинка в горах", "Горы возле Политерии", "Горы", "Старая дорога"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,"transition",0,"transition"],
+    "locationName": "Развилка",
+    "locationPic": "url('FieldsLx/ForkInMountains.png')"
+},{
+    "address": ["Заснеженная дорога", "Развилка"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Тропинка в горах",
+    "locationPic": "url('FieldsLx/PathInMountains2.png')"
+},{
+    "address": ["Развилка", "Руины храма"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Старая дорога",
+    "locationPic": "url('FieldsLx/OldRoad.png')"
+},{
+    "address": ["Старая дорога"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    "locationName": "Руины храма",
+    "locationPic": null
+},{
+    "address": ["Дорога в Люмиан", "Тропинка в горах"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Заснеженная дорога",
+    "locationPic": null
+},{
+    "address": ["Люмиан", "Заснеженная дорога"],
+    "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
+    "locationName": "Дорога в Люмиан",
+    "locationPic": null
+},{
+    "address": ["Ресторан 'Огонёк'", "Дорога в Люмиан"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,"transition",0,0],
+    "locationName": "Люмиан",
+    "locationPic": "url('FieldsLx/Lumian.png')"
+},{
+    "address": ["Люмиан"],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0],
+    "locationName": "Ресторан 'Огонёк'",
+    "locationPic": "url('FieldsLx/Restaraunt.png')"
 }]

@@ -8,7 +8,9 @@ var exp = 0;
 //чисто экспериментальная функция, еë внешний вид изменится к выходу нормального PvE и PvP.
 function createEnemyArr() {
     for (i = 0; i < EnemyArrLength; i++) {
-        EnemyArr[i] = new BatTemplate;
+        EnemyArr[i] = new BatClass;
+        EnemyArr[i].XPGained = [1, 1];
+        EnemyArr[i].loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90], [new SpiderShards, 1, 90], [new BomberShards, 1, 90] ];
     }
 }
 
@@ -148,7 +150,7 @@ function Del(face) {
 }
 
 function StopBattle() {
-    if (EnemyArr.length > 0 && TimmateArr.length > 0) return;
+    if (EnemyArr.length > 0 && TimmateArr.length > 0) return false;
     if (TimmateArr.length > 0) {
         setTimeout(function() {
             openLootWindow("Победа!");
@@ -166,6 +168,7 @@ function StopBattle() {
     }
     choosenArr.length = 0;
     moveCounter = 1;
+    return true;
 }
 
 function openLootWindow(text) {
@@ -251,13 +254,14 @@ function RandomNumber(a, b) {
 }
 
 var triggered = false;
-function Start(target, user, targetArr, timmateArr) {
+function Start(user, targetArr, timmateArr) {
     setTimeout(() => {
         for (i = 0; i < user.ChoosenSkills.length; i++) {
             for (j = 0; j < list.length; j++) {
-                if (list[j][0] === user.ChoosenSkills[i]) {
+                if (j === user.ChoosenSkills[i]) {
                     if (RandomNumber(0, 100) <= list[j][1]) {
-                        user.ChoosenSkills[i](target, user, targetArr, timmateArr);
+                        if (StopBattle()) return;
+                        list[user.ChoosenSkills[i]][0](targetArr[RandomNumber(0, targetArr.length - 1)], user, targetArr, timmateArr);
                         triggered = true;
                     }
                 }
@@ -265,16 +269,18 @@ function Start(target, user, targetArr, timmateArr) {
         }
         for (k = 0; k < user.WeaponSkills.length; k++) {
             for (y = 0; y < list.length; y++) {
-                if (list[y][0] === user.WeaponSkills[k]) {
+                if (y === user.WeaponSkills[k]) {
                     if (RandomNumber(0, 100) <= list[y][1]) {
-                        user.WeaponSkills[k](target, user, targetArr, timmateArr);
+                        if (StopBattle()) return;
+                        list[user.WeaponSkills[k]][0](targetArr[RandomNumber(0, targetArr.length - 1)], user, targetArr, timmateArr);
                         triggered = true;
                     }
                 }
             }
         }
         if (triggered === false) {
-            StandartAttack(target, user, targetArr, timmateArr);
+            if (StopBattle()) return;
+            StandartAttack(targetArr[RandomNumber(0, targetArr.length - 1)], user, targetArr, timmateArr);
         }
         triggered = false;
         BattleCycle();
@@ -296,9 +302,9 @@ function BattleCycle() {;
     }
     SortGlobalArr();
     if (GlobalArr[0].attack === "Timmate") {
-        Start(EnemyArr[RandomNumber(0, EnemyArr.length - 1)], GlobalArr[0], EnemyArr, TimmateArr);
+        Start(GlobalArr[0], EnemyArr, TimmateArr);
     } else {
-        Start(TimmateArr[RandomNumber(0, TimmateArr.length - 1)], GlobalArr[0], TimmateArr, EnemyArr);
+        Start(GlobalArr[0], TimmateArr, EnemyArr);
     }
     GlobalArr.splice(0, 1);
 }

@@ -20,7 +20,8 @@ class BatShards {
     name = 'Фрагменты души Летучей мыши';
     type = 'shards';
     needfulCount = 5;
-    thatHero = BatTemplate;
+    thatHero = 1;
+    thatHeroName = 'Летучая мышь';
     rarity = 'standart';
     Avatar = 'ItemsAvatars/BatShards.png';
 }
@@ -29,7 +30,8 @@ class SpiderShards {
     name = 'Фрагменты души Паука';
     type = 'shards';
     needfulCount = 5;
-    thatHero = Spider;
+    thatHero = 4;
+    thatHeroName = 'Паук';
     rarity = 'standart';
     Avatar = 'ItemsAvatars/BatShards.png';
 }
@@ -38,7 +40,8 @@ class BomberShards {
     name = 'Фрагменты души Взрывотехника';
     type = 'shards';
     needfulCount = 5;
-    thatHero = Bomber;
+    thatHero = 3;
+    thatHeroName = 'Взрывотехник';
     rarity = 'standart';
     Avatar = 'ItemsAvatars/BatShards.png';
 }

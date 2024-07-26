@@ -1,23 +1,29 @@
-var Player = new PlayerInfo;
+// ПЕРСОНАЖИ /////// CHARACTERS
+var Player = new PlayerClass;
 var arravel = new Arravel;
-var Bat = new BatTemplate;
+var Bat = new BatClass;
 
-let tableRows = document.getElementsByTagName('tr');
-let table = document.getElementById('table');
-let tab = document.querySelector('.currentLocation');
+// для локации и инвенатря /////// for location and inventory
+const tableRows = document.getElementsByTagName('tr');
+const table = document.getElementById('table');
+const tab = document.querySelector('.currentLocation');
 var cellsArrayRow = [];
 var cellsArray = [];
+var ResourcesInv = [];
+var EquipmentInv = [];
+var stopSave = false;
+
 
 var locArr = [];
 fetch('locations.json')
     .then(response => response.json())
-    .then(jsonData => {locArr = jsonData; Render(locArr[0])});
+    .then(jsonData => {locArr = jsonData; checkLocalStorage()});
 
-function transition(address, arr1) {
-    for (j = 0; j < arr1.length; j++) {
-        arr1[j].parentNode.removeChild(arr1[j]);
+function transition(address) {
+    for (j = 0; j < cellsArray.length; j++) {
+        cellsArray[j].parentNode.removeChild(cellsArray[j]);
     }
-    arr1.length = 0;
+    cellsArray.length = 0;
     for (i = 0; i < locArr.length; i++) {
         if (locArr[i].locationName === address) {
             Render(locArr[i]);
@@ -26,7 +32,46 @@ function transition(address, arr1) {
     }
 }
 
+function checkLocalStorage() {
+    if (localStorage.location !== undefined) {
+        Render(JSON.parse(localStorage.location));
+        stopSave = true;
+        if (localStorage.equipInv !== undefined) {
+            EquipmentInv = JSON.parse(localStorage.equipInv);
+            downloadInv(JSON.parse(localStorage.equipInv), "equipment");
+        }
+        if (localStorage.resInv !== undefined) {
+            ResourcesInv = JSON.parse(localStorage.resInv);
+            downloadInv(JSON.parse(localStorage.resInv), "resource");
+        }
+        if (localStorage.XP !== undefined) {
+            Player.XP = Number(localStorage.XP);
+            document.getElementById('forXP').innerHTML = "Опыт: " + Player.XP;
+        }
+        stopSave = false;
+        return;
+    }
+    Render(locArr[0])
+}
+
+function downloadInv(inv, typeOfInv) {
+    for (i = 0; i < inv.length; i++) {
+        inventoryRendering(inv[i], i, typeOfInv);
+    }
+}
+
+function saveHero() {
+    /*let copyArr = [];
+    for (i = 1; i < Player.OpenedHeroes.length; i++) {
+        console.log(i);
+        copyArr[i - 1] = Player.Openedheroes[i];
+        console.log(copyArr);
+    }
+    localStorage.characters = JSON.stringify(copyArr);*/
+}
+
 function Render(location) {
+    localStorage.setItem("location", JSON.stringify(location));
     table.style.backgroundImage = location.locationPic;
     tab.innerHTML = "Текущая локация: " + location.locationName;
     for (i = 0; i < tableRows.length; i++) {
@@ -101,16 +146,16 @@ function MoveTable(location) {
                 this.appendChild(Player.img);
                 return;
             } else if (this.childNodes[0].classList.contains('0')) {
-                transition(location.address[0], cellsArray);
+                transition(location.address[0]);
                 return;
             } else if (this.childNodes[0].classList.contains('1')) {
-                transition(location.address[1], cellsArray);
+                transition(location.address[1]);
                 return;
             } else if (this.childNodes[0].classList.contains('2')) {
-                transition(location.address[2], cellsArray);
+                transition(location.address[2]);
                 return;
             } else if (this.childNodes[0].classList.contains('3')) {
-                transition(location.address[3], cellsArray);
+                transition(location.address[3]);
                 return;
             } else {
                 if (this.childNodes[0].classList.contains('player')) return;

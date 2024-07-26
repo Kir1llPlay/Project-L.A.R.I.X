@@ -1,9 +1,18 @@
-var ResourcesInv = {};
-var EquipmentInv = {};
+const invCard = document.querySelector('.inventoryCard');
+const invCardImg = document.getElementById('inventoryImg');
+const invCardName = document.getElementById('inventoryName');
+const inv = document.querySelector('.inventory');
+const equipmentBTN = document.getElementById('equipmentBtn');
+const resourcesBTN = document.getElementById('resourcesBtn');
+const equipmentUI = document.getElementById('equipmentInv');
+const resourceUI = document.getElementById('resourceInv');
+const profileDiv = document.querySelector('.Profile');
+const charactersDiv = document.querySelector('.CharactersMenu');
 
 function getXP(xpArr) {
     Player.XP += RandomNumber(xpArr[0], xpArr[1]);
     exp += rand;
+    localStorage.XP = Player.XP;
 }
 
 function itemsCheck(loot) {
@@ -17,11 +26,10 @@ function itemsCheck(loot) {
     }
 }
 
-var typeOfInv;
 function itemsRecieve(item, itemCount) {
     let currentInv;
-    let currentInvLength;
     let isDistributed = false;
+    let typeOfInv;
     if (item.isEquiped !== undefined) {
         currentInv = EquipmentInv;
         typeOfInv = "equipment";
@@ -29,68 +37,80 @@ function itemsRecieve(item, itemCount) {
         currentInv = ResourcesInv;
         typeOfInv = "resource";
     }
-    currentInvLength = Object.keys(currentInv).length;
-    for (i = 0; i <= currentInvLength; i++) {
+    for (i = 0; i < currentInv.length; i++) {
         if (currentInv[i] !== undefined) {
             if (currentInv[i][0].name === item.name) {
                 currentInv[i][1] += itemCount;
                 isDistributed = true;
                 if (currentInv[i][1] === 0) {
-                    currentInv[i] = undefined;
+                    deleteElementFromInv(currentInv[i], i, typeOfInv);
+                    currentInv.splice(i, 1);
+                    break;
                 }
                 inventoryRendering(currentInv[i], i, typeOfInv);
                 break;
             }
         }
     }
-    if (isDistributed !== true) {
-        for (j = 0; j <= currentInvLength; j++) {
-            if (currentInv[j] === undefined) {
-                currentInv[j] = [item, itemCount];
-                inventoryRendering(currentInv[j], j, typeOfInv);
-                break;
-            }
-        }
+    if (isDistributed === false) {
+        currentInv.push([item, itemCount]);
+        inventoryRendering(currentInv[currentInv.length - 1], currentInv.length - 1, typeOfInv);
+    }
+    if (stopSave === true) return;
+    if (typeOfInv === "equipment") {
+        localStorage.equipInv = JSON.stringify(EquipmentInv);
+    } else {
+        localStorage.resInv = JSON.stringify(ResourcesInv);
     }
 }
 
-var invCard = document.querySelector('.inventoryCard');
-var invCardImg = document.getElementById('inventoryImg');
-var invCardName = document.getElementById('inventoryName');
+function deleteElementFromInv(invList, num, typeOfInv) {
+    let cells;
+    if (typeOfInv === "equipment") {
+        cells = document.getElementById('equipmentInv');
+    } else {
+        cells = document.getElementById('resourceInv');
+    }
+    if (invList[1] === 0) {
+        cells.childNodes[num].parentNode.removeChild(cells.childNodes[num]);
+    }
+}
+
 function inventoryRendering(invList, num, typeOfInv) {
     let cells;
     if (typeOfInv === "equipment") {
-        cells = document.querySelectorAll('.equipInvCell');
+        cells = document.getElementById('equipmentInv');
     } else {
-        cells = document.querySelectorAll('.resInvCell');
+        cells = document.getElementById('resourceInv');
     }
-    if (invList === undefined || invList[1] === 0) {
-        cells[num].firstChild.parentNode.removeChild(cells[num].firstChild);
+    if (invList[1] === 0) {
+        cells.childNodes[num].parentNode.removeChild(cells.childNodes[num]);
         return;
     }
-
-    if (cells[num].firstChild !== null) {
-        cells[num].firstChild.childNodes[1].innerHTML = invList[1];
+    if (cells.childNodes[num] !== undefined) {
+        cells.childNodes[num].childNodes[1].innerHTML = invList[1];
         return;
     }
     let invDiv = document.createElement('div');
     let invImg = document.createElement('img');
     let invCount = document.createElement('p');
+    if (typeOfInv === "equipment") {
+        invDiv.classList.add('equipInvCell');
+    } else {
+        invDiv.classList.add('resInvCell');
+    }
     invDiv.append(invImg, invCount);
     invImg.style.width = "100%";
     invImg.style.height = "100%";
-    invDiv.style.width = "100%";
-    invDiv.style.height = "100%";
     invCount.style.position = "absolute";
-    invDiv.style.position = "relative";
     invCount.style.left = "5%";
     invCount.style.top = "50%";
     invCount.style.fontSize = "12px";
     invImg.setAttribute('src', invList[0].Avatar);
     invCount.innerHTML = invList[1];
-    cells[num].appendChild(invDiv);
-    cells[num].addEventListener('click', function() {
-        if (this.firstChild === null) return;
+    cells.appendChild(invDiv);
+    cells.childNodes[num].addEventListener('click', function () {
+        //if (this.firstChild === null) return;
         invCardImg.setAttribute('src', invList[0].Avatar);
         invCardImg.style.height = invCardImg.style.width;
         invCardName.innerHTML = invList[0].name;
@@ -106,7 +126,7 @@ function inventoryRendering(invList, num, typeOfInv) {
                 invBtn.append(invBtnP);
                 invCard.appendChild(invBtn);
             }
-            invBtn.addEventListener('click', function() {
+            invBtn.addEventListener('click', function () {
                 equip(invList[0]);
                 invCard.style.display = "none";
                 document.querySelector('.blockAll').style.display = "none";
@@ -123,7 +143,7 @@ function inventoryRendering(invList, num, typeOfInv) {
                 invBtn.append(invBtnP);
                 invCard.appendChild(invBtn);
             }
-            invBtn.addEventListener('click', function() {
+            invBtn.addEventListener('click', function () {
                 activateHero(invList[0]);
                 invCard.style.display = "none";
                 document.querySelector('.blockAll').style.display = "none";
@@ -133,19 +153,20 @@ function inventoryRendering(invList, num, typeOfInv) {
     })
 }
 
-function activateHero(hero) {
-    let newHero = new hero.thatHero;
+function activateHero(shards) {
     let overlap = false;
     for (i = 0; i < Player.OpenedHeroes.length; i++) {
-        if (Player.OpenedHeroes[i].name === newHero.name) {
+        if (Player.OpenedHeroes[i] === shards.thatHero) {
             overlap = true;
             break;
         }
     }
     if (overlap === true) return;
-    itemsRecieve(hero, -5);
+    itemsRecieve(shards, -5);
+    let newHero = new CharacterList[shards.thatHero];
     newHero.attack = "Timmate";
     Player.OpenedHeroes.push(newHero);
+    saveHero();
 }
 
 function equip(equipment) {
@@ -229,7 +250,7 @@ function equipmentRendering(equipment) {
                     equipImg.style.height = "100%";
                     equipImg.setAttribute('src', equipment.Avatar);
                     forEquip[i].childNodes[j].append(equipImg);
-                    forEquip[i].childNodes[j].addEventListener('click', function() {
+                    forEquip[i].childNodes[j].addEventListener('click', function () {
                         if (this.firstChild === null) return;
                         for (k = 0; k < Player.equipmentSlots.length; k++) {
                             if (Player.equipmentSlots[k][0] = forEquip[k].id) break;
@@ -240,18 +261,18 @@ function equipmentRendering(equipment) {
                         document.querySelector('.blockAll').style.display = "block";
                         closeInvCard();
                         if (invCard.childNodes[5] !== undefined) return;
-                            let takeOffBtn = document.createElement('button');
-                            let takeOffP = document.createElement('p');
-                            takeOffP.classList.add('Pg_btn');
-                            takeOffP.innerHTML = "Снять предмет";
-                            takeOffBtn.append(takeOffP);
-                            invCard.appendChild(takeOffBtn);
-                            takeOffBtn.addEventListener('click', function() {
-                                takeOff(Player.equipmentSlots[k][1]);
-                                invCard.style.display = "none";
-                                document.querySelector('.blockAll').style.display = "none";
-                                takeOffBtn.parentNode.removeChild(takeOffBtn);
-                            })
+                        let takeOffBtn = document.createElement('button');
+                        let takeOffP = document.createElement('p');
+                        takeOffP.classList.add('Pg_btn');
+                        takeOffP.innerHTML = "Снять предмет";
+                        takeOffBtn.append(takeOffP);
+                        invCard.appendChild(takeOffBtn);
+                        takeOffBtn.addEventListener('click', function () {
+                            takeOff(Player.equipmentSlots[k][1]);
+                            invCard.style.display = "none";
+                            document.querySelector('.blockAll').style.display = "none";
+                            takeOffBtn.parentNode.removeChild(takeOffBtn);
+                        })
                     });
                     break;
                 }
@@ -274,7 +295,7 @@ function equipmentUnrendering(equipment) {
 }
 
 function closeInvCard() {
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (e.target === document.querySelector('.blockAll') && invCard.style.display === "block") {
             document.querySelector('.blockAll').style.display = "none";
             invCard.style.display = "none";
@@ -284,8 +305,6 @@ function closeInvCard() {
         }
     });
 }
-
-var inv = document.querySelector('.inventory');
 
 function OpenInventory() {
     inv.style.display = "block";
@@ -302,11 +321,6 @@ function CloseInventory() {
     document.querySelector('.forEqpt').style.display = "none";
     document.querySelector('.forRes').style.display = "none";
 }
-
-var equipmentBTN = document.getElementById('equipmentBtn');
-var resourcesBTN = document.getElementById('resourcesBtn');
-var equipmentUI = document.getElementById('equipmentInv');
-var resourceUI = document.getElementById('resourceInv');
 
 function openEquipment() {
     typeOfInv = "equipment";
@@ -328,7 +342,6 @@ function openResources() {
     document.querySelector('.forRes').style.display = "block";
 }
 
-var profileDiv = document.querySelector('.Profile');
 function openProfile() {
     CloseInventory();
     document.getElementById('StartLocation').style.display = "none";
@@ -341,7 +354,6 @@ function closeProfile() {
     profileDiv.style.display = "none";
 }
 
-var charactersDiv = document.querySelector('.CharactersMenu');
 function openCharacters() {
     charactersDiv.style.display = "block";
     profileDiv.style.display = "none";
@@ -374,7 +386,7 @@ function renderOpenedHeroes() {
 function heroesListener() {
     let AllOpenHeroes = document.getElementsByClassName('unlockedHeroes');
     for (i = 0; i < AllOpenHeroes.length; i++) {
-        AllOpenHeroes[i].addEventListener('click', function() {
+        AllOpenHeroes[i].addEventListener('click', function () {
             let index = Array.from(AllOpenHeroes).indexOf(this);
             openHeroCard(index + 1);
         })
@@ -437,14 +449,15 @@ function closeHeroCard() {
 }
 
 function levelUpHero(index) {
-    for (i = 0; i <= Object.keys(ResourcesInv).length; i++) {
-        if (ResourcesInv[i] === undefined) return;
-        if (ResourcesInv[i][0].name === Player.OpenedHeroes[index].neededToLevelUp[0].name) {
-            if (ResourcesInv[i][1] >= Player.OpenedHeroes[index].neededToLevelUp[1]) {
-                itemsRecieve(ResourcesInv[i][0], -5);
-                levelUp(index);
-            } else {
-                alert("Недостаточно осколков персонажа");
+    for (i = 0; i < ResourcesInv.length; i++) {
+        if (ResourcesInv[i][0].thatHeroName !== undefined) {
+            if (ResourcesInv[i][0].thatHeroName === Player.OpenedHeroes[index].name) {
+                if (ResourcesInv[i][1] >= 5) {
+                    itemsRecieve(ResourcesInv[i][0], -5);
+                    levelUp(index);
+                } else {
+                    alert("Недостаточно осколков персонажа");
+                }
             }
         }
     }
@@ -491,7 +504,8 @@ function levelUp(index) {
     if (Player.OpenedHeroes[index].curLevel === Player.OpenedHeroes[index].maxLevel) {
         document.getElementById('upgradeButton').style.display = "none";
     }
-    setTimeout(function() {
+    saveHero();
+    setTimeout(function () {
         showHeroStats(index);
-    }, 2000);
+    }, 1500);
 }

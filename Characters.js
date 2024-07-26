@@ -1,4 +1,4 @@
-class PlayerInfo {
+class PlayerClass {
     ID = 1;
     name = "Игрок";
     race = "human";
@@ -16,12 +16,12 @@ class PlayerInfo {
     Avatar = 'AvatarsLx/ArteonLx.png';
     look = 'InGamePicLx/Maat.png';
     OpenedHeroes = [this];
-    ChoosenSkills = [MagicAttack];
+    ChoosenSkills = [3];
     WeaponSkills = [];
     equipmentSlots = [ ['majorHand'], ['minorHand'], ['head'], ];
 }
 
-class BatTemplate {
+class BatClass {
     ID = 2;
     name = "Летучая мышь";
     race = "beast";
@@ -39,12 +39,9 @@ class BatTemplate {
     look = 'InGamePicLx/Bat.png';
     ChoosenSkills = [];
     WeaponSkills = [];
-    XPGained = [1, 1];
-    loot = [ [new Hide, 1, 30], [new TwoHandedSword, 1, 60], [new Bone, 1, 50], [new BatShards, 1, 90], [new SpiderShards, 1, 90], [new BomberShards, 1, 90] ];
     curLevel = 1;
     maxLevel = 3;
-    neededToLevelUp = [new BatShards, 5];
-    levelUp = [ ['hp', 2], ['atk', 1], ['dex', 1], ['spd', 1], ['skills', Bite], ];
+    levelUp = [ ['hp', 2], ['atk', 1], ['dex', 1], ['spd', 1], ['skills', 1], ];
 }
 
 class Arravel {
@@ -81,11 +78,10 @@ class Bomber {
     ACC = 1;
     Avatar = 'AvatarsLx/Bomber.png';
     look = 'InGamePicLx/Minerva.png';
-    ChoosenSkills = [Bombing];
+    ChoosenSkills = [0];
     WeaponSkills = [];
     curLevel = 1;
     maxLevel = 3;
-    neededToLevelUp = [new BomberShards, 5];
     levelUp = [ ['hp', 2], ['atk', 1], ['dex', 1], ['spd', 1], ];
 }
 
@@ -105,12 +101,11 @@ class Spider {
     ACC = 1;
     Avatar = 'AvatarsLx/Spider.png';
     look = 'InGamePicLx/Jetta.png';
-    ChoosenSkills = [Bite];
+    ChoosenSkills = [1];
     WeaponSkills = [];
     curLevel = 1;
     maxLevel = 3;
-    neededToLevelUp = [new SpiderShards, 5];
     levelUp = [ ['hp', 2], ['atk', 1], ['dex', 1], ['spd', 1], ];
 }
 
-var CharacterList = [PlayerInfo, BatTemplate, Arravel, Bomber, Spider];
+var CharacterList = [PlayerClass, BatClass, Arravel, Bomber, Spider];

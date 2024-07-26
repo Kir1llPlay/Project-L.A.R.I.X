@@ -5,7 +5,7 @@ class TrainingSword {
     isEquiped = false;
     ATK = 1;
     Avatar = 'EquipmentAvatars/Bokken.png';
-    OpenedSkills = [SwordAttack];
+    OpenedSkills = [2];
 }
 
 class Broadsword {
@@ -39,7 +39,7 @@ class TwoHandedSword {
     isEquiped = false;
     ATK = 25;
     Avatar = 'EquipmentAvatars/TwoHandedMagicSword.png';
-    OpenedSkills = [SwordAttack];
+    OpenedSkills = [2];
 }
 
 class DuskAx {
