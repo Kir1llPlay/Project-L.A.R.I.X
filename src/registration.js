@@ -8,7 +8,7 @@ const checkUser = function() {
     if (localStorage.userDataLX === undefined) {
         return;
     }
-    window.location.href = "gamingLx.html";
+    window.location.href = "game.html";
 }
 
 const register = function() {
