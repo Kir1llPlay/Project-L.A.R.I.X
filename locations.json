@@ -115,9 +115,9 @@
     "locationPic": "url('FieldsLx/AlderForest.png')"
 },{
     "address": ["Ольховый лес"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,["spider", "enemy"],0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,["spider", "enemy"],0,0,0,0,0,0,0],
     "battleData": {
-        "enemy": [ ["spider", "random"] ]
+        "enemy": [ ["spider", [1, 3] ] ]
     },
     "locationName": "Ольховый лес-2",
     "locationPic": "url('FieldsLx/AlderForest2.png')"
