@@ -262,7 +262,6 @@ const createHero = async function(heroID) {
 function equip(equipment) {
     let resump;
     for (a = 0; a < Player.getEquipment().length; a++) {
-        console.log(a)
         if (Player.getEquipment()[a][0] === equipment.getSlot()) {
             if (Player.getEquipment()[a][1] === undefined) {
                 Player.setEquipment(equipment);
