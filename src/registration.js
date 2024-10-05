@@ -64,4 +64,4 @@ const checkPasswords = function(password, passwordRepeat) {
     }
 }
 
-//checkUser();
+checkUser();
