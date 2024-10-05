@@ -1,0 +1,235 @@
+.inventory {
+    display: none;
+    width: 100vw;
+    min-height: 100vh;
+    max-width: 800px;
+}
+
+#equipmentInv {
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+    user-select: none;
+}
+
+#resourceInv {
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+    user-select: none;
+}
+
+.equipInvCell {
+    width: 55px;
+    height: 55px;
+    border: solid 1px rgb(26, 40, 116);
+    margin: 1px;
+    position: relative;
+}
+
+.resInvCell {
+    width: 55px;
+    height: 55px;
+    border: solid 1px rgb(26, 40, 116);
+    margin: 1px;
+    position: relative;
+}
+
+.profileEquipCell {
+    border: solid 1px rgb(26, 40, 116);
+}
+
+.bkg {
+    width: 100%;
+}
+
+.Profile {
+    display: none;
+    width: 100vw;
+    min-height: 100vh;
+    max-width: 800px;
+}
+
+.inventoryCard {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    width: 75vw;
+    max-width: 350px;
+    padding-bottom: 10px;
+    background-color: #72c9fc;
+    box-shadow: 0 0 25px rgb(40, 137, 247);
+    z-index: 1000;
+    border: solid 2px rgb(26, 40, 116);
+    border-radius: 17px;
+    align-items: center;
+    justify-content: center;
+}
+
+#inventoryName {
+    width: 90%;
+    max-width: 250px;
+    text-align: center;
+}
+
+.forShards {
+    display: none;
+    flex-direction: column;
+}
+
+.forEquipment {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.gridEquipment {
+    display: grid;
+    grid-template-columns: repeat(3, 65px);
+    grid-template-rows: repeat(5, 65px);
+    justify-content: center;
+    gap: 6px;
+}
+
+.blockAll {
+    display: none;
+    width: 100%;
+    height: 200%;
+    background-color: rgba(180, 109, 17, 0.425);
+    position: fixed;
+    z-index: 999;
+}
+
+#inventoryImg {
+    display: inline-block;
+    width: 60%;
+    max-width: 250px;
+    border: solid 2px rgb(26, 40, 116);
+    margin-top: 10px;
+}
+
+.forButton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.inventoryBtn {
+    width: 90%;
+    max-width: 250px;
+}
+
+.bgr {
+    background-color: #72c9fc;
+    border: solid 2px rgb(26, 40, 116);
+    box-shadow: 0 0 25px rgb(40, 137, 247);
+    padding: 10px 0;
+    border-radius: 15px;
+    margin: 5px 0;
+}
+
+.forEqpt {
+    display: none;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.forRes {
+    display: none;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.chP .chImg {
+    vertical-align: text-bottom;
+}
+
+.chP {
+    margin: 0;
+    text-align: center;
+}
+
+.chImg {
+    width: 20px;
+    height: 20px;
+}
+
+.headOfMenu {
+    margin: 0 0 0 10px;
+}
+
+.playerProfile {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#playerImg {
+    max-width: 350px;
+}
+
+.skillImg {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(26, 40, 116);
+    margin-top: 7px;
+}
+
+.skillDiv {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    border: 1px solid rgb(26, 40, 116);
+}
+
+.equipmentSkillsBlock {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.skillHeader {
+    display: flex;
+    flex-direction: column;
+    border-right: solid 1px rgb(26, 40, 116);
+    justify-content: center;
+    align-items: center;
+    min-width: 70px;
+    max-width: 90px;
+}
+
+.skillDescription {
+    margin: 5px;
+}
+
+.heroSkillsBlock {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.playerSkillsBlock {
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialogButton {
+    position: absolute;
+    z-index: 101;
+    float: top;
+}

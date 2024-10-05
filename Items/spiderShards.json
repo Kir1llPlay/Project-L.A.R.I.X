@@ -1,0 +1,7 @@
+{
+    "name": "Осколки паука",
+    "rarity": "standart",
+    "needfulCountForActivation": 5,
+    "thatHeroID": "bat",
+    "avatar": "ItemsAvatars/spiderShards.png"
+}

@@ -1,0 +1,17 @@
+{
+    "id": "spider",
+    "name": "Паук",
+    "race": "insect",
+    "maxHP": 9,
+    "maxMP": 0,
+    "ATK": 2,
+    "SPD": 6,
+    "DEF": 0,
+    "DEX": 1,
+    "ACC": 1,
+    "avatar": "Avatars/Spider.png",
+    "inGamePic": "InGamePic/Jetta.png",
+    "skills": [ ["bite", 50] ],
+    "loot": [ ["hide", 1, 1, 45], ["spiderShards", 1, 1, 90] ],
+    "gainedXP": [1, 3]
+}

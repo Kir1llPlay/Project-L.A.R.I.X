@@ -1,0 +1,15 @@
+{
+    "id": "arravel",
+    "name": "Арравел",
+    "race": "beast",
+    "maxHP": 10,
+    "maxMP": 0,
+    "ATK": 1,
+    "SPD": 5,
+    "DEF": 0,
+    "DEX": 2,
+    "ACC": 1,
+    "avatar": "Avatars/Bat.png",
+    "inGamePic": "InGamePic/Arravel.png",
+    "skills": [ ["bite", 40] ]
+}

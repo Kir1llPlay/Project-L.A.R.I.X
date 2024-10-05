@@ -1,0 +1,7 @@
+{
+    "name": "Осколки летучей мыши",
+    "rarity": "standart",
+    "needfulCountForActivation": 5,
+    "thatHeroID": "bat",
+    "avatar": "ItemsAvatars/BatShards.png"
+}

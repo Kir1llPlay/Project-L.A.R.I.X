@@ -1,0 +1,17 @@
+{
+    "id": "bat",
+    "name": "Летучая мышь",
+    "race": "beast",
+    "maxHP": 7,
+    "maxMP": 0,
+    "ATK": 1,
+    "SPD": 5,
+    "DEF": 0,
+    "DEX": 2,
+    "ACC": 1,
+    "avatar": "Avatars/Bat.png",
+    "inGamePic": "InGamePic/Bat.png",
+    "skills": [ ["bite", 50] ],
+    "loot": [ ["hide", 1, 1, 30], ["bone", 1, 1, 50], ["batShards", 1, 1, 90] ],
+    "gainedXP": [1, 1]
+}

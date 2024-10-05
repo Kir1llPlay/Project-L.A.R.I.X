@@ -1,0 +1,64 @@
+.RegBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.form-control {
+    margin-bottom: 7px;
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    background-color: #72c9fc;
+    border: 1px solid rgb(26, 40, 116);
+    border-radius: 3px;
+    padding: 9px 7px;
+    font-size: 12px;
+    transition: all .09s ease-out;
+}
+
+label {
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    cursor: text;
+    font-size: 12px;
+    background: #72c9fc;
+    padding: 0 3px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #92f1fd;
+    box-shadow: 0 0 5px rgb(40, 137, 247);
+}
+
+.form-control:focus~label {
+    top: -6px;
+    color: rgb(26, 40, 116);
+    font-size: 10px;
+}
+
+.form-control:valid~label {
+    top: -6px;
+    font-size: 10px;
+}
+
+#EndReg_btn {
+    height: 40px;
+}
+
+#error_message {
+    color: rgb(148, 9, 39);
+    border-bottom: solid 1px rgb(148, 9, 39);
+}

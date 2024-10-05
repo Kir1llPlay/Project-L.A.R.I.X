@@ -5,7 +5,7 @@
     "locationPic": "url('FieldsLx/Hills.png')"
 },{
     "address": ["Холмы", "Лес"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,3,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,["arravel", "timmate"],0,"transition",0,0,0,0,0,0,0,0,0,0],
     "locationName": "Холмы-2",
     "locationPic": "url('FieldsLx/Hills2.png')"
 },{
@@ -115,7 +115,10 @@
     "locationPic": "url('FieldsLx/AlderForest.png')"
 },{
     "address": ["Ольховый лес"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,2,0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,["spider", "enemy"],0,"transition",0,0,0,0,0,0,0,0,0,0],
+    "battleData": {
+        "enemy": [ ["spider", "random"] ]
+    },
     "locationName": "Ольховый лес-2",
     "locationPic": "url('FieldsLx/AlderForest2.png')"
 },{
@@ -140,7 +143,10 @@
     "locationPic": "url('FieldsLx/EntranceToTheCave.JPG')"
 },{
     "address": ["Вход в пещеры"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,2,0,0,0,0,0,0,0,0,0,0,0,0],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,["bat", "enemy"],0,0,0,0,0,0,0,0,0,0,0,0],
+    "battleData": {
+        "enemy": [ ["bat", [1, 2] ], ["bomber", [0, 1] ] ]
+    },
     "locationName": "Пещеры",
     "locationPic": "url('FieldsLx/Caves.png')"
 },{
@@ -232,17 +238,17 @@
     "address": ["Старая дорога"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     "locationName": "Руины храма",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/TempleRuins.png')"
 },{
     "address": ["Дорога в Люмиан", "Тропинка в горах"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Заснеженная дорога",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/SnowyRoad.png')"
 },{
     "address": ["Люмиан", "Заснеженная дорога"],
     "cellsArrayContent": [1,0,"transition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0],
     "locationName": "Дорога в Люмиан",
-    "locationPic": null
+    "locationPic": "url('FieldsLx/RoadToTheLumian.png')"
 },{
     "address": ["Ресторан 'Огонёк'", "Дорога в Люмиан"],
     "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"transition",0,0,"transition",0,0],

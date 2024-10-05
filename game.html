@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <link rel="stylesheet" href="css/stylesLx.css">
+    <link rel="stylesheet" href="css/gamingLx.css">
+    <link rel="stylesheet" href="css/gameLx.css">
+    <link rel="stylesheet" href="css/Inventory.css">
+    <link rel="icon" href="Assets/LarixIcon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Project L.A.R.I.X</title>
+</head>
+
+<body>
+    <div id="StartLocation">
+        <div class="header">
+            <button style="margin: 10px;" onclick="HideGrid('button')">
+                <p class="Pg_btn gridP">
+                    Скрыть сетку
+                </p>
+            </button>
+            <p class="currentLocation"></p>
+            <button style="margin: 10px;" onclick="OpenInventory()">
+                <p class="Pg_btn">
+                    Инвентарь
+                </p>
+            </button>
+            <button style="margin: 10px;" onclick="openProfile()">
+                <p class="Pg_btn">
+                    Профиль
+                </p>
+            </button>
+        </div>
+        <table id="table">
+            <tbody>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="actionCard">
+        <button class="cardbtn" onclick="closeCard()">
+            <p class="Pg_btn">
+                Закрыть окно</P>
+        </button>
+    </div>
+
+    <div class="inventoryCard">
+        <img id="inventoryImg">
+        <p id="inventoryName"></p>
+        <div class="forShards">
+            <p id="inventoryNeedfulCount"></p>
+        </div>
+
+        <div class="forEquipment">
+            <p class="howManyHands" style="margin-top: 0;"></p>
+            <div class="statsOfEquipment">
+            </div>
+            <div class="equipmentSkillsBlock"></div>
+        </div>
+
+
+        <div class="forButton">
+            
+        </div>
+    </div>
+    <div class="blockAll"></div>
+
+    <div class="inventory">
+        <div class="bgr">
+            <h5 class="headOfMenu">Инвентарь</h5>
+            <button style="margin: 10px;" onclick="CloseInventory()">
+                <p class="Pg_btn">
+                    Закрыть инвентарь
+                </p>
+            </button>
+            <button id="resourcesBtn" style="margin: 10px;" onclick="openResources()">
+                <p class="Pg_btn">
+                    Ресурсы
+                </p>
+            </button>
+            <button id="equipmentBtn" style="margin: 10px;" onclick="openEquipment()">
+                <p class="Pg_btn">
+                    Снаряжение
+                </p>
+            </button>
+            <button style="margin: 10px;" onclick="openProfile()">
+                <p class="Pg_btn">
+                    Профиль
+                </p>
+            </button>
+            <button onclick="giveTest()">test</button>
+
+            <h5 class="forEqpt">Снаряжение</h5>
+            <div id="equipmentInv"></div>
+
+            <h5 class="forRes">Ресурсы</h5>
+            <div id="resourceInv"></div>
+        </div>
+    </div>
+
+    <div class="Profile">
+        <div class="bgr">
+            <h5 class="headOfMenu">Профиль</h5>
+            <button style="margin: 10px;" onclick="closeProfile()">
+                <p class="Pg_btn">
+                    Закрыть профиль
+                </p>
+            </button>
+            <button style="margin: 10px;" onclick="openCharacters()">
+                <p class="Pg_btn">
+                    Герои
+                </p>
+            </button>
+            <h5 style="width: 100%; margin: 10px 0; text-align: center;">Мое снаряжение</h5>
+            <div class="gridEquipment">
+                <div id="mainhand" class="profileEquipCell"><img class="bkg" src="Assets/mainhandBackground.png"></div>
+                <div id="head" class="profileEquipCell"><img class="bkg" src="Assets/headBackground.png"></div>
+                <div id="minorhand" class="profileEquipCell"><img class="bkg" src="Assets/minorhandBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/chestplateBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/bodyBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/cloakBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/ringBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/beltBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/ringBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/ringBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/legsBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/ringBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/ringBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/feetBackground.png"></div>
+                <div class="profileEquipCell"><img class="bkg" src="Assets/ringBackground.png"></div>
+            </div>
+            <div class="playerProfile">
+                <img id="playerImg">
+                <div style="background-color: rgb(40, 137, 247); width: 100%; height: 1px;"></div>
+                <p id="playerName" style="text-align: center;"></p>
+                <div style="background-color: rgb(40, 137, 247); width: 100%; height: 1px;"></div>
+            </div>
+            <p id="forXP" style="margin-left: 10px;"></p>
+            <h5 style="width: 100%; margin: 10px 0; text-align: center;">Мои навыки</h5>
+            <div class="playerSkillsBlock"></div>
+        </div>
+    </div>
+
+    <div class="CharactersMenu">
+        <div class="bgr">
+            <button style="margin: 10px;" onclick="closeCharacters()">
+                <p class="Pg_btn">
+                    Назад
+                </p>
+            </button>
+            <h5 style="width: 100%; margin: 10px 0; text-align: center;">Мои герои</h5>
+            <div class="OpenHeroes"></div>
+        </div>
+    </div>
+</div>
+<div class="HeroCard">
+    <button style="margin: 10px" onclick="closeHeroCard()">
+        <p class="Pg_btn">
+            Закрыть
+        </p>
+    </button>
+    <div class="centerCard">
+        <img class="heroImg">
+    </div>
+    <div class="bgr">
+        <div class="centerCard">
+            <div style="background-color: rgb(40, 137, 247); width: 100%; height: 1px;"></div>
+            <p class="heroName" style="margin: 1px 0;"></p>
+            <div style="background-color: rgb(40, 137, 247); width: 100%; height: 1px;"></div>
+        </div>
+        <div>
+            <p class="forHP stats"></p>
+            <p class="forMP stats"></p>
+            <p class="forATK stats"></p>
+            <p class="forDEF stats"></p>
+            <p class="forDEX stats"></p>
+            <p class="forACC stats"></p>
+            <p class="forSPD stats"></p>
+        </div>
+        <div class="heroSkillsBlock"></div>
+    </div>
+</div>
+
+<div class="BattleMenu">
+    <button onclick="closeBattle()">
+        <p class="Pg_btn">
+            Назад
+        </p>
+    </button>
+    <div class="myHeroes">
+        <p style="margin-top: 0; text-align: center;">
+            Выбранные герои
+        </p>
+        <div class="choosenHero">
+            <div class="choosenElems" data-num="2"></div>
+            <div class="choosenElems"></div>
+            <div class="choosenElems"></div>
+        </div>
+    </div>
+    <div class="myHeroes">
+        <p style="margin-top: 0; text-align: center;">
+            Мои герои
+        </p>
+        <div class="heroes"></div>
+    </div>
+    <div class="BattleButton">
+        <button onclick="StartBattle()">
+            <p class="Pg_btn">
+                Начать бой
+            </p>
+        </button>
+    </div>
+</div>
+
+<div class="moveTab"></div>
+<div id="BattleWindow">
+    <div id="enemyField">
+    </div>
+
+    <div id="timmateField">
+    </div>
+</div>
+
+<div class="DialogMenu">
+    <button class="dialogButton" style="margin: 10px;" onclick="closeDialog()">
+        <p class="Pg_btn">
+            Назад
+        </p>
+    </button>
+    <div class="filter"></div>
+    <img class="">
+    <div class="FooterAuto">
+        <div class="Footer">
+            <p class="name"></p>
+            <p class="text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="lootWindow">
+    <h1 class="battleResult"></h1>
+    <p class="battleExp"></p>
+
+    <p style="margin-bottom: 10px;">
+        Лут:
+    </p>
+    <div class="forLoot"></div>
+    <p style="margin-top: 35px; text-align: center;">
+        Чтобы продолжить, нажмите в любое место
+    </p>
+</div>
+
+<script src="src/BattleAttacksLx.js"></script>
+<script src="src/EquipmentLx.js"></script>
+<script src="src/items.js"></script>
+<script src="src/Characters.js"></script>
+<script src="src/gamingLx.js"></script>
+<script src="src/ForInventory.js"></script>
+<script src="src/gameLx.js"></script>
+</body>

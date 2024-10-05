@@ -1,0 +1,7 @@
+{
+    "name": "Осколки взрывотехника",
+    "rarity": "standart",
+    "needfulCountForActivation": 5,
+    "thatHeroID": "bat",
+    "avatar": "ItemsAvatars/bomberShards.png"
+}

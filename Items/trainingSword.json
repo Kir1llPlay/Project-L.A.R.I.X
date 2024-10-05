@@ -1,0 +1,11 @@
+{
+    "name": "Тренировочный меч",
+    "rarity": "standart",
+    "slot": "majorHand",
+    "buffs": {
+        "ATK": 1
+    },
+    "skills": [ ["swordAttack", 50] ],
+    "physique": 2,
+    "avatar": "EquipmentAvatars/trainingSword.png"
+}

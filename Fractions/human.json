@@ -1,0 +1,10 @@
+{
+    "maxHP": 17,
+    "maxMP": 0,
+    "ATK": 2,
+    "SPD": 7,
+    "DEF": 0,
+    "DEX": 1,
+    "ACC": 1,
+    "physique": 2
+}

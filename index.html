@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <link rel="stylesheet" href="css/stylesLx.css">
+    <link rel="stylesheet" href="css/ForReg.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Регистрация</title>
+</head>
+
+<body>
+    <div class="body_color">
+        <div class="RegBlock">
+
+            <div class="form-group">
+                <input type="text" id="username" class="form-control" required>
+                <label for="username">Имя пользователя</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password" class="form-control" required>
+                <label for="password">Пароль</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password_repeat" class="form-control" required>
+                <label for="passwordRepeat">Повторите пароль</label>
+            </div>
+
+            <div>
+                <h5>Выберите фракцию</h5>
+                <select id="select_fraction">
+                    <option value="human">Люди</option>
+                    <option value="elf">Эльфы</option>
+                    <option value="gnome">Гномы</option>
+                    <option value="dwarf">Дварфы</option>
+                    <option value="goblin">Гоблины</option>
+                    <option value="beastman">Зверолюди</option>
+                    <option value="lizardman">Ящеролюди</option>
+                    <option value="undead">Нежить</option>
+                </select>
+            </div>
+
+            <div>
+                <p id="error_message"></p>
+            </div>
+
+            <button onclick="register()">
+                <p class="Pg_btn">Зарегистрироваться</p>
+            </button>
+        </div>
+    </div>
+
+    <script src="src/registration.js"></script>
+</body>
+
+</html>

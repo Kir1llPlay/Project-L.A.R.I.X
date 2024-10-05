@@ -1,0 +1,17 @@
+{
+    "id": "bomber",
+    "name": "Взрывотехник",
+    "race": "undead",
+    "maxHP": 14,
+    "maxMP": 0,
+    "ATK": 2,
+    "SPD": 7,
+    "DEF": 0,
+    "DEX": 1,
+    "ACC": 1,
+    "avatar": "Avatars/Bomber.png",
+    "inGamePic": "InGamePic/Bomber.png",
+    "skills": [ ["bombing", 30] ],
+    "loot": [ ["bone", 1, 3, 100], ["bomberShards", 1, 1, 90] ],
+    "gainedXP": [2, 4]
+}
