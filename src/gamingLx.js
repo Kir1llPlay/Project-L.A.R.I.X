@@ -57,7 +57,7 @@ const createPlayer = async function() {
     const playerData = JSON.parse(localStorage.userDataLX);
     const responce = await fetch(`Fractions/${playerData.fraction}.json`);
     const data = await responce.json();
-    Player = new PlayerBase(1, playerData.name, playerData.fraction, "timmate", data.maxHP, data.maxMP, data.ATK, data.SPD, data.DEF, data.DEX, data.ACC, "Avatars/Arteon.png", "InGamePic/Maat.png");
+    Player = new PlayerBase(1, playerData.name, playerData.fraction, "timmate", data.maxHP, data.maxMP, data.ATK, data.SPD, data.DEF, data.DEX, data.ACC, "Avatars/Player.png", "InGamePic/Maat.png");
     Player.setXP(Number(localStorage.XP));
     Player.setPhysique(data.physique);
     Player.setSkills([["magicAttack", 50]]);
