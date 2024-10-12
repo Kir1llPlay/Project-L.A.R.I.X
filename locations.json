@@ -166,7 +166,7 @@
     "locationPic": "url('FieldsLx/Swale3.png')"
 },{
     "address": ["Топь-3"],
-    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"lizardman",0,0,0,0,"transition",0,0],
+    "cellsArrayContent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,["lizardman", "enemy"],0,0,0,0,"transition",0,0],
     "battleData": {
         "enemy": [ ["lizardman", [1, 1] ] ]
     },
