@@ -1,7 +1,7 @@
 {
     "id": "spider",
     "name": "Паук",
-    "race": "insect",
+    "fraction": "insect",
     "maxHP": 9,
     "maxMP": 0,
     "ATK": 2,

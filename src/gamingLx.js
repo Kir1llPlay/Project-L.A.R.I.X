@@ -50,6 +50,7 @@ async function checkLocalStorage() {
         stopSave = false;
         return;
     }
+    await createPlayer();
     Render(locArr[0]);
 }
 
@@ -134,7 +135,7 @@ async function CreateObj(location) {
             CreateObj(location);
             return;
         } else {
-            const responce = await fetch(`Characters/${location.cellsArrayContent[g][0]}.json`);
+            const responce = await fetch(`Characters/${location.cellsArrayContent[g]}.json`);
             const data = await responce.json();
             if (location.cellsArrayContent[g][1] === "timmate") {
                 InGameImg.classList.add('tim');

@@ -109,5 +109,6 @@ const itemsAndTypes = {
     "batShards": "shards",
     "spiderShards": "shards",
     "bomberShards": "shards",
+    "lizardmanShards": "shards",
     "trainingSword": "equipment"
 }

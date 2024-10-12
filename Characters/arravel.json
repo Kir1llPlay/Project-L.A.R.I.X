@@ -1,7 +1,7 @@
 {
     "id": "arravel",
     "name": "Арравел",
-    "race": "beast",
+    "fraction": "beast",
     "maxHP": 10,
     "maxMP": 0,
     "ATK": 1,

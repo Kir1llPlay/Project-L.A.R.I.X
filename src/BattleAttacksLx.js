@@ -42,7 +42,7 @@ const magicBoost = function(userMana, cost) {
 const list = {
     "standartAttack": [StandartAttack],
     "bite": [Bite, "bite", "Укус", "Наносит х2 урона"],
-    "bombing": [Bombing, "bombing"],
+    "bombing": [Bombing, "bombing", "Подрыв", "Наносит х2 урона по всем"],
     "swordAttack": [SwordAttack, "swordAttack", "Удар мечом", "Наносит х2 урона"],
     "magicAttack": [MagicAttack, "fireball", "Огненный шар", "Наносит х2 урона"]
 };

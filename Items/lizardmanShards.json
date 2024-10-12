@@ -1,0 +1,7 @@
+{
+    "name": "Осколки ящеролюда",
+    "rarity": "standart",
+    "needfulCountForActivation": 5,
+    "thatHeroID": "lizardman",
+    "avatar": "ItemsAvatars/lizardmanShards.png"
+}

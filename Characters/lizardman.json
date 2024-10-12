@@ -1,0 +1,17 @@
+{
+    "id": "lizardman",
+    "name": "Ящеролюд",
+    "fraction": "lizardman",
+    "maxHP": 15,
+    "maxMP": 0,
+    "ATK": 2,
+    "SPD": 9,
+    "DEF": 0,
+    "DEX": 1,
+    "ACC": 1,
+    "avatar": "Avatars/Lizardman.png",
+    "inGamePic": "InGamePic/Lizardman.png",
+    "skills": [ ["swordAttack", 90] ],
+    "loot": [ ["hide", 1, 1, 40], ["bone", 1, 2, 50], ["lizardmanShards", 1, 1, 90] ],
+    "gainedXP": [3, 6]
+}

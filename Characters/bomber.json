@@ -1,7 +1,7 @@
 {
     "id": "bomber",
     "name": "Взрывотехник",
-    "race": "undead",
+    "farction": "undead",
     "maxHP": 14,
     "maxMP": 0,
     "ATK": 2,

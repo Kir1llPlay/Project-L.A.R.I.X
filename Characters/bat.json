@@ -1,7 +1,7 @@
 {
     "id": "bat",
     "name": "Летучая мышь",
-    "race": "beast",
+    "fraction": "beast",
     "maxHP": 7,
     "maxMP": 0,
     "ATK": 1,
