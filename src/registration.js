@@ -1,6 +1,6 @@
 const username = document.getElementById('username');
 const password = document.getElementById('password');
-const passwordRepeat = document.getElementById('password_repeat');
+const passwordRepeat = document.getElementById('passwordRepeat');
 const errorMessage = document.getElementById('error_message');
 const fraction = document.getElementById('select_fraction');
 
