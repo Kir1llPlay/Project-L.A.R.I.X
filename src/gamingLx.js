@@ -41,9 +41,10 @@ async function checkLocalStorage() {
         if (localStorage.resourceInv !== undefined) {
             await itemsCheck(JSON.parse(localStorage.resourceInv));
         }
-        if (localStorage.XP !== undefined || localStorage.XP !== "NaN") {
+        if (localStorage.XP !== undefined) {
             document.getElementById('forXP').innerHTML = "Опыт: " + Number(localStorage.XP);
         } else {
+            localStorage.XP = 0;
             document.getElementById('forXP').innerHTML = "Опыт: 0";
         }
         await createPlayer();
