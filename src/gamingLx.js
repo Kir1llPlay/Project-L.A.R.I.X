@@ -43,6 +43,8 @@ async function checkLocalStorage() {
         }
         if (localStorage.XP !== undefined) {
             document.getElementById('forXP').innerHTML = "Опыт: " + Number(localStorage.XP);
+        } else {
+            document.getElementById('forXP').innerHTML = "Опыт: " + 0;
         }
         await createPlayer();
         Render(JSON.parse(localStorage.location));
