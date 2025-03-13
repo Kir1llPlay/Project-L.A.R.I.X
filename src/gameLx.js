@@ -158,6 +158,7 @@ var battle;
 var exp = 0;
 var inventoryLootWindow = [];
 function StartBattle() {
+    if (ChoosenHeroes[0].firstChild === null && ChoosenHeroes[1].firstChild === null && ChoosenHeroes[2].firstChild === null) return
     battle = new Battle(locationBattleData);
     document.querySelector('.BattleMenu').style.display = "none";
     battleWindow.style.display = 'grid';
